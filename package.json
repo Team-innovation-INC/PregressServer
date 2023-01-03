@@ -1,0 +1,48 @@
+{
+  "name": "progress_app",
+  "version": "1.0.0",
+  "description": "node server for progress app aplication",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon index.js",
+    "swagger": "",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-innovation-INC/PregressServer.git"
+  },
+  "keywords": [
+    "node",
+    "progress",
+    "jest",
+    "innovationINC"
+  ],
+  "author": "raed rdhaounia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Team-innovation-INC/PregressServer/issues"
+  },
+  "homepage": "https://github.com/Team-innovation-INC/PregressServer#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parse": "^0.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.8.2",
+    "nodemailer": "^6.8.0",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.1",
+    "socket.io": "^4.5.4",
+    "swagger-autogen": "^2.22.0",
+    "swagger-ui-express": "^4.6.0",
+    "validator": "^13.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
