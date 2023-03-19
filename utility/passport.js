@@ -1,21 +1,26 @@
-const JwtStrategy = require('passport-jwt').Strategy;
-const ExtractJwt = require('passport-jwt').ExtractJwt;
+// middleware/getUserDetails.js
+
+const jwt = require('jsonwebtoken');
 const User = require('../model/user/Users');
-require("dotenv").config()
-const opts = {};
-opts.jwtFromRequest = ExtractJwt.fromAuthHeaderAsBearerToken();
-opts.secretOrKey = process.env.secretOrKey;
-module.exports = passport => {
-    passport.use(
-        new JwtStrategy(opts, (jwt_payload, done) => {
-            User.findById(jwt_payload.id)
-                .then(user => {
-                    if (user) {
-                        return done(null, user);
-                    }
-                    return done(null, false);
-                })
-                .catch(err => console.log(err));
-        })
-    );
+
+exports.getUserDetails = async (req, res, next) => {
+  try {
+    // Get the JWT token from the request header
+    const token = req.header('Authorization').replace('Bearer ', '');
+
+    // Decode the JWT token to get the user ID
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const userId = decoded._id;
+
+    // Find the user in the database using the ID from the token
+    const user = await User.findById(userId);
+
+    // Attach the user object to the request object for use in later middleware functions
+    req.user = user;
+
+    next();
+  } catch (error) {
+    console.error(error);
+    res.status(401).send({ error: 'Authentication failed' });
+  }
 };

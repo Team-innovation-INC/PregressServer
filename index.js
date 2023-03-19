@@ -37,11 +37,14 @@ connectdb();
 
 // Test router
 app.get("/test", (req, res) => {
-  res.status(200).send("test ritual growth page");
+  res.status(200).send("test progress page");
 });
 app.post("/test", (req, res) => {
-  
-  res.status(200).send(req.body);
+  try {
+    res.status(200).send(req.body);
+  } catch (error) {
+    res.status(400).send("error", error)
+  }
 });
 
 // router for client routes
