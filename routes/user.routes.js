@@ -50,7 +50,7 @@ const resetPassword = require("../controller/user/info/resetPassword");
   router.post("/check-site/:website",              domain);
 
   // desactivate account 
-  router.put("/desactivate-account/",  desactivateAccount);
+  router.put("/desactivate-account/", passport.getUserDetails,   desactivateAccount);
 
   // request validation
   router.put("/validation-account/",      validateAccount);
