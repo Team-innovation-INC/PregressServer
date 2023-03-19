@@ -1,10 +1,9 @@
 
-const desactivateAccount =  async (req, res) => {
+const sendEmail =  async (req, res) => {
     try {
-      
     } catch (error) {
      return res.status(400).send({ msg: error });
     }
   };
 
-module.exports = desactivateAccount;
+module.exports = sendEmail;
