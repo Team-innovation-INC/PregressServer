@@ -4,6 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const port = 5000;
+const socket = require("socket.io");
 
 ////////////////////////////////////////////////////
 //////////middleware global for all routes//////////
@@ -17,6 +18,7 @@ app.use(
   })
 );
 app.use(cookieParser());
+
 // middelwares cors
 const cors = require("cors");
 var corsOptions = {
@@ -26,6 +28,7 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+
 
 // connect to dataBase
 const connectdb = require("./config/mongoDB_connect");
@@ -51,7 +54,40 @@ app.post("/test", (req, res) => {
 const ClientRoutes = require("./routes/user.routes");
 app.use("/api/client", ClientRoutes);
 
+const MessagesRoutes = require("./routes/messages.routes")
+app.use("/api/message", MessagesRoutes)
 //server connect
-app.listen(port || 5000, (err) =>
-  err ? console.log(err) : console.log(`server listening on port ${port}!`)
+let server = app.listen(port || 5000, (err) =>
+  err ? console.error(err) : console.info(`server listening on port ${port}!`)
 );
+
+const io = socket(server, {
+  pingTimeout: 6000,
+  cors: {
+    "Access-Control-Allow-Origin": "*",
+    origin: "https://messanger-beryl.vercel.app",
+    // credentials: true,
+  },
+});
+io.on("connection", (socket) => {
+  socket.on("setup", (userData) => {
+    socket.join(userData._id);
+    socket.emit("connected");
+  });
+
+  socket.on("join chat", (room) => {
+    socket.join(room);
+  });
+
+  socket.on("new message", (recievedMessage) => {
+    var chat = recievedMessage.chat;
+    chat.users.forEach((user) => {
+      if (user == recievedMessage.sender._id) return;
+      socket.in(user).emit("message recieved", recievedMessage);
+    });
+  });
+
+  socket.off("setup", () => {
+    socket.leave(userData._id);
+  });
+});

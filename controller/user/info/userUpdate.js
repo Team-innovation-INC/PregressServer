@@ -2,8 +2,6 @@ const User = require("../../../model/user/Users");
 
 const userUpdate =  async (req, res) => {
   const { fullName, userName, gender, age, bio } = req.body;  
-  console.log("fullName, userName, gender, age, bio ......", fullName, userName, gender, age, bio)
-  console.log("req.user._id........", req.user)
   try {
       // Update the user's details in the database
       const user = await User.findByIdAndUpdate(

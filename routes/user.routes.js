@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const passport = require('../utility/passport')
+const {getUserDetails} = require('../utility/passport')
 const login              = require("../controller/user/auth/singIn"            )
 const register           = require("../controller/user/auth/singUp"            )
 const logout             = require("../controller/user/auth/logOut"            )
@@ -32,16 +32,16 @@ const resetPassword = require("../controller/user/info/resetPassword");
   router.post("/reset-password", resetPassword );
 
   // get client details
-  router.get("/current-information", passport.getUserDetails ,  userDetails    );
+  router.get("/current-information", getUserDetails ,  userDetails    );
 
   // update client details
-  router.put("/update-profile"     , passport.getUserDetails ,  userUpdate     );
+  router.put("/update-profile"     , getUserDetails ,  userUpdate     );
 
   // reset email
-  router.put("/update-email"       , passport.getUserDetails ,  updateEmail    );
+  router.put("/update-email"       , getUserDetails ,  updateEmail    );
 
   // update password
-  router.put("/update-password"    , passport.getUserDetails ,  updatePassword );
+  router.put("/update-password"    , getUserDetails ,  updatePassword );
 
   // check client email exist 
   router.get("/check-email/:email",            emailExist);
@@ -50,7 +50,7 @@ const resetPassword = require("../controller/user/info/resetPassword");
   router.post("/check-site/:website",              domain);
 
   // desactivate account 
-  router.put("/desactivate-account/", passport.getUserDetails,   desactivateAccount);
+  router.put("/desactivate-account/", getUserDetails,   desactivateAccount);
 
   // request validation
   router.put("/validation-account/",      validateAccount);
