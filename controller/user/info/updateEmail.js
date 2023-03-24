@@ -12,7 +12,7 @@ const updateEmail =  async (req, res) => {
     }
     // Update the user's email in the database
     await User.findByIdAndUpdate(
-      req.user._id,
+      user.id,
       { email },
       { new: true }
     )

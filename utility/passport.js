@@ -17,10 +17,12 @@ exports.getUserDetails = async (req, res, next) => {
 
     // Attach the user object to the request object for use in later middleware functions
     req.user = user;
-
+    if (!user) {
+      return res.status(403).send({error: "please sign in again"})
+    }
     next();
   } catch (error) {
     console.error(error);
-    res.status(401).send({ error: 'Authentication failed' });
+    return res.status(401).send({ error: 'Authentication failed' });
   }
 };
