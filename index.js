@@ -50,12 +50,19 @@ app.post("/test", (req, res) => {
   }
 });
 
-// router for client routes
+// router for client route
 const ClientRoutes = require("./routes/user.routes");
 app.use("/api/client", ClientRoutes);
 
+// router for messages route
 const MessagesRoutes = require("./routes/messages.routes")
 app.use("/api/message", MessagesRoutes)
+
+// router for messages route
+const EmailsRoutes = require("./routes/email.routes")
+app.use("/api/email", EmailsRoutes)
+
+
 //server connect
 let server = app.listen(port || 5000, (err) =>
   err ? console.error(err) : console.info(`server listening on port ${port}!`)

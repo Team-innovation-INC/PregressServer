@@ -1,5 +1,5 @@
 // middleware check user exist 
-const MessageGroup = require("../model/messages/Conversation");
+const MessageGroup = require("../../model/messages/Conversation");
 
 exports.checkConversationExist = async (req, res, next) => {
   try {

@@ -21,11 +21,7 @@ const userSchema = new mongoose.Schema({
       message: '{VALUE} is not a valid email!'
       },
   },
-  fullName: {
-      type: String,
-      required: true,
-  },
-  userName: {
+  companyName: {
       type: String,
       unique: true,
       required: true,
@@ -40,45 +36,26 @@ const userSchema = new mongoose.Schema({
         message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long'
       }
   },
-  date: {
+  creationDate: {
       type: String,
       default: Date.now,
-  },
-  gender : {
-      type: Boolean
-  },
-  age:{
-      type : Number,
-      min: 16,
-      max:60
   },
   bio:{
       type : String,
   },
-  phoneNumber: {
-      type: String,
-      validate: {
-        validator: function(v) {
-          return phoneNumberValidationRegex.test(v);
-        },
-        message: '{VALUE} is not a valid phone number!'
-      },
-      required: false
-  },
-  blocked : {
-      type : Boolean,
-      required: true,
-      default : false
+  verif : {
+    type : Boolean,
+    required: true,
+    default : false
   },
   pic:{
       type : String,
       default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
   },
-  role: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Role',
-    required: true
-  }
+  admin:{
+    type: Schema.Types.ObjectId,
+    ref: 'users',
+  },
 });
 
 userSchema.methods.generateAuthToken = function () {

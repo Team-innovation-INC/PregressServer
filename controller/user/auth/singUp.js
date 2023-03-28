@@ -2,12 +2,13 @@ const User = require("../../../model/user/Users");
 
 const register = async (req, res) => {
   const { email, password, userName, fullName } = req.body;
+  const role =  req.role.id
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).send({ error: 'Email already exists' });
     }
-    const user = new User({ email, password, userName, fullName  });
+    const user = new User({ email, password, userName, fullName, role  });
     await user.save();
     const token = user.generateAuthToken();
     const message = "account create with all success"

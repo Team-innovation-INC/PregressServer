@@ -12,6 +12,7 @@ const validateAccount    = require("../controller/user/check/validateAccount"  )
 const domain             = require("../controller/user/check/domain"           )
 const emailExist         = require("../controller/user/check/emailExist"       );
 const resetPassword = require("../controller/user/info/resetPassword");
+const { createRole } = require("../middlewares/user/CreateRole");
 
 
 // test route client
@@ -20,7 +21,7 @@ const resetPassword = require("../controller/user/info/resetPassword");
   });
 
   // sign up route client checked 
-  router.post("/sign-up"       , register      );
+  router.post("/sign-up", createRole      , register      );
 
   // sign in route client checked
   router.post("/sign-in"       , login         );
