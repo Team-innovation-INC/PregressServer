@@ -1,4 +1,4 @@
-const Role = require("../../model/user/Role");
+const Role = require("../../../model/user/Role");
 
 exports.createRole = async (req, res, next) => {
     try {
@@ -7,7 +7,6 @@ exports.createRole = async (req, res, next) => {
       role.save()
       next();
     } catch (error) {
-      console.error(error);
-      return res.status(400).send({ error: error.message });
+      return res.status(500).send('Internal server error');
     }
   };

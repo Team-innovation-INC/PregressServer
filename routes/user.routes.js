@@ -12,8 +12,13 @@ const validateAccount    = require("../controller/user/check/validateAccount"  )
 const domain             = require("../controller/user/check/domain"           )
 const emailExist         = require("../controller/user/check/emailExist"       );
 const resetPassword = require("../controller/user/info/resetPassword");
-const { createRole } = require("../middlewares/user/CreateRole");
-
+const { createRole } = require("../middlewares/user/sign_up/CreateRole");
+const { existUser } = require("../middlewares/user/sign_up/existUser");
+const {createUserModel} = require('../middlewares/user/sign_up/createUserModel')
+const {activeAccount} = require("../middlewares/nodeMailer/activateAccount");
+const { createToken } = require("../middlewares/user/sign_up/CreateToken");
+const { getParams } = require("../middlewares/user/active/getdetails");
+const { delateToken } = require("../middlewares/user/active/deleteToken");
 
 // test route client
   router.get("/test", (req, res) => {
@@ -21,7 +26,10 @@ const { createRole } = require("../middlewares/user/CreateRole");
   });
 
   // sign up route client checked 
-  router.post("/sign-up", createRole      , register      );
+  router.post("/sign-up",existUser, createRole, createUserModel, createToken, activeAccount);
+
+  // active account 
+  router.get("/active", getParams, register, delateToken)
 
   // sign in route client checked
   router.post("/sign-in"       , login         );

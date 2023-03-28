@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 async function Transporter(){
   const EMAIL_ADDRESS  = process.env.EMAIL_ADDRESS
   const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD
-  const transporter = await nodemailer.createTransport({
+  const transporter = nodemailer.createTransport({
     service: "hotmail",
     auth: {
       user: EMAIL_ADDRESS,

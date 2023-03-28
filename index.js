@@ -72,12 +72,14 @@ const io = socket(server, {
   pingTimeout: 6000,
   cors: {
     "Access-Control-Allow-Origin": "*",
-    origin: "https://messanger-beryl.vercel.app",
+    origin: "http://localhost:5000",
     // credentials: true,
   },
 });
 io.on("connection", (socket) => {
+  console.log("socket", socket)
   socket.on("setup", (userData) => {
+    console.log('userData',userData)
     socket.join(userData._id);
     socket.emit("connected");
   });
