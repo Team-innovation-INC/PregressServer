@@ -19,7 +19,7 @@ const updateEmail =  async (req, res) => {
     // Return the updated user information
     res.status(200).send({message: "well done you email change with success"});
     } catch (error) {
-     return res.status(400).send({ msg: error });
+     return res.status(500).send({ msg: error });
     }
   };
 

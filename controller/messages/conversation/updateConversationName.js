@@ -1,15 +1,18 @@
 const MessageGroup = require("../../../model/messages/Conversation");
 
 const updateConversationName =  async (req, res) => {
-    const name = req.newName
-    const id = req.conversationId
+    const name = req.conversationId
+    const {conversationName} = req.body
   try {
     const currentConversation = await MessageGroup.findByIdAndUpdate(
-       id, 
+      conversationName, 
       { name },
       { new: true }
     )
-    return res.send('your conversation name is update with all success');
+    if (currentConversation) {
+      return res.status(200).send('your conversation name is update with all success');
+    }
+    return res.status(400).send("somthing wrong sorry can't update conversation name")
   } catch (err) {
     console.error(err);
     return res.status(500).send('Internal server error');

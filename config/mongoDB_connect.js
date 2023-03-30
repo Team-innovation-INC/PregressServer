@@ -1,17 +1,21 @@
 require("dotenv").config()
 const mongoose = require("mongoose");
 
-mongoURI = `mongodb+srv://${process.env.MongoDBUserName}:${process.env.MongoDBPassword}@cluster0.ywnsq.mongodb.net/${process.env.MongoDBdataBase}?retryWrites=true&w=majority`
+const mongoURI = `mongodb+srv://${process.env.MongoDBUserName}:${process.env.MongoDBPassword}@cluster0.ywnsq.mongodb.net/${process.env.MongoDBdataBase}?retryWrites=true&w=majority`
 
-// conect with mongoDB Atlass 
+// connect with mongoDB Atlas 
 const connectdb = async () => {
-    try {
-      mongoose.set('strictQuery', false);
-      await mongoose.connect(mongoURI);
-      console.info("db connected succesfully");
-    } catch (error) {
-        throw new Error(`${error.codeName}`)
+  try {
+    mongoose.set('strictQuery', false);
+    await mongoose.connect(mongoURI);
+    console.info("db connected successfully");
+  } catch (error) {
+    if (error.code === "ESERVFAIL") {
+    console.error("connection lost")
+    } else {
+      console.error("something wrong please connect")
     }
+  }
   }; 
  
 module.exports = connectdb;

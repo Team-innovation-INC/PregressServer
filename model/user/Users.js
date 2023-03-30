@@ -1,90 +1,54 @@
 const mongoose = require('mongoose');
+const {Schema, model} = mongoose
+
 const jwt = require('jsonwebtoken');
+const secretOrPrivateKey = process.env.JWT_SECRET
+
 const bcrypt = require('bcryptjs');
 const crypto = require('crypto')
 
 // --- validation regex 
-const Regex = require("../../validation/regex/regex")
-const {emailValidationRegex, passwordValidationRegex, phoneNumberValidationRegex} = Regex
-const secretOrPrivateKey = process.env.JWT_SECRET
+const {passwordValidationRegex} = require("../../validation/regex/regex")
 
 // ----- Create Schema for Users 
-const userSchema = new mongoose.Schema({
-  email: {
-    type: String,
-    unique: true,
-    required: true,
-      validate: {
-        validator: function(v) {
-          return emailValidationRegex.test(v);
-        },
-      message: '{VALUE} is not a valid email!'
-      },
-  },
-  fullName: {
-      type: String,
-      required: true,
-  },
-  userName: {
-      type: String,
-      unique: true,
-      required: true,
+const userSchema = new Schema({
+  contact:{
+    type: Schema.Types.ObjectId,
+    ref:'UserContact'
   },
   password: {
-      type: String,
-      required: true,
-      validate: {
-        validator: function(value) {
-          return passwordValidationRegex.test(value);
-        },
-        message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long'
-      }
-  },
-  date: {
-      type: String,
-      default: Date.now,
-  },
-  gender : {
-      type: Boolean
-  },
-  age:{
-      type : Number,
-      min: 16,
-      max:60
-  },
-  bio:{
-      type : String,
-  },
-  phoneNumber: {
-      type: String,
-      validate: {
-        validator: function(v) {
-          return phoneNumberValidationRegex.test(v);
-        },
-        message: '{VALUE} is not a valid phone number!'
+    type: String,
+    required: true,
+    validate: {
+      validator: function(value) {
+        return passwordValidationRegex.test(value);
       },
-      required: false
+      message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long'
+    }
   },
   blocked : {
       type : Boolean,
       required: true,
       default : false
   },
-  pic:{
-      type : String,
-      default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
+  role: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Role',
+    required: true
   },
-  role:{
-      type: String,
-      required: true,
-      enum: ["admin", "moderator", "user"],
-      default: "user"
-  }
+  info: {
+    type: Schema.Types.ObjectId,
+    ref: 'UserInfo'
+  },
+  creation_date: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
 userSchema.methods.generateAuthToken = function () {
   const token = jwt.sign({ _id: this._id }, secretOrPrivateKey, {
-    expiresIn: '1h',
+    expiresIn: '10h',
   });
   return token;
 };
@@ -107,6 +71,6 @@ userSchema.pre('save', async function (next) {
   next();
 });
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', userSchema);
 
 module.exports = User;

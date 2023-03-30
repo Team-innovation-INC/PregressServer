@@ -23,6 +23,7 @@ const login =  async (req, res) => {
 
   res.json({ user: {...user._doc, password: undefined, "__v": undefined}, token, message:"Welcome back" });
     } catch (error) {
+      console.log("error", error)
      return res.status(400).send({ msg: error });
     }
   };

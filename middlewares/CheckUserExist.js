@@ -8,7 +8,8 @@ exports.checkUserExist = async (req, res, next) => {
     if (!exist_user) {
       return  res.status(400).send("user don't exist")
     }
-    req.userId = exist_user.id
+    req.userId    = exist_user.id
+    req.userEmail = exist_user.email
     next();
   } catch (error) {
     console.error(error);
