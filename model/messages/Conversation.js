@@ -13,9 +13,13 @@ const messageGroupSchema = new mongoose.Schema({
   messages: [{
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Message'
-  }]
+  }],
+  date: {
+    type: Date,
+    default: Date.now(),
+  },
 });
 
-const MessageGroup = mongoose.model('Message_Group', messageGroupSchema);
+const MessageGroup = mongoose.model('SingleConversation', messageGroupSchema);
 
 module.exports = MessageGroup;

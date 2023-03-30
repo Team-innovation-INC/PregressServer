@@ -13,6 +13,12 @@ const TokenSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.Mixed,
     required:true
   },
+  type : {
+    type: String,
+    required: true,
+    enum: ["reset-password", "forget-password", "reset-email", "deactivate-account", "activate-account"],
+    default: "activate-account"
+  },
   createdAt: {
     type: Date,
     default: Date.now

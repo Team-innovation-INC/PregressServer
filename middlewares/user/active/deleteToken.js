@@ -7,7 +7,7 @@ exports.delateToken = async (req, res) => {
     if(result) {
        return  res.status(200).send({message : "Welcome to our site"})
     }
-    return res.status(403).send({message: "opps we activate your account but if you get at the furture some problem please contact us"})
+    return res.status(403).send({message: "oops we activate your account but if you get at the future some problem please contact us"})
   } catch (error) {
     return res.status(500).send('Internal server error');
   }

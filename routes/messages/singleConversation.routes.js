@@ -1,16 +1,16 @@
 const express = require('express');
-const deleteConversation = require('../controller/messages/conversation/deleteConversation');
-const getMyConversations = require('../controller/messages/conversation/getMyConversations');
-const sendMessageConversation = require('../controller/messages/conversation/sendMessage');
-const updateConversationName = require('../controller/messages/conversation/updateConversationName');
-const getMyMessages = require('../controller/messages/getMessages');
-const addMessageToConversation = require('../controller/messages/sendMessage');
-const { checkUserExist } = require('../middlewares/CheckUserExist');
-const { conversationOwner } = require('../middlewares/messages/conversation/conversationOwner');
-const { existConversation } = require('../middlewares/messages/conversation/existConversation');
-const { CreateMessage } = require('../middlewares/messages/createMessage');
+const deleteConversation = require('../../controller/messages/conversation/deleteConversation');
+const getMyConversations = require('../../controller/messages/conversation/getMyConversations');
+const sendMessageConversation = require('../../controller/messages/conversation/sendMessage');
+const updateConversationName = require('../../controller/messages/conversation/updateConversationName');
+const getMyMessages = require('../../controller/messages/getMessages');
+const addMessageToConversation = require('../../controller/messages/sendMessage');
+const { checkUserExist } = require('../../middlewares/CheckUserExist');
+const { conversationOwner } = require('../../middlewares/messages/conversation/conversationOwner');
+const { existConversation } = require('../../middlewares/messages/conversation/existConversation');
+const { CreateMessage } = require('../../middlewares/messages/createMessage');
 const router = express.Router();
-const {getUserDetails} = require("../utility/passport")
+const {getUserDetails} = require("../../utility/passport")
 
 
 // test route client
