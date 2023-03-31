@@ -2,7 +2,7 @@ const Token = require("../../../model/Utility/Token")
 const crypto = require('crypto')
 
 exports.createToken = async (req, res, next) => {
-  const {password} = req.body
+  const password = req.password
   const contact    =  req.user.contact
   const role       = req.role 
   try {

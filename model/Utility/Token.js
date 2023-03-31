@@ -13,12 +13,13 @@ const TokenSchema = new Schema({
     required: true
   },
   contact : {
-    type: Schema.Types.Mixed,
-    required:true
+    type: Schema.Types.ObjectId
   },
   role: {
-    type: Schema.Types.ObjectId,
-    required:true
+    type: Schema.Types.ObjectId
+  },
+  password: {
+    type: Schema.Types.ObjectId
   },
   type : {
     type: String,
@@ -30,17 +31,6 @@ const TokenSchema = new Schema({
     type: Date,
     default: Date.now
   }
-});
-
-TokenSchema.pre('save', async function (next) {
-  const token = this;
-  if (!token.isModified('password')) {
-    return next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(token.password, salt);
-  token.password = hash;
-  next();
 });
 
 const Token = model('Token', TokenSchema);
