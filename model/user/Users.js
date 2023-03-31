@@ -9,12 +9,15 @@ const crypto = require('crypto')
 const userSchema = new Schema({
   contact:{
     type: Schema.Types.ObjectId,
-    ref:'UserContact'
+    ref:'UserContact',
+    required: true,
+    unique: true
   },
   password: {
     type: Schema.Types.ObjectId,
     ref: 'Password',
-    required: true
+    required: true,
+    unique: true
   },
   blocked : {
       type : Boolean,
@@ -24,11 +27,14 @@ const userSchema = new Schema({
   role: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Role',
-    required: true
+    required: true,
+    unique: true
+
   },
   info: {
     type: Schema.Types.ObjectId,
-    ref: 'UserInfo'
+    ref: 'UserInfo',
+    unique: true
   },
   creation_date: {
     type: Date,
