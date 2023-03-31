@@ -3,12 +3,7 @@ const {Schema, model} = mongoose
 
 const jwt = require('jsonwebtoken');
 const secretOrPrivateKey = process.env.JWT_SECRET
-
-const bcrypt = require('bcryptjs');
 const crypto = require('crypto')
-
-// --- validation regex 
-const {passwordValidationRegex} = require("../../validation/regex/regex")
 
 // ----- Create Schema for Users 
 const userSchema = new Schema({
@@ -17,14 +12,9 @@ const userSchema = new Schema({
     ref:'UserContact'
   },
   password: {
-    type: String,
-    required: true,
-    validate: {
-      validator: function(value) {
-        return passwordValidationRegex.test(value);
-      },
-      message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and be at least 8 characters long'
-    }
+    type: Schema.Types.ObjectId,
+    ref: 'Password',
+    required: true
   },
   blocked : {
       type : Boolean,
@@ -60,16 +50,6 @@ userSchema.methods.generatePasswordResetToken = function() {
   return token;
 };
 
-userSchema.pre('save', async function (next) {
-  const user = this;
-  if (!user.isModified('password')) {
-    return next();
-  }
-  const salt = await bcrypt.genSalt(10);
-  const hash = await bcrypt.hash(user.password, salt);
-  user.password = hash;
-  next();
-});
 
 const User = model('User', userSchema);
 

@@ -1,5 +1,9 @@
+const register = require("../../controller/user/auth/singUp");
 const { sendEmailActivation } = require("../../middleware/nodeMailer/activateAccount");
+const { delateToken } = require("../../middleware/user/active/deleteToken");
+const { getParams } = require("../../middleware/user/active/getdetails");
 const { createContact } = require("../../middleware/user/sign_up/CreateContacts");
+const { createPassword } = require("../../middleware/user/sign_up/CreatePassword");
 const { createRole } = require("../../middleware/user/sign_up/CreateRole");
 const { createToken } = require("../../middleware/user/sign_up/CreateToken");
 const { createUserModel } = require("../../middleware/user/sign_up/createUserModel");
@@ -15,12 +19,14 @@ router.get("/test", (req, res) => {
 });
 
   /*
- /  ----  sign up route client checked 
+ /  ----  sign up route auth (send active email)
 /*/
-router.post("/sign-up", signUpInputs, validateInputs , existUser,  createRole,  createContact, createUserModel, createToken, sendEmailActivation);
+router.post("/sign-up", signUpInputs, validateInputs , existUser,  createRole,  createContact, createPassword, createUserModel, createToken, sendEmailActivation);
 
-  // // active account checked 
-  // router.get("/activate-account"   , getParams   , register      , delateToken                                                        );
+  /*
+ /  ----  sign up route auth (active account using email sent)
+/*/
+router.get("/activate-account"   , getParams   , register, delateToken                                                             );
 
   // // sign in route client checked checked 
   // router.post("/sign-in"           , signInInputs, validateInputs, login                                                              );
