@@ -10,7 +10,7 @@ exports.existUser = async (req, res, next) => {
     return res.status(200).send({message: "userAlready exist please try to log in"})
   }
   if (userToken) {
-    return res.status(200).send({message: "we sent you a validation email plese check your email"})
+    return res.status(200).send({message: "we sent you a validation email please check your email"})
   }
   next();
   } catch (error) {

@@ -1,11 +1,14 @@
-const MailOptions = require("../../utility/nodeMailer/mailOptions")
-const Transporter = require("../../utility/nodeMailer/transporter")
+const Transporter = require("../../utility/node-mailer/nodeMailer/transporter")
+const MailOptions = require("../../utility/node-mailer/nodeMailer/mailOptions")
 const { getHtmlFile } = require("../../utility/others")
 
-exports.activeAccount = async (req, res) => {
+exports.sendEmailActivation = async (req, res) => {
   const {token, user} = req.token
-  const active_link = `http://localhost:5000/api/client/activate-account?email=${user.email}&token=${token}`
-  const html        = getHtmlFile(req.user, active_link, "ActiveAccount.hbs")
+  const {email, userName, fullName} = req.body
+  const userEmail = {email, userName, fullName}
+  console.log("token, user", token, user)
+  const active_link = `http://localhost:5000/api/client/activate-account?email=${email}&token=${token}`
+  const html        = getHtmlFile(userEmail, active_link, "ActiveAccount.hbs")
   const subject     = "Activate your account"
   const text        = "please click to this link to activate your account" + active_link
   const transporter = await Transporter()
