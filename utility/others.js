@@ -11,3 +11,7 @@ exports.getHtmlFile = (user, link, fileName) =>{
   const html = compiledTemplate({link, fullName, userName, email});
   return html
 }
+
+exports.populateExtra = (_component) => {
+  return {..._component, _id:undefined, __v:undefined, last_update: undefined}
+}
