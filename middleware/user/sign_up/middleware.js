@@ -1,11 +1,11 @@
-const User = require("../../../model/user/Users")
+const UserContact = require("../../../model/user/userContacts")
 const Token = require("../../../model/Utility/Token")
 
 exports.existUser = async (req, res, next) => {
   const {email} = req.body
   try {
   const userToken = await Token.findOne({email})
-  const user = await User.findOne({email})
+  const user = await UserContact.findOne({email})
   if (user) {
     return res.status(200).send({message: "userAlready exist please try to log in"})
   }
