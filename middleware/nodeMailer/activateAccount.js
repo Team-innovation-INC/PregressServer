@@ -3,12 +3,11 @@ const MailOptions = require("../../utility/node-mailer/nodeMailer/mailOptions")
 const { getHtmlFile } = require("../../utility/others")
 
 exports.sendEmailActivation = async (req, res) => {
-
+  const basedUrl = process.env.BasedUrl
   const {token} = req.token
   const {email, userName, fullName} = req.body
   const userEmail = {email, userName, fullName}
-
-  const active_link = `http://localhost:5000/api/auth/activate-account?token=${token}`
+  const active_link = `http://${ basedUrl || 'localhost:5000'}/api/auth/activate-account?token=${token}`
   const html        = getHtmlFile(userEmail, active_link, "ActiveAccount.hbs")
   const subject     = "Activate your account"
   const text        = "please click to this link to activate your account" + active_link
