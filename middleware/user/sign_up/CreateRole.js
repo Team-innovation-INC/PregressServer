@@ -4,9 +4,10 @@ exports.createRole = async (req, res, next) => {
     try {
       const role = new Role({})
       req.role = role
-      role.save()
+      await role.save()
       next();
     } catch (error) {
+      console.log("error", error)
       return res.status(500).send('Internal server error');
     }
   };

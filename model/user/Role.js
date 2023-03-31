@@ -8,7 +8,10 @@ const roleSchema = new Schema({
     enum: ["super-admin", "admin", "moderator", "user"],
     default: "user"
   },
-  timestamps: true 
+  last_update: {
+    type: Date,
+    default: Date.now(),
+  }
 });
 
 const Role = model('Role', roleSchema);

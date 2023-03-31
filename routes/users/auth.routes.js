@@ -1,3 +1,9 @@
+const { sendEmailActivation } = require("../../middleware/nodeMailer/activateAccount");
+const { createContact } = require("../../middleware/user/sign_up/CreateContacts");
+const { createRole } = require("../../middleware/user/sign_up/CreateRole");
+const { createToken } = require("../../middleware/user/sign_up/CreateToken");
+const { createUserModel } = require("../../middleware/user/sign_up/createUserModel");
+const { existUser } = require("../../middleware/user/sign_up/middleware");
 const { signUpInputs } = require("../../validation/validator/auth-user/sign-upInputs");
 const validateInputs = require("../../validation/validator/validationInputs");
 
@@ -11,7 +17,7 @@ router.get("/test", (req, res) => {
   /*
  /  ----  sign up route client checked 
 /*/
-//router.post("/sign-up", signUpInputs, validateInputs ,  existUser, createRole, createUserModel, createToken, activeAccount);
+router.post("/sign-up", signUpInputs, validateInputs , existUser,  createRole,  createContact, createUserModel, createToken, sendEmailActivation);
 
   // // active account checked 
   // router.get("/activate-account"   , getParams   , register      , delateToken                                                        );
