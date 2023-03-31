@@ -1,102 +1,101 @@
-// require const for this file:
+        //                                              //
+       ///      middleware global for all routes      ///
+      //                                              //
+
+// ---- express package import
 const express = require("express");
+
+// ---- app extract from express
 const app = express();
+
+// ---- json method execute as global middleware
+app.use(express.json());
+
+   /* /
+  / ----- Parser middleware
+ / */
+
+// ---- parser packages import
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const port = 5000;
-const socket = require("socket.io");
 
-////////////////////////////////////////////////////
-//////////middleware global for all routes//////////
-////////////////////////////////////////////////////
-
-// jason middleware for json
-app.use(express.json());
+// ---- bodyParser applicator as middleware
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
+
+// ---- cookieParser applicator as middleware
 app.use(cookieParser());
 
-// middelwares cors
+   /* /
+  / ----- Cors middleware
+ / */
+
+// ---- cors package import
 const cors = require("cors");
-var corsOptions = {
+
+// ---- cors options
+let corsOptions = {
   origin:  ["http://localhost:3000", "http://localhost:5000", '*'],
   credentials: true,
   optionsSuccessStatus: 200,
 };
 
+// ---- core applicator as middleware
 app.use(cors(corsOptions));
 
+        //                    //
+       ///      ROUTES      ///
+      //                    //
 
-// connect to dataBase
+   /* /
+  / -----ROUTES API
+ / */
+
+// ------- router for test
+app.use("/test", async(req,res) => {
+  return res.send("hello world!!")
+})
+// ------- router for client route
+// const ClientRoutes = require("./routes/users/user.routes");
+// app.use("/api/client", ClientRoutes);
+
+// ------- router for client route
+const AuthRoutes = require("./routes/users/auth.routes");
+app.use("/api/auth", AuthRoutes);
+
+// ------- router for messages route
+// const MessagesRoutes = require("./routes/messages/singleConversation.routes")
+// app.use("/api/message", MessagesRoutes)
+
+// ------- router for messages route
+// const EmailsRoutes = require("./routes/email/emailReport.routes");
+// app.use("/api/email", EmailsRoutes)
+
+        //                       //
+       ///      Data base      ///
+      //                       //
+
+   /* /
+  / ----- connect to database
+ / */
+
+// ---- database function imports
 const connectdb = require("./config/mongoDB_connect");
+
+// ---- database function execute
 connectdb();
 
-///////////////////////////////////////////////////
-/////////////////////ROUTES////////////////////////
-///////////////////////////////////////////////////
+        //                            //
+       ///      Connect server      ///
+      //                            //
 
-// Test router
-app.get("/test", (req, res) => {
-  res.status(200).send("test progress page");
-});
-app.post("/test", (req, res) => {
-  try {
-    res.status(200).send(req.body);
-  } catch (error) {
-    res.status(400).send("error", error)
-  }
-});
-
-// router for client route
-const ClientRoutes = require("./routes/user.routes");
-app.use("/api/client", ClientRoutes);
-
-// router for messages route
-const MessagesRoutes = require("./routes/messages.routes")
-app.use("/api/message", MessagesRoutes)
-
-// router for messages route
-const EmailsRoutes = require("./routes/email.routes")
-app.use("/api/email", EmailsRoutes)
-
+const port = 5000;
 
 //server connect
-let server = app.listen(port || 5000, (err) =>
+app.listen(port || 5000, (err) =>
   err ? console.error(err) : console.info(`server listening on port ${port}!`)
 );
 
-const io = socket(server, {
-  pingTimeout: 6000,
-  cors: {
-    "Access-Control-Allow-Origin": "*",
-    origin: "http://localhost:5000",
-    // credentials: true,
-  },
-});
-io.on("connection", (socket) => {
-  console.log("socket", socket)
-  socket.on("setup", (userData) => {
-    console.log('userData',userData)
-    socket.join(userData._id);
-    socket.emit("connected");
-  });
-
-  socket.on("join chat", (room) => {
-    socket.join(room);
-  });
-
-  socket.on("new message", (recievedMessage) => {
-    var chat = recievedMessage.chat;
-    chat.users.forEach((user) => {
-      if (user == recievedMessage.sender._id) return;
-      socket.in(user).emit("message recieved", recievedMessage);
-    });
-  });
-
-  socket.off("setup", () => {
-    socket.leave(userData._id);
-  });
-});

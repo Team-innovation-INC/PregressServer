@@ -9,7 +9,7 @@ const register = async (req, res, next) => {
     if (error.code === 11000) {
       return res.status(400).send(`The account is already exist`);      
     }
-    res.status(500).send({ error: error.message });
+    return res.status(500).send({ error: error.message });
   }
 };
 
