@@ -66,10 +66,9 @@ app.use("/test", async(req,res) => {
 const AuthRoutes = require("./routes/users/auth.routes");
 app.use("/api/auth", AuthRoutes);
 
-// ------- router for messages route
-// const MessagesRoutes = require("./routes/messages/singleConversation.routes")
-// app.use("/api/message", MessagesRoutes)
-
+// ------- router for company route
+const AuthCompanyRoutes = require("./routes/Company/CompanyAuth.routes")
+app.use("/api/company/", AuthCompanyRoutes)
 // ------- router for messages route
 // const EmailsRoutes = require("./routes/email/emailReport.routes");
 // app.use("/api/email", EmailsRoutes)

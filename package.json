@@ -1,7 +1,7 @@
 {
   "name": "progress_app",
   "version": "1.0.0",
-  "description": "node server for progress app aplication",
+  "description": "node server for progress app application",
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
@@ -18,7 +18,7 @@
     "jest",
     "innovationINC"
   ],
-  "author": "raed rdhaounia",
+  "author": "Raed Rdhaounia",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Team-innovation-INC/PregressServer/issues"
