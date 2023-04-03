@@ -11,6 +11,10 @@ const CompanySchema = new mongoose.Schema({
     required: true,
     default : false
   },
+  companyMembers: {
+    type:  Schema.Types.ObjectId,
+    ref: "CompanyMembers"
+  }
 });
 
 const Company = model('Company', CompanySchema);
