@@ -1,7 +1,7 @@
-const sendEmail = require("../../controller/mail/sendEmail");
+const sendEmail = require("../../controller/mail/sendEmail.controller");
 const { createEmailTemplate } = require("../../middlewares/email/createEmailTemplate");
 const { passwordEmail } = require("../../middlewares/email/passwordEmail");
-const { getUserDetails } = require("../../utility/passport");
+const { getUserDetails } = require("../../utility/passport.middleware");
 const { validationInputs } = require("../../validation/email/validateInputs");
 const { validationTo } = require("../../validation/email/validateTo");
 

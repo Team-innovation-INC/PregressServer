@@ -55,12 +55,13 @@ app.use(cors(corsOptions));
  / */
 
 // ------- router for test
-app.use("/test", async(req,res) => {
+app.get("/test", async(req,res) => {
+  // #swagger.tags = ['server- test']
   return res.send("hello world!!")
 })
 // ------- router for client route
-// const ClientRoutes = require("./routes/users/user.routes");
-// app.use("/api/client", ClientRoutes);
+ const ClientRoutes = require("./routes/users/user.routes");
+app.use("/api/client", ClientRoutes);
 
 // ------- router for client route
 const AuthRoutes = require("./routes/users/auth.routes");
@@ -82,7 +83,8 @@ app.use("/api/company/", AuthCompanyRoutes)
  / */
 
 // ---- database function imports
-const connectdb = require("./config/mongoDB_connect");
+const connectdb = require("./config/mongoDB_connect.config");
+const swaggerDocs  = require("./swagger/swagger");
 
 // ---- database function execute
 connectdb();
@@ -98,3 +100,4 @@ app.listen(port || 5000, (err) =>
   err ? console.error(err) : console.info(`server listening on port ${port}!`)
 );
 
+swaggerDocs(app, port)
