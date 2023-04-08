@@ -22,24 +22,35 @@ const doc = {
     description,  // by default: ''
   },
   apis: apis,
-  host: basedURL,      // by default: 'localhost:3000'
+  servers: [
+    {
+      url: "http://localhost:5000/",
+      description: "local server"
+    },
+    {
+      url: "https://progress-application.onrender.com/",
+      description: "the other server",
+      
+    }
+  ],
+  host: basedURL || "localhost:5000",      // by default: 'localhost:3000'
   basePath: '',  // by default: '/'
   schemes: ["https"],   // by default: ['http']
   consumes: [],  // by default: ['application/json']
   produces: [],  // by default: ['application/json']
   securityDefinitions: {
     bearerAuth: {
-        type: 'https',
-        scheme: 'bearer',
-        bearerFormat: 'JWT'
-    }
-  },  // by default: empty object
-  components: { ...components, 
-    bearerAuth: {
-      type: 'https',
+      type: 'http',
       scheme: 'bearer',
       bearerFormat: 'JWT'
-  } 
+  },
+  bearerAuths: {
+    type: 'https',
+    scheme: 'bearer',
+    bearerFormat: 'JWT'
+}
+  },  // by default: empty object
+  components: { ...components, 
   }            // by default: empty object (OpenAPI 3.x)
 };
 

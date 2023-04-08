@@ -196,7 +196,12 @@
           "200": {
             "description": "OK"
           }
-        }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
       }
     },
     "/api/auth/sign-up": {
@@ -1660,13 +1665,13 @@
         }
       }
     },
-    "bearerAuth": {
-      "type": "https",
-      "scheme": "bearer",
-      "bearerFormat": "JWT"
-    },
     "securitySchemes": {
       "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      },
+      "bearerAuths": {
         "type": "https",
         "scheme": "bearer",
         "bearerFormat": "JWT"
