@@ -1,6 +1,6 @@
 const swaggerUi = require( "swagger-ui-express");
 const log = require("./logger");
-const swaggerDocument = require('./swagger-output.json');
+const swaggerDocument = require('../swagger-output.json');
 
 function swaggerDocs(app, port) {
   // Swagger page
