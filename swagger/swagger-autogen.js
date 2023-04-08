@@ -39,11 +39,9 @@ const doc = {
       type: 'https',
       scheme: 'bearer',
       bearerFormat: 'JWT'
-  }
+  } 
   }            // by default: empty object (OpenAPI 3.x)
 };
 
 
-swaggerAutogen('swagger/swagger-output.json', ['index.js' ], doc).then( ()=> {
-  require('../index.js');
-})
+swaggerAutogen('swagger/swagger-output.json', ['index.js' ], doc)
