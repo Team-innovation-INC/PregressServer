@@ -1,5 +1,8 @@
 # ignore node_modules directory
 node_modules/
 
+# igonre script modules 
+scripts/
+
 # ignore .env file
 .env
