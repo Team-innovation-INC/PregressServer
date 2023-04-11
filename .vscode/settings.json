@@ -3,6 +3,9 @@
         "ESERVFAIL",
         "getdetails",
         "hotmail",
-        "middlewares"
+        "middlewares",
+        "SWAGGERADMI",
+        "SWAGGERPASSWORD",
+        "SWAGGERUSER"
     ]
 }
