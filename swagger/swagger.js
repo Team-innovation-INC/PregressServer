@@ -1,18 +1,33 @@
+const router = require("express").Router();
 const swaggerUi = require( "swagger-ui-express");
-const log = require("./logger");
 const swaggerDocument = require('../swagger-output.json');
+const { downloadSwaggerFile } = require("./routes/downloadFile");
 
-function swaggerDocs(app, port) {
-  // Swagger page
-  app.use("/swagger/documentation", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// ----- use dotenv for resolve variables 
+const dotenv = require("dotenv");
+const { swaggerUI } = require("./routes/browseDocumentation");
+dotenv.config()
 
-  // Docs in JSON format
-  app.get("/docs.json", (req, res) => {
-    res.setHeader("Content-Type", "application/json");
-    res.send(swaggerSpec);
-  });
+// ----- get variables
+const SWAGGERPASSWORD = process.env.SWAGGERPASSWORD
+const SWAGGERUSER = process.env.SWAGGERUSER
 
-  log.info(`Docs available at /swagger/documentation`);
-}
+// Swagger page
+router.use(`/api/${SWAGGERUSER}-${SWAGGERPASSWORD}`, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
-module.exports =  swaggerDocs;
+// Docs in JSON format
+router.post("/docs.json/", downloadSwaggerFile);
+
+// serve the index.html file for /swagger/* route
+router.get('/auth', (req, res) => {
+  return res.sendFile(__dirname + '/middlewares/index.html');
+});
+
+// serve the index.html file for /swagger/* route
+router.post('/documentation-auth',swaggerUI);
+
+
+
+
+
+module.exports =  router;
