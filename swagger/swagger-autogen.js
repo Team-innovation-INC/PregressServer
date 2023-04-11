@@ -1,31 +1,46 @@
-const swaggerAutogen = require('swagger-autogen')({ openapi: '3.0.0' });
-const packageJson = require("../package.json")
-const { results } = require("./model/collectModel")
+const swaggerAutogen = require('swagger-autogen')({ openapi: '3.0.0' /* varsion used for swagger ui*/ });
+
+  /*
+ /  ----  environment variables
+/*/
+
+// ----- use dotenv for resolve variables 
 const dotenv = require("dotenv")
 dotenv.config()
 
+// ----- get variables
 const basedURL = process.env.BasedUrl
 
-// Load Mongoose models
+  /*
+ /  ----  collect apis and components
+/*/
 
+// ----- get function to results() to collect components ( schema )
+const { results } = require("./model/collectModel")
 
-
+// ----- destruction results
 const { apis, components } = results()
-/* NOTE: if you use the express Router, you must pass in the 
-   'endpointsFiles' only the root file where the route starts,
-   such as index.js, app.js, routes.js, ... */
 
-const { version, name, description, license} = packageJson
+  /*
+ /  ----  get info details from the  package.json file
+/*/
+
+// ----- import package json files for contact information
+const packageJson = require("../package.json")
+
+// ----- destruction needs variables for info document
+const { version, name, description, license, author} = packageJson
+
+  /*
+ /  ----  document to transfer to swagger json file
+/*/
+
 const doc = {
   info: {
-    version,      // by default: '1.0.0'
-    title: name,        // by default: 'REST API'
-    description,  // by default: '',
-    contact: {
-      name: 'Raed rdhaounia',
-      url: 'https://raedrdhaounia.netlify.app/',
-      email: 'raedrdhaounia@gmail.com'
-    },
+    version,
+    title: name,
+    description,
+    contact: author,
     license: {
       name: license,
       url: 'https://github.com/Team-innovation-INC/demo_Progress/blob/main/LICENSE'
@@ -43,10 +58,10 @@ const doc = {
   }
   ],
 
-  basePath: '',  // by default: '/'
-  schemes: ["https"],   // by default: ['http']
-  consumes: [],  // by default: ['application/json']
-  produces: [],  // by default: ['application/json']
+  basePath: '',
+  schemes: ["https"],
+  consumes: ['application/json'],
+  produces: ['application/json'],
   security: [{
     bearerAuth: []
   }],
@@ -57,9 +72,11 @@ const doc = {
         bearerFormat: 'JWT'
     }
   },  // by default: empty object
-  components: { ...components, 
-  }            // by default: empty object (OpenAPI 3.x)
+  components, 
+
 };
 
 
-swaggerAutogen('swagger-output.json', ['index.js' ], doc)
+swaggerAutogen('swagger-output.json' /* file name to create */, ['./index.js' ] /* entry point collect routes */, doc /* object based on swagger information */, (err) => {
+  if(err) { console.error("generate swagger json file error", err) }
+})

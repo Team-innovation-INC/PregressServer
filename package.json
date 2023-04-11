@@ -4,9 +4,9 @@
   "description": "node server for progress app application",
   "main": "index.js",
   "scripts": {
+    "swagger": "node ./swagger/swagger-autogen.js && npm run server ",
     "server": "npm run start | pino-pretty",
     "start": "nodemon index.js",
-    "swagger": "node ./swagger/swagger-autogen.js && npm run server ",
     "test": "npm run test"
   },
   "repository": {
@@ -19,7 +19,11 @@
     "jest",
     "innovationINC"
   ],
-  "author": "Raed Rdhaounia",
+  "author": {
+    "name": "Raed Rdhaounia",
+    "email": "raedrdhaounia@gmail.com",
+    "url": "https://raedrdhaounia.netlify.app/"
+  },
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Team-innovation-INC/PregressServer/issues"
@@ -48,7 +52,7 @@
     "socket.io": "^4.5.4",
     "swagger-autogen": "^2.22.0",
     "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^4.6.0",
+    "swagger-ui-express": "^4.6.2",
     "validator": "^13.7.0"
   },
   "devDependencies": {

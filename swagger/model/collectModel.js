@@ -16,7 +16,7 @@ const getModules = (modelsDir) => {
       .map(file => require(path.join(modelsDir, file)));
     return models
   } catch (error) {
-    console.log("error", error)
+    console.error("error at function getModules() please check")
   }
 }
 
@@ -39,7 +39,6 @@ const collectModel = (_models) =>  {
       for (const path in schema.paths) {
         const obj = schema.paths[path];
         const type = obj.instance;
-    
         if (type === 'String') {
           components.schemas[modelName].properties[obj.path] = { type: 'string' };
         } else if (type === 'Number') {
@@ -57,7 +56,8 @@ const collectModel = (_models) =>  {
   return {apis, components}
 
   } catch (error) {
-    console.log("error", error)
+    console.error("error at function collectModel() please check")
+
   }
 }
 
@@ -68,7 +68,6 @@ exports.results = () => {
     re.forEach((Path, index) => {
       const model = getModules(Path)
       const modelCollected = collectModel(model)
-      console.log("model", typeof(model[index]))
       const {apis, components} = modelCollected
       collections.apis = [...collections.apis, ...apis]
       collections.components.schemas = {  ...collections.components.schemas, [modelsList[index]]:{...components.schemas}}
