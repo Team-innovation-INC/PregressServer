@@ -8,10 +8,6 @@ const TokenSchema = new Schema({
     type: String,
     required: true
   },
-  password: {
-    type: String,
-    required: true
-  },
   contact : {
     type: Schema.Types.ObjectId
   },
@@ -26,6 +22,9 @@ const TokenSchema = new Schema({
     required: true,
     enum: ["reset-password", "forget-password", "reset-email", "deactivate-account", "activate-account"],
     default: "activate-account"
+  },
+  email : {
+    type: String
   },
   createdAt: {
     type: Date,
