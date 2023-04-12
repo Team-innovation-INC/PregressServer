@@ -5,7 +5,7 @@
 // ----- import model
 const Token = require("../../../model/Utility/Token.model")
 
-exports.delateToken = async (req, res) => {
+const delateToken = async (req, res) => {
 // ----- get using information from request
   const {token} = req.query
 
@@ -22,3 +22,5 @@ exports.delateToken = async (req, res) => {
     return res.status(500).send('Internal server error');
   }
 }
+
+module.exports = delateToken

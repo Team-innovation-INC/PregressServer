@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const {Schema, model} = mongoose
 
-const {emailValidationRegex, phoneNumberValidationRegex} = require('../../validation/regex/regex');
+const {emailValidationRegex} = require('../../validation/regex/regex');
 
 const userContactSchema = new Schema({
   email: {
@@ -23,17 +23,6 @@ const userContactSchema = new Schema({
     type: String,
     unique: true,
     required: true,
-  },
-  phoneNumber: {
-    type: String,
-    validate: {
-    validator: function(v) {
-      return phoneNumberValidationRegex.test(v);
-    },
-    message: '{VALUE} is not a valid phone number!'
-    },
-    unique: true,
-    required: false
   },
   last_update: {
     type: Date,

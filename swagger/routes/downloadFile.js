@@ -6,8 +6,8 @@ dotenv.config()
 // ----- get variables
 const SWAGGERADMI = process.env.SWAGGERADMI
 exports.downloadSwaggerFile =  (req, res) => {
+  // #swagger.security = []
     const {admin} = req.body
-
   try {
     if (admin !== SWAGGERADMI) {
       return res.redirect('/swagger/auth')
