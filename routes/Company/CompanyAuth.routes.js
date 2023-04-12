@@ -1,15 +1,20 @@
-const { createCompanyInputs } = require("../../validation/validator/company/createCompanyInputs");
+const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_company.swagger.tag");
+const { authTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
+const { getUserDetails } = require("../../utility/passport.middleware");
+const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
 const validateInputs = require("../../validation/validator/validationInputs.config");
 
 const router = require("express").Router();
 
-// test route auth 
-router.get("/test", (req, res) => {
-  const reqUrl = req.headers.referer
-  const url = reqUrl.split("//")[1]
-  const SentQuery  = req.query
-  res.status(200).send({message: "done"});
-});
+router.use(authorizationHeaderValidator, validateInputs, getUserDetails)
+router.use('',  companyAuthTag)
+
+  /*
+ /  ----  test route
+/*/
+
+router.get( "/test", authTestSwagger, (req, res) => { res.status(200).send("test auth company  page");});
+
 
   /*
  /  ----  sign up route auth (send active email)

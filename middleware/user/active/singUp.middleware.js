@@ -5,20 +5,21 @@
 // ----- import model
 const User = require("../../../model/user/Users.model");
 
-exports.createUserModel = async (req, res, next) => {
+exports.register = async (req, res, next) => {
 // ----- get using information from request
-  const role     = req.role.id
-  const contact  = req.contact.id
-  const password = req.password.id
+  const {contact, role, password} =  req.tokenUser
 
   try {
 // ----- create new model
-    const newUser = new User({ password, role, contact })
-// ----- add new model to the request
-    req.user = newUser
+    const user = new User({contact, role, password})
+// ----- save new model
+    await user.save()
 // ----- pass to next middleware
     next();
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).send({ message: `The account is already exist` });
+    }
     return res.status(500).send('Internal server error');
   }
-}
+};

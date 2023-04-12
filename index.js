@@ -4,7 +4,8 @@
 
 // ---- express package import
 const express = require("express");
-
+const dotenv = require("dotenv")
+dotenv.config()
 // ---- app extract from express
 const app = express();
 

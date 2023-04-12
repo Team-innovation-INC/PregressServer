@@ -11,7 +11,6 @@ const userSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref:'UserContact',
     required: true,
-    unique: true
   },
   password: {
     type: Schema.Types.ObjectId,
@@ -28,12 +27,10 @@ const userSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Role',
     required: true,
-    unique: true
   },
   info: {
     type: Schema.Types.ObjectId,
     ref: 'UserInfo',
-    unique: true
   },
   company: {
     type: mongoose.Schema.Types.ObjectId,

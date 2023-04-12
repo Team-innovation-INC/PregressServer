@@ -7,6 +7,7 @@ const SWAGGERUSER = process.env.SWAGGERUSER
 const SWAGGERPASSWORD = process.env.SWAGGERPASSWORD
 
 exports.swaggerUI =  (req, res) => {
+  // #swagger.security = []
   const { username, password } = req.body;
   if ( username !== SWAGGERUSER || password !== SWAGGERPASSWORD ) {
     return res.redirect('/swagger/auth')
