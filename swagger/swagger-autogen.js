@@ -53,7 +53,7 @@ const doc = {
       description: "local server for development",
     },
     {
-      url: basedURL,
+      url: `https://${basedURL}/`,
       description: "deployed server",
   }
   ],
