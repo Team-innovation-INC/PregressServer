@@ -19,9 +19,9 @@ const resetPassword =  async (req, res) => {
 // ----- collect email variable information
   const userEmail = {email, userName, fullName}
 // ----- create activate link for reset password account
-  const active_link = `http://${"localhost:5000"}/api/auth/reset-password?name=${token}`
+  const active_link = `http://${basedUrl}/api/auth/reset-password?token=${token}`
 // ----- create html file for reset password account
-  const html    = getHtmlFile(userEmail, active_link, "ActiveAccount.hbs")
+  const html    = getHtmlFile(userEmail, active_link, "resetPassword.hbs")
 // ----- create information related to user email
   const subject = "reset password account"
   const text    = "please click to this link to reset your password account" + active_link
