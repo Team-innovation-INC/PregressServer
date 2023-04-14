@@ -36,8 +36,11 @@ const { signUpInputs } = require("../../validation/validator/auth-user/sign-upIn
 // ----- swagger auth descriptions
 const { tagNameUserAuth } = require("../../swagger/middlewares/user/auth/Auth_user.swagger.tag");
 const { signupSwagger, signingSwagger, activateAccountSwagger, authTestSwagger } = require("../../swagger/middlewares/user/auth/auth_user_description.swagger");
-const { resetInputs } = require("../../validation/validator/auth-user/resetPasswordInputs");
+const { resetInputs, resetPasswordInputs } = require("../../validation/validator/auth-user/resetPasswordInputs");
 const { CheckEmailSent } = require("../../middleware/user/reset_password/EmailsSents.middleware");
+const { resetPasswordFile } = require("../../controller/user/auth/resetPasswordFile.controller");
+const { finderByEmail } = require("../../middleware/user/reset_password/FindUserByEmail.middleware");
+const resetPasswordValidation = require("../../controller/user/auth/resetPasswordValidation.controller");
 
 router.use('',  tagNameUserAuth)
 
@@ -69,9 +72,8 @@ router.post("/reset-password" ,resetInputs , validateInputs, checkUserExist, Che
   /*
  /  ----  update password route auth (resent password using sent email)
 /*/
-router.get("/reset-password/" , (req, res) => {
-  const hello = req.query.name
-  res.send("reset" + hello)} );
+router.get("/reset-password/" , resetPasswordFile)
 
+router.post("/reset-password-validation/", resetPasswordInputs, validateInputs, finderByEmail , resetPasswordValidation)
 
 module.exports = router;
