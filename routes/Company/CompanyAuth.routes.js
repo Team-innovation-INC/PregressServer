@@ -1,5 +1,5 @@
 const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_company.swagger.tag");
-const { authTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
+const { companyTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
 const { getUserDetails } = require("../../utility/passport.middleware");
 const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
 const validateInputs = require("../../validation/validator/validationInputs.config");
@@ -13,7 +13,7 @@ router.use('',  companyAuthTag)
  /  ----  test route
 /*/
 
-router.get( "/test", authTestSwagger, (req, res) => { res.status(200).send("test auth company  page");});
+router.get( "/test", companyTestSwagger, (req, res) => { res.status(200).send("test auth company  page");});
 
 
   /*

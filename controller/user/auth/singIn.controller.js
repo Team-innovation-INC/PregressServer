@@ -26,8 +26,6 @@ const login =  async (req, res) => {
 // ----- response accepted for user
     res.status(200).send({ user: {...user, password: undefined, "__v": undefined}, token, message:"Welcome back" });
   } catch (error) {
-    console.log('error', error)
-
     return res.status(500).send('Internal server error');
   }
 };

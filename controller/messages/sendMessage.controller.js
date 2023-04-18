@@ -15,7 +15,6 @@ const addMessageToConversation = async (req, res) => {
       await new_conversation.save();
       return res.status(200).send("saved")
   } catch (error) {
-    console.error(error);
     return res.send("error")
   }
 }

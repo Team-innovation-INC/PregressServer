@@ -15,7 +15,6 @@ exports.CreateMessage = async (req, res, next) => {
       req.messageId =  message.id
       next();
     } catch (error) {
-      console.error(error);
-      return res.status(400).send({ error: error.message });
+      return res.status(500).send('Internal server error');
     }
   };

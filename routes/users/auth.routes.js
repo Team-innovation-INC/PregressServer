@@ -18,6 +18,7 @@ const { register  } = require("../../middleware/user/active/singUp.middleware"  
 const { checkEmail   } = require("../../middleware/user/sign_in/checkEmail.middleware"  );
 const { populateUser } = require("../../middleware/user/sign_in/populateUser.middleware");
 //-- sign up account
+const { createInfo     } = require("../../middleware/user/sign_up/CreateInfo.middleware"    );
 const { createContact  } = require("../../middleware/user/sign_up/CreateContacts.middleware");
 const { createPassword } = require("../../middleware/user/sign_up/CreatePassword.middleware");
 const { createRole     } = require("../../middleware/user/sign_up/CreateRole.middleware"    );
@@ -52,7 +53,7 @@ router.get( "/test",authTestSwagger, (req, res) => { res.status(200).send("test 
   /*
  /  ----  sign up route auth (send active email)
 /*/
-router.post( "/sign-up", signupSwagger, signUpInputs, validateInputs, existUser, createRole, createContact, createPassword, createToken, sendEmailActivation );
+router.post( "/sign-up", signupSwagger, signUpInputs, validateInputs, existUser, createInfo,  createRole, createContact, createPassword, createToken, sendEmailActivation );
 
   /*
  /  ----  sign up route auth (active account using email sent)

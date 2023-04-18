@@ -22,7 +22,6 @@ exports.finderByEmail = async(req, res, next) => {
 // ----- pass to next middleware
     next()
   } catch (error) {
-    console.log("error", error)
     return res.status(500).send('Internal server error');
   }
 }

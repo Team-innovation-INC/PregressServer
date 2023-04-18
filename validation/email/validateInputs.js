@@ -10,7 +10,6 @@ exports.validationInputs = async (req, res, next) => {
     req.message = {...req.message, title, body}
     next()
   } catch (error) {
-    console.log("error", error)
     return res.status(500).send('Internal server error');
   }
 }
