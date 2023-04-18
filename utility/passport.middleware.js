@@ -9,9 +9,9 @@ dotenv.config()
 const JWT_SECRET = process.env.JWT_SECRET
 
 exports.getUserDetails = async (req, res, next) => {
+// ----- Get the JWT token from the request header
+  const token = req.header('Authorization').replace('Bearer ', '');
   try {
-    // Get the JWT token from the request header
-    const token = req.header('Authorization').replace('Bearer ', '');
     // Decode the JWT token to get the user ID
     const decoded = jwt.verify(token, JWT_SECRET);
     const userId = decoded._id;
@@ -24,6 +24,9 @@ exports.getUserDetails = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
+    if (error.message ==="invalid signature") {
+      return res.status(401).send({message: "invalid token please sign in again"})
+    }
     return res.status(500).send('Internal server error');
   }
 };

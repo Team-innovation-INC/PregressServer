@@ -14,7 +14,6 @@ exports.conversationOwner = async (req, res, next) => {
         res.status(403).send("this conversation is not belongs to you")
       }
     } catch (error) {
-      console.error(error);
-      return res.status(400).send({ error: error.message });
+      return res.status(500).send('Internal server error');
     }
   };

@@ -12,6 +12,7 @@ exports.createToken = async (req, res, next) => {
   const password = req.password?.id
   const contact  = req.contact?.id
   const role     = req.role?.id
+  const info     = req.info?.id
   const type     = req.type
   const {email}  = req.body
 
@@ -19,7 +20,7 @@ exports.createToken = async (req, res, next) => {
 // ----- create crypt token string
     const token = crypto.randomBytes(20).toString('hex');
 // ----- create new model
-    const newToken = new Token({ token, contact, password, role, email, type: type || "activate-account" })
+    const newToken = new Token({ token, contact, password, info, role, email, type: type || "activate-account" })
 // ----- save new model
     await newToken.save()
 // ----- add new model to the request

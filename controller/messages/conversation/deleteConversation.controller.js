@@ -8,7 +8,6 @@ const deleteConversation =  async (req, res) => {
       return res.send('your conversation has been deleted');
     }
   } catch (err) {
-    console.error(err);
     return res.status(500).send('Internal server error');
   }
   };

@@ -11,6 +11,6 @@ exports.resetPasswordInputs = [
     .isLength({ min: 6 })
     .withMessage('Password must be at least 6 characters long'),
   header('referer')
-    .matches(/\?name=/)
+    .matches(/\?token=/)
     .withMessage('unexpected token please check reopen your email'),
 ]

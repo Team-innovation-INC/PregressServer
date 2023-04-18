@@ -13,7 +13,6 @@ const createConversation =  async (req, res) => {
 
     return res.send('your conversation is created with all success');
   } catch (err) {
-    console.error(err);
     return res.status(500).send('Internal server error');
   }
   };

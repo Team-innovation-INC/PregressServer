@@ -7,11 +7,11 @@ const User = require("../../../model/user/Users.model");
 
 exports.register = async (req, res, next) => {
 // ----- get using information from request
-  const {contact, role, password} =  req.tokenUser
+  const {contact, role, password, info} =  req.tokenUser
 
   try {
 // ----- create new model
-    const user = new User({contact, role, password})
+    const user = new User({contact, role, password, info})
 // ----- save new model
     await user.save()
 // ----- pass to next middleware

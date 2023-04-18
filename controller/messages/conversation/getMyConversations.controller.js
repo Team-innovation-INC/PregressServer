@@ -13,7 +13,6 @@ const getMyConversations =  async (req, res) => {
       });
     return res.send(`your conversation list have  ${my_conversation}`);
   } catch (err) {
-    console.error(err);
     return res.status(500).send('Internal server error');
   }
   };
