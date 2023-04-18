@@ -37,6 +37,7 @@ const { version, name, description, license, author} = packageJson
 
 const doc = {
   info: {
+    termsOfService : "https://github.com/Team-innovation-INC/PregressServer.git",
     version,
     title: name,
     description,
@@ -49,15 +50,29 @@ const doc = {
   apis: apis,
   servers: [
     {
-      url: "http://localhost:5000/",
+      url: "http://{host}:{port}/",
       description: "local server for development",
+      variables: {
+        host: {
+          default: "localhost",
+          description: "this value is assigned by the service provider, in this example `localhost:5000`"
+        },
+        port: {
+          enum: [ 5000, 3000 ],
+          default: 5000
+        }
+      }
     },
     {
-      url: basedURL,
-      description: "deployed server",
-  }
+      url: `https://progress-application.onrender.com/`,
+      description: "deployed server for the app ",
+    },
+    {
+      url: `https://progress-develop-server.onrender.com/`,
+      description: "developer server for test",
+    }
+    
   ],
-
   basePath: '',
   schemes: ["https"],
   consumes: ['application/json'],

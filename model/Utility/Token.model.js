@@ -23,6 +23,9 @@ const TokenSchema = new Schema({
     enum: ["reset-password", "forget-password", "reset-email", "deactivate-account", "activate-account"],
     default: "activate-account"
   },
+  info : {
+    type: Schema.Types.ObjectId
+  },
   email : {
     type: String
   },

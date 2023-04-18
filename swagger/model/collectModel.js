@@ -1,5 +1,7 @@
 const fs = require('fs');
 const path = require('path');
+const User = require('../../model/user/Users.model');
+const defaultValues = require('./defaultValues');
 const modelsDir = path.join(__dirname, "../../model");
 const {modelsList} = require('./modelsPaths')
 
@@ -30,26 +32,13 @@ const collectModel = (_models) =>  {
       apis.push(`./models/${model.modelName}.js`);
       const schema = model.schema;
       const modelName = model.modelName;
-    
       components.schemas[modelName] = {
-        type: 'object',
-        properties: {},
+        fields: {},
       };
     
       for (const path in schema.paths) {
         const obj = schema.paths[path];
-        const type = obj.instance;
-        if (type === 'String') {
-          components.schemas[modelName].properties[obj.path] = { type: 'string' };
-        } else if (type === 'Number') {
-          components.schemas[modelName].properties[obj.path] = { type: 'number' };
-        } else if (type === 'Boolean') {
-          components.schemas[modelName].properties[obj.path] = { type: 'boolean' };
-        } else if (type === 'Date') {
-          components.schemas[modelName].properties[obj.path] = { type: 'string', format: 'date-time' };
-        } else if (type === 'ObjectID') {
-          components.schemas[modelName].properties[obj.path] = { type: 'string', format: 'objectId' };
-        }
+          components.schemas[modelName].fields[obj.path] = defaultValues(obj.path, obj.instance)
       }
     });
 

@@ -1,7 +1,7 @@
 exports.companyAuthTag = (req, res, next) => {
   // #swagger.security = []
   // #swagger.tags = ['-- AUTHENTICATION COMPANY --']
-  // #swagger.summary = 'summary for route...'
-  // #swagger.description = 'description for route...'
+  // #swagger.summary = 'summary for the company route...'
+  // #swagger.description = 'description for the company route...'
   next()
 }

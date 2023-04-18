@@ -60,9 +60,8 @@ app.get("/test", async(req,res) => {
   // #swagger.tags = ['server- test']
   return res.send("hello world!!")
 })
-
 // ------- router for client route
- const ClientRoutes = require("./routes/users/user.routes");
+const ClientRoutes = require("./routes/users/user.routes");
 app.use("/api/client", ClientRoutes);
 
 // ------- router for client route
