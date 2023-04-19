@@ -1,6 +1,6 @@
 const request = require("supertest");
-const {connect, disconnect} = require("../config/connectDB")
-const app = require("../../index")
+const {connect, disconnect} = require("./config/connectDB")
+const app = require("../index")
 let server; // Define a variable to hold the server instance
 
 beforeAll(async () => {
