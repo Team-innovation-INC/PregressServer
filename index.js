@@ -88,11 +88,7 @@ app.use("/swagger", swagger);
   / ----- connect to database
  / */
 
-// ---- database function imports
-const connectdb = require("./config/mongoDB_connect.config");
 
-// ---- database function execute
-connectdb();
         //                            //
        ///      Connect server      ///
       //                            //
