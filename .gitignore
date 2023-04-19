@@ -6,3 +6,6 @@ scripts/
 
 # ignore .env file
 .env
+
+# ignore .vscode directory
+.vscode/
