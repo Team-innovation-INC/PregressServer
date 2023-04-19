@@ -1,13 +1,11 @@
 const request = require("supertest");
-const app = require("../../index")
 const {connect, disconnect} = require("../config/connectDB")
-
+const express = require("express")
 let server; // Define a variable to hold the server instance
-
+const app = express()
 beforeAll(async () => {
     await connect();
     server = app.listen(5000); // Start the server and store the server instance
-
   });
 
   afterAll(async () => {
