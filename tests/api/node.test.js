@@ -9,6 +9,7 @@ describe("Test the root path", () => {
 // --- after each test
   afterAll((done) => {
     mongoDB.disconnect(done);
+    app.close();
   });
 // --- test for routes "/test"
   test("It should response the GET method", (done) => {
