@@ -6,10 +6,10 @@ const mongoURI = `mongodb+srv://${process.env.MongoDBUserName}:${process.env.Mon
 module.exports = {
   mongoose,
   connect: () => {
+    mongoose.set('strictQuery', false);
     mongoose.Promise = Promise;
     mongoose.connect(mongoURI);
   },
-
   disconnect: done => {
     mongoose.disconnect(done);
   }

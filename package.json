@@ -6,11 +6,12 @@
   "scripts": {
     "swagger": "node ./swagger/swagger-autogen.js && npm run server ",
     "server": "npm run start | pino-pretty",
-    "start": "nodemon index.js",
+    "start": "nodemon server.js",
     "test": "jest"
   },
   "jest": {
     "testEnvironment": "node",
+    "verbose": true,
     "coveragePathIgnorePatterns": [
       "/node_modules/"
     ]
