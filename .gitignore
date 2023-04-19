@@ -6,6 +6,3 @@ scripts/
 
 # ignore .env file
 .env
-
-#swagger json file 
-swagger-output.json
