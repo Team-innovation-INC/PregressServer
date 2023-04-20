@@ -18,7 +18,7 @@ router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("
 
 
   /*
- /  ----  test route for auth company router
+ /  ----  create route for create n new company router
 /*/
 
 router.post( "/create", (req, res) => { res.status(200).send("create a new company");});
