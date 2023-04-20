@@ -1,3 +1,8 @@
+# PROGRESS SERVER #
+
+WELCOME TO THE READ ME FILE FOR THE PROGRESS SERVER.
+YOU WILL FIND HERE ALL YOU NEED FOR THIS REPOSITORY SUCH US THE DEFINITION NEEDS, UTILITY OF THIS REPO, TECHNOLOGIES USED, HOW IT WORKS ALL YOUR NEED TO AND IF YOU HAVE ANY TROUBLE I WILL BE SO HAPPY TO GET YOUR MESSAGES.
+
 ## OVERVIEW
 
 This is a **Node.js** **server** built using the **Express** framework that provides a REST API for managing <Progress app>. The server uses MongoDB as the database and includes JWT authentication to secure endpoints that require authorization.
@@ -29,15 +34,24 @@ there is other packages using for this server such as :
 The purpose of this server is to provide a scalable and secure backend for managing **Progress**. The REST API includes endpoints for creating, updating, and deleting user accounts, as well as endpoints for authenticating users and generating access tokens.
 
 ## FEATURES
+
 ### CRUD operations
-1. <user accounts>
-2. <company accounts>
-3. <messages sending between users>
-4. <emails sending from the platform>
-5. <reports sending to employees as daily once or even monthly in needs>
-6. <gitHub status actions such as pull requests current status with reviews, adding new issus to employee and adding reviews>
-7. <statistics for employee so the admin of the company can easily know the progress of his project, employee and problems has at his project>
-8. <meetings as a feature the meetings management ill be present at the first versions of the project with string calender and scalable management>
+
+1. <user accounts
+
+2. <company accounts
+
+3. <messages sending between users
+
+4. <emails sending from the platform
+
+5. <reports sending to employees as daily once or even monthly in needs
+
+6. <gitHub status actions such as pull requests current status with reviews, adding new issus to employee and adding reviews
+
+7. <statistics for employee so the admin of the company can easily know the progress of his project, employee and problems has at his project
+
+8. <meetings as a feature the meetings management ill be present at the first versions of the project with string calender and scalable management
 
 ### JWT authentication ###
 
@@ -109,3 +123,10 @@ GET /test
 2. Get user details
 GET /api/client/user-information
 Authorization: Bearer <access_token>
+
+**CONTACT**
+
+If you have any questions or issues with this server, please contact me at :
+- Email    : [raedrdhaounia@gmail.com]
+- WhatsApp : [+21651164297]
+- Linkedin : [https://www.linkedin.com/in/raed-rdhaounia]
