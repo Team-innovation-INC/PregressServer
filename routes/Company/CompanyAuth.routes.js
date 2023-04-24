@@ -1,8 +1,13 @@
+const sendLinkToUser = require("../../controller/company/companyauth/createNewCompany.controller");
+const { checkCompanyExist } = require("../../middleware/company/createCompany/checkCompanyExist.middleware.middleware");
+const { createTokenCompany } = require("../../middleware/company/createCompany/createNewCompany.middleware");
 const { userId } = require("../../middleware/user/active/activeId.middleware");
+const { populateUser } = require("../../middleware/user/sign_in/populateUser.middleware");
 const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_company.swagger.tag");
 const { companyTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
 const { getUserDetails } = require("../../utility/passport.middleware");
 const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
+const { createCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
 const validateInputs = require("../../validation/validator/validationInputs.config");
 
 const router = require("express").Router();
@@ -18,10 +23,10 @@ router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("
 
 
   /*
- /  ----  create route for create n new company router
+ /  ----  create route for a new company router
 /*/
 
-router.post( "/create", (req, res) => { res.status(200).send("create a new company");});
+router.post( "/create", createCompanyInputs, validateInputs, populateUser, checkCompanyExist, createTokenCompany, sendLinkToUser);
 
   /*
  /  ----  activate route for activation of a created company router
