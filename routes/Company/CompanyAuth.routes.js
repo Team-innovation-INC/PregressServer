@@ -1,6 +1,8 @@
 const sendLinkToUser = require("../../controller/company/companyauth/createNewCompany.controller");
+const getCompaniesList = require("../../controller/company/companyauth/getCompaniesLis.controller");
 const { checkCompanyExist } = require("../../middleware/company/createCompany/checkCompanyExist.middleware.middleware");
 const { createTokenCompany } = require("../../middleware/company/createCompany/createNewCompany.middleware");
+const { checkUserCompanies } = require("../../middleware/company/getCmpanyList/checkUserCompanies.middleware");
 const { userId } = require("../../middleware/user/active/activeId.middleware");
 const { populateUser } = require("../../middleware/user/sign_in/populateUser.middleware");
 const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_company.swagger.tag");
@@ -44,7 +46,7 @@ router.post( "/join", (req, res) => { res.status(200).send("join a company");});
  /  ----  create route for getting all companies list router
 /*/
 
-router.get( "/create", (req, res) => { res.status(200).send("get all companies list ");});
+router.get( "/list", checkUserCompanies, getCompaniesList );
 
   /*
  /  ----  delete route for deleting an existing company router
