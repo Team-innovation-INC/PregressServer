@@ -9,7 +9,7 @@ const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_
 const { companyTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
 const { getUserDetails } = require("../../utility/passport.middleware");
 const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
-const { createCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
+const { createCompanyInputs, validationCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
 const validateInputs = require("../../validation/validator/validationInputs.config");
 
 const router = require("express").Router();
@@ -34,7 +34,7 @@ router.post( "/create", createCompanyInputs, validateInputs, populateUser, check
  /  ----  activate route for activation of a created company router
 /*/
 
-router.get( "/activate", (req, res) => { res.status(200).send("activate created company");});
+router.get( "/activate", validationCompanyInputs, validateInputs, (req, res) => { const {token, email} = req.query ; res.status(200).send("activate created company");});
 
   /*
  /  ----  join route for asking joining existing company router
