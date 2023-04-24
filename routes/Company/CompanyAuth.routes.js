@@ -3,6 +3,7 @@ const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_
 const { companyTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
 const { getUserDetails } = require("../../utility/passport.middleware");
 const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
+const { createCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
 const validateInputs = require("../../validation/validator/validationInputs.config");
 
 const router = require("express").Router();
@@ -21,7 +22,7 @@ router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("
  /  ----  create route for create n new company router
 /*/
 
-router.post( "/create", (req, res) => { res.status(200).send("create a new company");});
+router.post( "/create", createCompanyInputs, validateInputs,  (req, res) => { res.status(200).send("create a new company");});
 
   /*
  /  ----  activate route for activation of a created company router
