@@ -15,6 +15,7 @@ exports.checkExistToken = async(req, res, next) => {
     if (!existToken) {
       return res.status(400).send({message: "token does not exist it maybe expired or company has been activated for an other user"})
     }
+    req.tokenInfo = existToken.info.toString()
 // ----- pass to next middleware
     next()
   } catch (error) {
