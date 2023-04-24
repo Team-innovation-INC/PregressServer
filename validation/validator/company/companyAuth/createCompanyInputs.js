@@ -8,6 +8,6 @@ exports.createCompanyInputs = [
   .isLength({min:5, max: 100 })
   .withMessage("please gives a description for the bio of your website"),
   body('companyWebSite')
-  .isBtcAddress()
+  .isURL()
   .withMessage("please put a valid website")
 ] 
