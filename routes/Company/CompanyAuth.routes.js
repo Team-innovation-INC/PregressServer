@@ -26,7 +26,7 @@ router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("
  /  ----  create route for a new company router
 /*/
 
-router.post( "/create", createCompanyInputs, validateInputs, checkCompanyExist, populateUser, createTokenCompany, sendLinkToUser);
+router.post( "/create", createCompanyInputs, validateInputs, populateUser, checkCompanyExist, createTokenCompany, sendLinkToUser);
 
   /*
  /  ----  activate route for activation of a created company router
