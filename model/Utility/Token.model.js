@@ -20,7 +20,7 @@ const TokenSchema = new Schema({
   type : {
     type: String,
     required: true,
-    enum: ["reset-password", "forget-password", "reset-email", "deactivate-account", "activate-account"],
+    enum: ["reset-password", "forget-password", "reset-email", "deactivate-account", "activate-account", "create-company"],
     default: "activate-account"
   },
   info : {
