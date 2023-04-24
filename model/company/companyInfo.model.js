@@ -7,7 +7,7 @@ const CompanyInfoSchema = new mongoose.Schema({
     unique: true,
     required: true,
   },
-  companyWebsite : {
+  companyWebSite : {
     type : String,
     unique : true,
     required: true,

@@ -1,3 +1,4 @@
+const { checkCompanyExist } = require("../../middleware/company/createCompany/checkCompanyExist.middleware.middleware");
 const { userId } = require("../../middleware/user/active/activeId.middleware");
 const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_company.swagger.tag");
 const { companyTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
@@ -22,7 +23,7 @@ router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("
  /  ----  create route for create n new company router
 /*/
 
-router.post( "/create", createCompanyInputs, validateInputs,  (req, res) => { res.status(200).send("create a new company");});
+router.post( "/create", createCompanyInputs, validateInputs, checkCompanyExist, (req, res) => { res.status(200).send("create a new company");});
 
   /*
  /  ----  activate route for activation of a created company router
