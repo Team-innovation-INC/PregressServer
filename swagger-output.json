@@ -523,8 +523,167 @@
           "500": {
             "description": "Internal Server Error"
           }
-        },
-        "security": []
+        }
+      }
+    },
+    "/api/company/create": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/activate": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/join": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/delete": {
+      "delete": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/invite": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       }
     },
     "/swagger/docs.json/": {
@@ -622,7 +781,7 @@
                 "properties": {
                   "contact": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a754b"
+                    "example": "6441928c7aed16fe17750885"
                   },
                   "password": {
                     "type": "object",
@@ -644,15 +803,15 @@
                   },
                   "role": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a754c"
+                    "example": "6441928c7aed16fe17750886"
                   },
                   "info": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a754d"
+                    "example": "6441928c7aed16fe17750887"
                   },
                   "company": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a754e"
+                    "example": "6441928c7aed16fe17750888"
                   },
                   "creation_date": {
                     "type": "object",
@@ -668,7 +827,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a754f"
+                        "example": "6441928c7aed16fe17750889"
                       }
                     }
                   },
@@ -714,7 +873,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7550"
+                        "example": "6441928c7aed16fe1775088a"
                       }
                     }
                   },
@@ -772,7 +931,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7551"
+                        "example": "6441928c7aed16fe1775088b"
                       }
                     }
                   },
@@ -836,7 +995,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7552"
+                        "example": "6441928c7aed16fe1775088c"
                       }
                     }
                   },
@@ -909,7 +1068,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7553"
+                        "example": "6441928c7aed16fe1775088d"
                       }
                     }
                   },
@@ -939,22 +1098,22 @@
                 "properties": {
                   "companyInfo": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7554"
+                    "example": "6441928c7aed16fe1775088e"
                   },
                   "verify": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7555"
+                    "example": "6441928c7aed16fe1775088f"
                   },
                   "companyMembers": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7556"
+                    "example": "6441928c7aed16fe17750890"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7557"
+                        "example": "6441928c7aed16fe17750891"
                       }
                     }
                   },
@@ -979,11 +1138,15 @@
                 "properties": {
                   "companyName": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7558"
+                    "example": "6441928c7aed16fe17750892"
+                  },
+                  "companyWebsite": {
+                    "type": "string",
+                    "example": "6441928c7aed16fe17750893"
                   },
                   "creationDate": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7559"
+                    "example": "6441928c7aed16fe17750894"
                   },
                   "bio": {
                     "type": "object",
@@ -1008,7 +1171,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a755a"
+                        "example": "6441928c7aed16fe17750895"
                       }
                     }
                   },
@@ -1033,18 +1196,18 @@
                 "properties": {
                   "admin": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a755b"
+                    "example": "6441928c7aed16fe17750896"
                   },
                   "users": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a755c"
+                    "example": "6441928c7aed16fe17750897"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a755d"
+                        "example": "6441928c7aed16fe17750898"
                       }
                     }
                   },
@@ -1074,18 +1237,18 @@
                 "properties": {
                   "current_status": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a755e"
+                    "example": "6441928c7aed16fe17750899"
                   },
                   "harder": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a755f"
+                    "example": "6441928c7aed16fe1775089a"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7560"
+                        "example": "6441928c7aed16fe1775089b"
                       }
                     }
                   },
@@ -1110,30 +1273,30 @@
                 "properties": {
                   "details": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7561"
+                    "example": "6441928c7aed16fe1775089c"
                   },
                   "creator": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7562"
+                    "example": "6441928c7aed16fe1775089d"
                   },
                   "assigned": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7563"
+                    "example": "6441928c7aed16fe1775089e"
                   },
                   "Status": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7564"
+                    "example": "6441928c7aed16fe1775089f"
                   },
                   "Read": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7565"
+                    "example": "6441928c7aed16fe177508a0"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7566"
+                        "example": "6441928c7aed16fe177508a1"
                       }
                     }
                   },
@@ -1158,26 +1321,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7567"
+                    "example": "6441928c7aed16fe177508a2"
                   },
                   "Details": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7568"
+                    "example": "6441928c7aed16fe177508a3"
                   },
                   "Links": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7569"
+                    "example": "6441928c7aed16fe177508a4"
                   },
                   "image_urls": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a756a"
+                    "example": "6441928c7aed16fe177508a5"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a756b"
+                        "example": "6441928c7aed16fe177508a6"
                       }
                     }
                   },
@@ -1207,30 +1370,30 @@
                 "properties": {
                   "info": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a756c"
+                    "example": "6441928c7aed16fe177508a7"
                   },
                   "from": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a756d"
+                    "example": "6441928c7aed16fe177508a8"
                   },
                   "to": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a756e"
+                    "example": "6441928c7aed16fe177508a9"
                   },
                   "seen": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a756f"
+                    "example": "6441928c7aed16fe177508aa"
                   },
                   "date": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7570"
+                    "example": "6441928c7aed16fe177508ab"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7571"
+                        "example": "6441928c7aed16fe177508ac"
                       }
                     }
                   },
@@ -1255,18 +1418,18 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7572"
+                    "example": "6441928c7aed16fe177508ad"
                   },
                   "body": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7573"
+                    "example": "6441928c7aed16fe177508ae"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7574"
+                        "example": "6441928c7aed16fe177508af"
                       }
                     }
                   },
@@ -1296,26 +1459,26 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7575"
+                    "example": "6441928c7aed16fe177508b0"
                   },
                   "members": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7576"
+                    "example": "6441928c7aed16fe177508b1"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7577"
+                    "example": "6441928c7aed16fe177508b2"
                   },
                   "date": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7578"
+                    "example": "6441928c7aed16fe177508b3"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7579"
+                        "example": "6441928c7aed16fe177508b4"
                       }
                     }
                   },
@@ -1340,22 +1503,22 @@
                 "properties": {
                   "company": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a757a"
+                    "example": "6441928c7aed16fe177508b5"
                   },
                   "date": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a757b"
+                    "example": "6441928c7aed16fe177508b6"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a757c"
+                    "example": "6441928c7aed16fe177508b7"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a757d"
+                        "example": "6441928c7aed16fe177508b8"
                       }
                     }
                   },
@@ -1380,22 +1543,22 @@
                 "properties": {
                   "text": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a757e"
+                    "example": "6441928c7aed16fe177508b9"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a757f"
+                    "example": "6441928c7aed16fe177508ba"
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7580"
+                    "example": "6441928c7aed16fe177508bb"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7581"
+                        "example": "6441928c7aed16fe177508bc"
                       }
                     }
                   },
@@ -1425,26 +1588,26 @@
                 "properties": {
                   "itemInfo": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7582"
+                    "example": "6441928c7aed16fe177508bd"
                   },
                   "item": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7583"
+                    "example": "6441928c7aed16fe177508be"
                   },
                   "refModel": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7584"
+                    "example": "6441928c7aed16fe177508bf"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7585"
+                    "example": "6441928c7aed16fe177508c0"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a7586"
+                        "example": "6441928c7aed16fe177508c1"
                       }
                     }
                   },
@@ -1469,26 +1632,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7587"
+                    "example": "6441928c7aed16fe177508c2"
                   },
                   "description": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7588"
+                    "example": "6441928c7aed16fe177508c3"
                   },
                   "images": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a7589"
+                    "example": "6441928c7aed16fe177508c4"
                   },
                   "urls": {
                     "type": "string",
-                    "example": "643de657cf80e846fe7a758a"
+                    "example": "6441928c7aed16fe177508c5"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "643de657cf80e846fe7a758b"
+                        "example": "6441928c7aed16fe177508c6"
                       }
                     }
                   },

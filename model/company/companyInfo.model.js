@@ -1,10 +1,22 @@
 const mongoose = require('mongoose');
+const { urlValidationRegex } = require('../../validation/regex/regex');
 
 const CompanyInfoSchema = new mongoose.Schema({
   companyName: {
     type: String,
     unique: true,
     required: true,
+  },
+  companyWebsite : {
+    type : String,
+    unique : true,
+    required: true,
+    validate: {
+      validator: function(v) {
+        return urlValidationRegex.test(v);
+      },
+      message: '{VALUE} is not a valid email!'
+      },
   },
   creationDate: {
     type: String,
