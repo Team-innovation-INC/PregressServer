@@ -1,4 +1,4 @@
-const { body } = require('express-validator');
+const { body, query } = require('express-validator');
 
 exports.createCompanyInputs = [
   body('companyName')
@@ -10,4 +10,12 @@ exports.createCompanyInputs = [
   body('companyWebSite')
   .isURL()
   .withMessage("please put a valid website")
+] 
+exports.validationCompanyInputs = [
+  query('email')
+    .isEmail()
+    .withMessage('Please enter a valid email'),
+  query('token')
+  .isLength({min: 20})
+  .withMessage("please enter a valid token")
 ] 
