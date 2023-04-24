@@ -17,6 +17,7 @@ exports.activateCompany = async(req, res, next) => {
     })
 // ----- save company info
     await company.save()
+    req.company = company.id.toString()
 // ----- pass to next middleware
     next()
   } catch (error) {
