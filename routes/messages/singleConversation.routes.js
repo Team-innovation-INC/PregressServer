@@ -5,10 +5,10 @@ const sendMessageConversation = require('../../controller/messages/conversation/
 const updateConversationName = require('../../controller/messages/conversation/updateConversationName.controller');
 const getMyMessages = require('../../controller/messages/getMessages.controller');
 const addMessageToConversation = require('../../controller/messages/sendMessage.controller');
-const { checkUserExist } = require('../../middlewares/CheckUserExist');
-const { conversationOwner } = require('../../middlewares/messages/conversation/conversationOwner');
-const { existConversation } = require('../../middlewares/messages/conversation/existConversation');
-const { CreateMessage } = require('../../middlewares/messages/createMessage');
+const { checkUserExist } = require('../../middleware/CheckUserExist');
+const { conversationOwner } = require('../../middleware/messages/conversation/conversationOwner');
+const { existConversation } = require('../../middleware/messages/conversation/existConversation');
+const { CreateMessage } = require('../../middleware/messages/createMessage');
 const router = express.Router();
 const {getUserDetails} = require("../../utility/passport.middleware")
 
