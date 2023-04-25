@@ -3,6 +3,7 @@ const deleteActivateToken = require("../../controller/company/companyauth/delete
 const getCompaniesList = require("../../controller/company/companyauth/getCompaniesLis.controller");
 const { activateCompany } = require("../../middleware/company/activateCompany/activateCompany.middleware");
 const { addCompanyToUser } = require("../../middleware/company/activateCompany/addUserToCompany.middleware");
+const { upgradeUserRoleToAdmin } = require("../../middleware/company/activateCompany/adminUser.middleware");
 const { checkExistToken } = require("../../middleware/company/activateCompany/checkToken.middleware");
 const { checkValidWebsite } = require("../../middleware/company/activateCompany/createCompanyMembers.middleware");
 const { validateWebSite } = require("../../middleware/company/activateCompany/validateDomain.middleware");
@@ -40,7 +41,7 @@ router.post( "/create", createCompanyInputs, validateInputs, populateUser, check
  /  ----  activate route for activation of a created company router
 /*/
 
-router.get( "/activate", validationCompanyInputs, validateInputs, checkExistToken, validateWebSite, checkValidWebsite, activateCompany, addCompanyToUser,  deleteActivateToken);
+router.get( "/activate", validationCompanyInputs, validateInputs, checkExistToken, validateWebSite, checkValidWebsite, activateCompany, addCompanyToUser, upgradeUserRoleToAdmin, deleteActivateToken);
 
   /*
  /  ----  join route for asking joining existing company router
