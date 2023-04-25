@@ -9,3 +9,6 @@ scripts/
 
 # ignore .vscode directory
 .vscode/
+
+# igone package-lock.json file
+package-lock.json

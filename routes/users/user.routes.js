@@ -19,8 +19,8 @@ const { authorizationHeaderValidator, userInfoInputs, userContactInputs, userPas
 const { userId } = require("../../middleware/user/active/activeId.middleware");
 const validateInputs = require("../../validation/validator/validationInputs.config");
 //-- swagger documentation
-const { tagUserActive } = require("../../swagger/middlewares/user/active/active_user.swagger.tag");
-const { testSwagger, getDetails, updateContactSwagger, updatePasswordSwagger, updateProfileSwagger } = require("../../swagger/middlewares/user/active/active_user_description.swagger");
+const { tagUserActive } = require("../../swagger/middleware/user/active/active_user.swagger.tag");
+const { testSwagger, getDetails, updateContactSwagger, updatePasswordSwagger, updateProfileSwagger } = require("../../swagger/middleware/user/active/active_user_description.swagger");
 
 
 router.use(authorizationHeaderValidator, validateInputs, getUserDetails, userId)

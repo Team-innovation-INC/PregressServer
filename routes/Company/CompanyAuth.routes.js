@@ -1,35 +1,59 @@
-const sendLinkToUser = require("../../controller/company/companyauth/createNewCompany.controller");
-const deleteActivateToken = require("../../controller/company/companyauth/deleteActivateToken.controller");
-const getCompaniesList = require("../../controller/company/companyauth/getCompaniesLis.controller");
-const { activateCompany } = require("../../middleware/company/activateCompany/activateCompany.middleware");
-const { addCompanyToUser } = require("../../middleware/company/activateCompany/addUserToCompany.middleware");
-const { upgradeUserRoleToAdmin } = require("../../middleware/company/activateCompany/adminUser.middleware");
-const { checkExistToken } = require("../../middleware/company/activateCompany/checkToken.middleware");
-const { checkValidWebsite } = require("../../middleware/company/activateCompany/createCompanyMembers.middleware");
-const { validateWebSite } = require("../../middleware/company/activateCompany/validateDomain.middleware");
-const { checkCompanyExist } = require("../../middleware/company/createCompany/checkCompanyExist.middleware.middleware");
-const { createTokenCompany } = require("../../middleware/company/createCompany/createNewCompany.middleware");
-const { checkUserCompanies } = require("../../middleware/company/getCmpanyList/checkUserCompanies.middleware");
-const { userId } = require("../../middleware/user/active/activeId.middleware");
-const { populateUser } = require("../../middleware/user/sign_in/populateUser.middleware");
-const { companyAuthTag } = require("../../swagger/middlewares/company/auth/Auth_company.swagger.tag");
-const { companyTestSwagger } = require("../../swagger/middlewares/company/auth/auth_company_description.swagger")
-const { getUserDetails } = require("../../utility/passport.middleware");
-const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
-const { createCompanyInputs, validationCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
-const validateInputs = require("../../validation/validator/validationInputs.config");
+  /*
+ /  ----  company auth router 
+/*/
 
 const router = require("express").Router();
 
-router.use(authorizationHeaderValidator, validateInputs, getUserDetails, userId)
-router.use('',  companyAuthTag)
+// ----- controller auth paths
+const sendLinkToUser      = require("../../controller/company/companyAuth/createNewCompany.controller"   );
+const deleteActivateToken = require("../../controller/company/companyAuth/deleteActivateToken.controller");
+const getCompaniesList    = require("../../controller/company/companyAuth/getCompaniesLis.controller"    );
+
+// ----- middleware auth paths
+
+//-- active company account
+const { checkExistToken        } = require("../../middleware/company/activateCompany/checkToken.middleware"          );
+const { validateWebSite        } = require("../../middleware/company/activateCompany/validateDomain.middleware"      );
+const { checkValidWebsite      } = require("../../middleware/company/activateCompany/createCompanyMembers.middleware");
+const { activateCompany        } = require("../../middleware/company/activateCompany/activateCompany.middleware"     );
+const { addCompanyToUser       } = require("../../middleware/company/activateCompany/addUserToCompany.middleware"    );
+const { upgradeUserRoleToAdmin } = require("../../middleware/company/activateCompany/adminUser.middleware"           );
+
+//-- create company account
+const { populateUser       } = require("../../middleware/user/sign_in/populateUser.middleware"                         );
+const { checkCompanyExist  } = require("../../middleware/company/createCompany/checkCompanyExist.middleware.middleware");
+const { createTokenCompany } = require("../../middleware/company/createCompany/createNewCompany.middleware"            );
+
+//-- get company account list
+const { checkUserCompanies } = require("../../middleware/company/getCompanyList/checkUserCompanies.middleware");
+
+//-- global middleware for company auth router
+const { getUserDetails } = require("../../utility/passport.middleware"               );
+const { userId         } = require("../../middleware/user/active/activeId.middleware");
+
+// ----- validation inputs paths
+const validateInputs = require("../../validation/validator/validationInputs.config");
+//-- check hears token valid type
+const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
+//-- check routes inputs
+const { createCompanyInputs, validationCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
+
+// ----- swagger auth descriptions
+const { companyAuthTag     } = require("../../swagger/middleware/company/auth/Auth_company.swagger.tag"        );
+const { companyTestSwagger } = require("../../swagger/middleware/company/auth/auth_company_description.swagger");
+
+  /*
+ /  ----  global middleware for company auth
+/*/
+
+router.use(authorizationHeaderValidator, validateInputs, getUserDetails, userId);
+router.use('',  companyAuthTag);
 
   /*
  /  ----  test route for auth company router
 /*/
 
-router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("test auth company  page");});
-
+router.get( "/test",  companyTestSwagger, (req, res) => { res.status(200).send("test auth company  page")});
 
   /*
  /  ----  create route for a new company router
@@ -59,13 +83,13 @@ router.get( "/list", checkUserCompanies, getCompaniesList );
  /  ----  delete route for deleting an existing company router
 /*/
 
-router.delete( "/delete", (req, res) => { res.status(200).send("delete existing company");});
+router.delete( "/delete", (req, res) => { res.status(200).send("delete existing company")});
 
   /*
  /  ----  invite route for inviting a new user to join company router
 /*/
 
-router.post( "/invite", (req, res) => { res.status(200).send("invite a new user to a company");});
+router.post( "/invite", (req, res) => { res.status(200).send("invite a new user to a company")});
 
 
 module.exports = router;
