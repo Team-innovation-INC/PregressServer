@@ -34,7 +34,7 @@ router.get( "/test",testSwagger, (req, res) => { res.status(200).send("test acti
   /*
  /  ----  current user information route active (get user details based on token)
 /*/
-router.get("/current-information",getDetails,  populateUser, userDetails );
+router.get("/current-information", getDetails,  populateUser, userDetails );
 
   /*
  /  ----  update user information (info) for  route active 
