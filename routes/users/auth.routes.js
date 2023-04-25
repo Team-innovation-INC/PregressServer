@@ -35,8 +35,8 @@ const { signInInputs } = require("../../validation/validator/auth-user/sign-InIn
 const { signUpInputs } = require("../../validation/validator/auth-user/sign-upInputs");
 
 // ----- swagger auth descriptions
-const { tagNameUserAuth } = require("../../swagger/middlewares/user/auth/Auth_user.swagger.tag");
-const { signupSwagger, signingSwagger, activateAccountSwagger, authTestSwagger } = require("../../swagger/middlewares/user/auth/auth_user_description.swagger");
+const { tagNameUserAuth } = require("../../swagger/middleware/user/auth/Auth_user.swagger.tag");
+const { signupSwagger, signingSwagger, activateAccountSwagger, authTestSwagger } = require("../../swagger/middleware/user/auth/auth_user_description.swagger");
 const { resetInputs, resetPasswordInputs } = require("../../validation/validator/auth-user/resetPasswordInputs");
 const { CheckEmailSent } = require("../../middleware/user/reset_password/EmailsSents.middleware");
 const { resetPasswordFile } = require("../../controller/user/auth/resetPasswordFile.controller");
