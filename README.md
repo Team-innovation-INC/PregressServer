@@ -17,6 +17,7 @@ This is a **Node.js** **server** built using the **Express** framework that prov
 6. Swagger
 7. JWT
 8. SocketIO
+9. CASL
 ---
 there is other packages using for this server such as :
 
@@ -57,6 +58,9 @@ The purpose of this server is to provide a scalable and secure backend for manag
 
 For secure endpoints we are using JWT as a very strong process.
 
+### CASL authorization ###
+
+To manage the authentication we are using the CASL as the strong package we need to. As also we use it for the front-end so we will get a really strong connection for the application
 ### ERROR handling ###
 
 For handling errors we really take care of the error management and for sure at the future the errors gestation wil be a globalization module for so the server will automatically growth and had not stack
