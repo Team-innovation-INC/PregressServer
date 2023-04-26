@@ -25,6 +25,10 @@ const userSchema = new Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Company',
   },
+  context: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'userContext',
+  },
   creation_date: {
     type: Date,
     default: Date.now(),
