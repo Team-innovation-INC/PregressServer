@@ -823,18 +823,9 @@
               "fields": {
                 "type": "object",
                 "properties": {
-                  "contact": {
+                  "address": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8eea"
-                  },
-                  "password": {
-                    "type": "object",
-                    "properties": {
-                      "type": {
-                        "type": "string",
-                        "example": "Password123"
-                      }
-                    }
+                    "example": "6449823f4302a953ba4b2612"
                   },
                   "blocked": {
                     "type": "object",
@@ -845,17 +836,13 @@
                       }
                     }
                   },
-                  "role": {
+                  "contact": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8eeb"
-                  },
-                  "info": {
-                    "type": "string",
-                    "example": "6448467f028c2fa1f93b8eec"
+                    "example": "6449823f4302a953ba4b2613"
                   },
                   "company": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8eed"
+                    "example": "6449823f4302a953ba4b2614"
                   },
                   "creation_date": {
                     "type": "object",
@@ -866,12 +853,29 @@
                       }
                     }
                   },
+                  "info": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b2615"
+                  },
+                  "password": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "Password123"
+                      }
+                    }
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b2616"
+                  },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8eee"
+                        "example": "6449823f4302a953ba4b2617"
                       }
                     }
                   },
@@ -917,7 +921,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8eef"
+                        "example": "6449823f4302a953ba4b2618"
                       }
                     }
                   },
@@ -975,7 +979,60 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8ef0"
+                        "example": "6449823f4302a953ba4b2619"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "UserAddress": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b261a"
+                  },
+                  "country": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b261b"
+                  },
+                  "Street": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b261c"
+                  },
+                  "codeZip": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b261d"
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "6449823f4302a953ba4b261e"
                       }
                     }
                   },
@@ -1025,6 +1082,10 @@
                       }
                     }
                   },
+                  "phoneNumber": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b261f"
+                  },
                   "last_update": {
                     "type": "object",
                     "properties": {
@@ -1039,7 +1100,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8ef1"
+                        "example": "6449823f4302a953ba4b2620"
                       }
                     }
                   },
@@ -1098,6 +1159,10 @@
                       }
                     }
                   },
+                  "language": {
+                    "type": "string",
+                    "example": "6449823f4302a953ba4b2621"
+                  },
                   "last_update": {
                     "type": "object",
                     "properties": {
@@ -1112,7 +1177,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8ef2"
+                        "example": "6449823f4302a953ba4b2622"
                       }
                     }
                   },
@@ -1142,22 +1207,22 @@
                 "properties": {
                   "companyInfo": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8ef3"
+                    "example": "6449823f4302a953ba4b2623"
                   },
                   "verify": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8ef4"
+                    "example": "6449823f4302a953ba4b2624"
                   },
                   "companyMembers": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8ef5"
+                    "example": "6449823f4302a953ba4b2625"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8ef6"
+                        "example": "6449823f4302a953ba4b2626"
                       }
                     }
                   },
@@ -1182,15 +1247,15 @@
                 "properties": {
                   "companyName": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8ef7"
+                    "example": "6449823f4302a953ba4b2627"
                   },
                   "companyWebSite": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8ef8"
+                    "example": "6449823f4302a953ba4b2628"
                   },
                   "creationDate": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8ef9"
+                    "example": "6449823f4302a953ba4b2629"
                   },
                   "bio": {
                     "type": "object",
@@ -1215,7 +1280,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8efa"
+                        "example": "6449823f4302a953ba4b262a"
                       }
                     }
                   },
@@ -1240,18 +1305,18 @@
                 "properties": {
                   "admin": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8efb"
+                    "example": "6449823f4302a953ba4b262b"
                   },
                   "users": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8efc"
+                    "example": "6449823f4302a953ba4b262c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8efd"
+                        "example": "6449823f4302a953ba4b262d"
                       }
                     }
                   },
@@ -1281,18 +1346,18 @@
                 "properties": {
                   "current_status": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8efe"
+                    "example": "6449823f4302a953ba4b262e"
                   },
                   "harder": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8eff"
+                    "example": "6449823f4302a953ba4b262f"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f00"
+                        "example": "6449823f4302a953ba4b2630"
                       }
                     }
                   },
@@ -1317,30 +1382,30 @@
                 "properties": {
                   "details": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f01"
+                    "example": "6449823f4302a953ba4b2631"
                   },
                   "creator": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f02"
+                    "example": "6449823f4302a953ba4b2632"
                   },
                   "assigned": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f03"
+                    "example": "6449823f4302a953ba4b2633"
                   },
                   "Status": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f04"
+                    "example": "6449823f4302a953ba4b2634"
                   },
                   "Read": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f05"
+                    "example": "6449823f4302a953ba4b2635"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f06"
+                        "example": "6449823f4302a953ba4b2636"
                       }
                     }
                   },
@@ -1365,26 +1430,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f07"
+                    "example": "6449823f4302a953ba4b2637"
                   },
                   "Details": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f08"
+                    "example": "6449823f4302a953ba4b2638"
                   },
                   "Links": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f09"
+                    "example": "6449823f4302a953ba4b2639"
                   },
                   "image_urls": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f0a"
+                    "example": "6449823f4302a953ba4b263a"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f0b"
+                        "example": "6449823f4302a953ba4b263b"
                       }
                     }
                   },
@@ -1414,30 +1479,30 @@
                 "properties": {
                   "info": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f0c"
+                    "example": "6449823f4302a953ba4b263c"
                   },
                   "from": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f0d"
+                    "example": "6449823f4302a953ba4b263d"
                   },
                   "to": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f0e"
+                    "example": "6449823f4302a953ba4b263e"
                   },
                   "seen": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f0f"
+                    "example": "6449823f4302a953ba4b263f"
                   },
                   "date": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f10"
+                    "example": "6449823f4302a953ba4b2640"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f11"
+                        "example": "6449823f4302a953ba4b2641"
                       }
                     }
                   },
@@ -1462,18 +1527,18 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f12"
+                    "example": "6449823f4302a953ba4b2642"
                   },
                   "body": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f13"
+                    "example": "6449823f4302a953ba4b2643"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f14"
+                        "example": "6449823f4302a953ba4b2644"
                       }
                     }
                   },
@@ -1503,26 +1568,26 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f15"
+                    "example": "6449823f4302a953ba4b2645"
                   },
                   "members": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f16"
+                    "example": "6449823f4302a953ba4b2646"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f17"
+                    "example": "6449823f4302a953ba4b2647"
                   },
                   "date": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f18"
+                    "example": "6449823f4302a953ba4b2648"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f19"
+                        "example": "6449823f4302a953ba4b2649"
                       }
                     }
                   },
@@ -1547,22 +1612,22 @@
                 "properties": {
                   "company": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f1a"
+                    "example": "6449823f4302a953ba4b264a"
                   },
                   "date": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f1b"
+                    "example": "6449823f4302a953ba4b264b"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f1c"
+                    "example": "6449823f4302a953ba4b264c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f1d"
+                        "example": "6449823f4302a953ba4b264d"
                       }
                     }
                   },
@@ -1587,22 +1652,22 @@
                 "properties": {
                   "text": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f1e"
+                    "example": "6449823f4302a953ba4b264e"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f1f"
+                    "example": "6449823f4302a953ba4b264f"
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f20"
+                    "example": "6449823f4302a953ba4b2650"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f21"
+                        "example": "6449823f4302a953ba4b2651"
                       }
                     }
                   },
@@ -1632,26 +1697,26 @@
                 "properties": {
                   "itemInfo": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f22"
+                    "example": "6449823f4302a953ba4b2652"
                   },
                   "item": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f23"
+                    "example": "6449823f4302a953ba4b2653"
                   },
                   "refModel": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f24"
+                    "example": "6449823f4302a953ba4b2654"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f25"
+                    "example": "6449823f4302a953ba4b2655"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f26"
+                        "example": "6449823f4302a953ba4b2656"
                       }
                     }
                   },
@@ -1676,26 +1741,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f27"
+                    "example": "6449823f4302a953ba4b2657"
                   },
                   "description": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f28"
+                    "example": "6449823f4302a953ba4b2658"
                   },
                   "images": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f29"
+                    "example": "6449823f4302a953ba4b2659"
                   },
                   "urls": {
                     "type": "string",
-                    "example": "6448467f028c2fa1f93b8f2a"
+                    "example": "6449823f4302a953ba4b265a"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "6448467f028c2fa1f93b8f2b"
+                        "example": "6449823f4302a953ba4b265b"
                       }
                     }
                   },
@@ -1727,6 +1792,7 @@
     "./models/User.js",
     "./models/Password.js",
     "./models/Role.js",
+    "./models/UserAddress.js",
     "./models/UserContact.js",
     "./models/UserInfo.js",
     "./models/Company.js",

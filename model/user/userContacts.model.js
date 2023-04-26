@@ -24,6 +24,10 @@ const userContactSchema = new Schema({
     unique: true,
     required: true,
   },
+  phoneNumber : {
+    type: String,
+    unique: true,
+  },
   last_update: {
     type: Date,
     default: Date.now(),

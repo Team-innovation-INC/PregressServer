@@ -16,6 +16,11 @@ const userInfoSchema = new Schema({
     type : String,
     default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
   },
+  language: {
+    type : String,
+    enum: ["english", "french", "arabic"],
+    default: "english"
+  },
   last_update: {
     type: Date,
     default: Date.now(),
