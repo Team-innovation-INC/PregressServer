@@ -21,6 +21,7 @@ const validateInputs = require("../../validation/validator/validationInputs.conf
 //-- swagger documentation
 const { tagUserActive } = require("../../swagger/middleware/user/active/active_user.swagger.tag");
 const { testSwagger, getDetails, updateContactSwagger, updatePasswordSwagger, updateProfileSwagger } = require("../../swagger/middleware/user/active/active_user_description.swagger");
+const userRole = require("../../controller/user/active/userole.controller");
 
 
 router.use(authorizationHeaderValidator, validateInputs, getUserDetails, userId)
@@ -50,6 +51,11 @@ router.put("/update-contact", updateContactSwagger, userContactInputs, validateI
  /  ----  update user password for route active 
 /*/
   router.put("/update-password", updatePasswordSwagger, userPasswordInputs, validateInputs, userPasswordUpdate );
+
+    /*
+ /  ----  current user information route active (get user details based on token)
+/*/
+router.get("/role", getDetails,  populateUser, userRole );
 
 
   module.exports = router;
