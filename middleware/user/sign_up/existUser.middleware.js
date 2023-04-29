@@ -17,11 +17,11 @@ exports.existUser = async (req, res, next) => {
   const user      = await UserContact.findOne({email})
 // ----- logic for existing user
   if (user) {
-    return res.status(200).send({message: "userAlready exist please try to log in"})
+    return res.status(400).send({message: "userAlready exist please try to log in"})
   }
 
   if (userToken) {
-    return res.status(200).send({message: "we sent you a validation email please check your email"})
+    return res.status(400).send({message: "we sent you a validation email please check your email"})
   }
 // ----- pass to next middleware
   next();

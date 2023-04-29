@@ -36,11 +36,15 @@ const validateInputs = require("../../validation/validator/validationInputs.conf
 //-- check hears token valid type
 const { authorizationHeaderValidator } = require("../../validation/validator/activeUser/activeParams");
 //-- check routes inputs
-const { createCompanyInputs, validationCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
+const { createCompanyInputs, validationCompanyInputs, validationJoinCompanyInputs } = require("../../validation/validator/company/companyAuth/createCompanyInputs");
 
 // ----- swagger auth descriptions
 const { companyAuthTag     } = require("../../swagger/middleware/company/auth/Auth_company.swagger.tag"        );
 const { companyTestSwagger } = require("../../swagger/middleware/company/auth/auth_company_description.swagger");
+const { createJoinNotificationInfo } = require("../../middleware/company/joinCompany/createNotificationInfo.middleware");
+const { findCompanyAdmin } = require("../../middleware/company/joinCompany/findAdminCompnay.middleware");
+const { createJoinNotification } = require("../../middleware/company/joinCompany/createNotificationJoin.middleware");
+const { checkExistNotification } = require("../../middleware/company/joinCompany/checkExistRequest.middleware");
 
   /*
  /  ----  global middleware for company auth
@@ -71,7 +75,7 @@ router.get( "/activate", validationCompanyInputs, validateInputs, checkExistToke
  /  ----  join route for asking joining existing company router
 /*/
 
-router.post( "/join", (req, res) => { res.status(200).send("join a company");});
+router.post( "/join", validationJoinCompanyInputs, validateInputs, findCompanyAdmin, checkExistNotification, createJoinNotificationInfo, createJoinNotification, (req, res) => { console.log("req", req.body.companyId) ; res.status(200).send("join a company");});
 
   /*
  /  ----  create route for getting all companies list router

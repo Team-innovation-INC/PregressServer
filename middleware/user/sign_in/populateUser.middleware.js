@@ -4,6 +4,7 @@
 
 // ----- import models
 const CompanyInfo = require("../../../model/company/companyInfo.model")
+const Company = require("../../../model/company/Company.model")
 // ----- import populate function (hide extra details such as __id, __v, update dates, ...)
 const { populateExtra } = require("../../../utility/others")
 
@@ -14,14 +15,19 @@ exports.populateUser = async (req, res, next) => {
 // ----- initial newUser information
     let newUser= {}
 // ----- import company info 
-    const companyInfo = user.company?._doc?.companyInfo.toString()
-    const company = await CompanyInfo.findById(companyInfo)
+    if (user.company) {
+      const companyId = user.company.toString()
+      const companyInfo = await Company.findById(companyId)
+      const company = await CompanyInfo.findById(companyInfo.companyInfo.toString())
+      newUser.company   = company?._doc
+    } else {
+      newUser.company = {}
+    }
 // ----- parse data with populate function
     newUser.contact   = populateExtra(user.contact._doc )
     newUser.role      = populateExtra(user.role._doc    )
     newUser.password  = populateExtra(user.password._doc)
     newUser.info      = populateExtra(user.info?._doc   )
-    newUser.company   = populateExtra(company?._doc     )
     // if you have extra thing to add just follow this template and put them here ....
 // ----- collect created date
     newUser.createdAt = user.creation_date
@@ -31,6 +37,7 @@ exports.populateUser = async (req, res, next) => {
 // ----- pass to next middleware
     next()
   } catch (error) {
+    console.log("error", error)
     return res.status(500).send('Internal server error')
   }
 };

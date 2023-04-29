@@ -5,23 +5,23 @@ const {Schema, model} = mongoose
 const NotificationSchema = new mongoose.Schema({
   itemInfo: {
     type:  Schema.Types.ObjectId,
-    ref: "NotificationSchemaInfo"
-  },
-  item: {
-    type: mongoose.Schema.Types.ObjectId,
-    required: true,
-    refPath: 'refModel'
+    ref: "NotificationInfo"
   },
   refModel: {
     type: String,
     required: true,
-    enum: ['Message', 'Email', 'Task', 'Other']
+    enum: ['Company','Message', 'Email', 'Task', 'Other']
   },
   sender: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
     required: true
-  }
+  },
+  receiver: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true
+  },
 });
 
 const Notification = model('Notification', NotificationSchema);

@@ -17,7 +17,7 @@ exports.checkCompanyExist = async(req, res, next) => {
     if (existCompany) {
         const companyToken = await Token.findOne({type: "create-company", info:existCompany.id, email: user.contact.email})
         if (companyToken) {
-          return res.status(400).send({message: "please validate your company", token: companyToken.token, email: user.contact.email, validate: false})
+          return res.status(200).send({message: "please validate your company", token: companyToken.token, email: user.contact.email, validate: false})
         }
         const ValidateCompany = await Company.findOne({companyInfo: existCompany.id})
         if (ValidateCompany) {

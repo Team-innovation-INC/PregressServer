@@ -8,7 +8,7 @@ const Company = require("../../../model/company/Company.model");
 const getCompaniesList =  async (req, res) => {
   try {
 // ----- find company list
-    const CompaniesList = await Company.find()
+    const CompaniesList = await Company.find().populate(['companyInfo'])
 // -------- response send for no company exist
     if (CompaniesList.length === 0) {
       return res.status(200).send({message: "no company exist please try to create new one ", companies: CompaniesList})

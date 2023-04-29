@@ -18,5 +18,5 @@ const NotificationInfoSchema = new Schema({
   }
 });
 
-const NotificationInfo = model('NotificationSchemaInfo', NotificationInfoSchema);
+const NotificationInfo = model('NotificationInfo', NotificationInfoSchema);
 module.exports = NotificationInfo

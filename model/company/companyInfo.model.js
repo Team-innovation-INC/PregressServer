@@ -15,7 +15,7 @@ const CompanyInfoSchema = new mongoose.Schema({
       validator: function(v) {
         return urlValidationRegex.test(v);
       },
-      message: '{VALUE} is not a valid email!'
+      message: '{VALUE} is not a valid website!'
       },
   },
   creationDate: {
