@@ -7,8 +7,6 @@ const userRole =  async (req, res) => {
       }
       return res.status(200).send(userDetails.role.roleName)
     } catch (error) {
-      console.log("error", error)
-
      return res.status(400).send({ msg: error });
     }
   };

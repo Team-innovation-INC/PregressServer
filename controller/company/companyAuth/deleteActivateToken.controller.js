@@ -14,7 +14,6 @@ const deleteActivateToken =  async (req, res) => {
 // -------- response send for success
     return res.status(200).send({message: "your company was activate with success"})
   } catch (error) {
-    console.log("error", error)
     return res.status(500).send('Internal server error');
   }
 };

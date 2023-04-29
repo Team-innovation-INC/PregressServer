@@ -13,7 +13,7 @@ exports.validateWebSite = async(req, res, next) => {
 // ----- find company website from database
     const info = await CompanyInfo.findById(tokenInfo)
 // ----- sender website and website illustrate muches
-    if (!referer.includes(info.companyWebSite)) {
+    if (referer.includes(info.companyWebSite)) {
       return res.status(401).send({message: "please make sure that you include the script on your entry html file"})
     }
 // ----- pass to next middleware

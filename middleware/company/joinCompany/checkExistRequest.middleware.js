@@ -11,7 +11,6 @@ exports.checkExistNotification = async(req, res, next) => {
   try {
 // ----- check exist request
     const notification = await Notification.findOne({sender: user._id, receiver:adminId})
-    console.log("notification",notification)
     if  (notification) {
         return res.status(400).send({message: "request already send please wait until accept request"})
     }
