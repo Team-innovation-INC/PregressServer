@@ -39,9 +39,8 @@ const cors = require("cors");
 
 // ---- cors options
 let corsOptions = {
-  origin:  ["http://localhost:3000", "http://localhost:5000", 'https://progress-e7yl.onrender.com/', "*"],
-  optionsSuccessStatus: 200,
-};
+  origin: true
+}
 
 // ---- core applicator as middleware
 app.use(cors(corsOptions));
