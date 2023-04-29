@@ -11,7 +11,8 @@ exports.checkValidWebsite = async(req, res, next) => {
   try {
 // ----- create new company members 
     const companyMember = new CompanyMembers({
-        admin : user.id
+        admin : user.id,
+        users : [user.id]
     })
     await companyMember.save()
     req.companyMembers = companyMember.id.toString()
