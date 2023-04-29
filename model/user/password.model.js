@@ -15,14 +15,14 @@ const passwordSchema = new Schema({
 });
 
 passwordSchema.pre('save', async function (next) {
-    const password = this;
-    if (!password.isModified('password')) {
-      return next();
-    }
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(password.password, salt);
-    password.password = hash;
-    next();
+  const password = this;
+  if (!password.isModified('password')) {
+    return next();
+  }
+  const salt = await bcrypt.genSalt(10);
+  const hash = await bcrypt.hash(password.password, salt);
+  password.password = hash;
+  next();
 });
 
 const password = model('Password', passwordSchema);

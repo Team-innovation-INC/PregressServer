@@ -19,3 +19,9 @@ exports.validationCompanyInputs = [
   .isLength({min: 20})
   .withMessage("please enter a valid token")
 ] 
+
+exports.validationJoinCompanyInputs = [
+  body('companyId')
+    .isString()
+    .withMessage('please enter valid company'),
+] 

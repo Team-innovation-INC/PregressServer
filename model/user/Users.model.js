@@ -7,10 +7,35 @@ const crypto = require('crypto')
 
 // ----- Create Schema for Users 
 const userSchema = new Schema({
+  address: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'UserAddress',
+  },
+  blocked : {
+    type : Boolean,
+    required: true,
+    default : false
+  },
   contact:{
     type: Schema.Types.ObjectId,
     ref:'UserContact',
     required: true,
+  },
+  company: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Company',
+  },
+  context: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'userContext',
+  },
+  creation_date: {
+    type: Date,
+    default: Date.now(),
+  },
+  info: {
+    type: Schema.Types.ObjectId,
+    ref: 'UserInfo',
   },
   password: {
     type: Schema.Types.ObjectId,
@@ -18,27 +43,10 @@ const userSchema = new Schema({
     required: true,
     unique: true
   },
-  blocked : {
-      type : Boolean,
-      required: true,
-      default : false
-  },
   role: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Role',
     required: true,
-  },
-  info: {
-    type: Schema.Types.ObjectId,
-    ref: 'UserInfo',
-  },
-  company: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Company',
-  },
-  creation_date: {
-    type: Date,
-    default: Date.now(),
   },
 });
 
