@@ -11,12 +11,12 @@ const CompanyInfoSchema = new mongoose.Schema({
     type : String,
     unique : true,
     required: true,
-    validate: {
-      validator: function(v) {
-        return urlValidationRegex.test(v);
-      },
-      message: '{VALUE} is not a valid website!'
-      },
+    // validate: {
+    //   validator: function(v) {
+    //     return urlValidationRegex.test(v);
+    //   },
+    //   message: '{VALUE} is not a valid website!'
+    //   },
   },
   creationDate: {
     type: String,

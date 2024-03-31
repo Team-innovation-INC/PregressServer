@@ -7,9 +7,9 @@ exports.createCompanyInputs = [
   body('bio')
   .isLength({min:5, max: 100 })
   .withMessage("please gives a description for the bio of your website"),
-  body('companyWebSite')
-  .isURL()
-  .withMessage("please put a valid website")
+  // body('companyWebSite')
+  // .isURL()
+  // .withMessage("please put a valid website")
 ] 
 exports.validationCompanyInputs = [
   query('email')
