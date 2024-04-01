@@ -70,6 +70,10 @@ app.use("/api/auth", AuthRoutes);
 const AuthCompanyRoutes = require("./routes/Company/CompanyAuth.routes")
 app.use("/api/company/", AuthCompanyRoutes)
 
+// ------- router for company providers route
+const CompanyManagementRoutes = require("./routes/Company/CompanyManagement.routes")
+app.use("/api/provider", CompanyManagementRoutes)
+
 // ------- router for client route
 const swagger = require("./swagger/swagger")
 app.use("/swagger", swagger);

@@ -16,9 +16,9 @@ exports.populateUser = async (req, res, next) => {
     let newUser= {}
 // ----- import company info 
     if (user.company) {
-      const companyId = user.company.toString()
-      const companyInfo = await Company.findById(companyId)
+      const companyInfo = await Company.findById(user.company)
       const company = await CompanyInfo.findById(companyInfo.companyInfo.toString())
+
       newUser.company   = company?._doc
     } else {
       newUser.company = {}
@@ -28,15 +28,19 @@ exports.populateUser = async (req, res, next) => {
     newUser.role      = populateExtra(user.role._doc    )
     newUser.password  = populateExtra(user.password._doc)
     newUser.info      = populateExtra(user.info?._doc   )
+
     // if you have extra thing to add just follow this template and put them here ....
 // ----- collect created date
     newUser.createdAt = user.creation_date
     newUser._id = user.id
+
 // ----- replace request information
     req.user = newUser
+
 // ----- pass to next middleware
     next()
   } catch (error) {
+    console.log(error, "error populate")
     return res.status(500).send('Internal server error')
   }
 };

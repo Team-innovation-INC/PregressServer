@@ -12,7 +12,7 @@ exports.getDetails = (req, res, next) => {
 
 exports.updateProfileSwagger = (req, res, next) => {
   // #swagger.summary = 'update active user profile path'
-  // #swagger.description = 'this route is created to update user profile information such as age, picture, biography, gender, status, ...'
+  // #swagger.description = 'this route is created to update user profile information such as age, picture, biography, gender, status, localization, language, timezone and currency ...'
   next()
 }
 
