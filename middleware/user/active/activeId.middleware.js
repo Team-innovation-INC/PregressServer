@@ -18,6 +18,7 @@ exports.userId = async(req, res, next) => {
 // ----- pass to next middleware
     next()
   } catch (error) {
+    console.log(error)
     return res.status(500).send('Internal server error');
   }
 }

@@ -5,7 +5,7 @@ exports.authorizationHeaderValidator = [header('Authorization')
   .notEmpty()
   .withMessage('Authorization header is required')
   .bail()
-  .custom((value) => {
+  .custom( value => {
     if (!value.startsWith('Bearer ')) {
       throw new Error('Authorization header must use Bearer scheme');
     }
@@ -13,18 +13,56 @@ exports.authorizationHeaderValidator = [header('Authorization')
   })
   .bail()]
 
-exports.userInfoInputs = [
-  body('bio')
-    .isLength({min: 10, max: 200})
-    .withMessage('your bio have to get at least 10 characters and can not pass 200 characters'),
-  body('age')
-    .isInt({min: 16, max: 60})
-    .withMessage('age is between 16 and 60'),
-  body('gender')
-    .optional()
-    .isBoolean()
-    .withMessage('gender have to get true or false'),
-]
+  exports.userInfoInputs = [
+    body('info.bio')
+      .optional()
+      .isString()
+      .withMessage('Bio must be a string'),
+  
+    body('info.age')
+      .isInt({ min: 16, max: 60 })
+      .withMessage('Age must be between 16 and 60'),
+  
+    body('info.gender')
+      .optional()
+      .isBoolean()
+      .withMessage('Gender must be true or false'),
+  
+    body('info.pic')
+      .optional()
+      .isString()
+      .withMessage('Pic must be a string'),
+  
+    body('localization.city')
+      .optional()
+      .isString()
+      .withMessage('City must be a string'),
+  
+    body('localization.country')
+      .optional()
+      .isString()
+      .withMessage('Country must be a string'),
+
+    body('localization.street')
+      .optional()
+      .isString()
+      .withMessage('Street must be a string'),
+
+    body('localization.codeZip')
+      .optional()
+      .isNumeric()
+      .withMessage('Zip code must be a number'),
+
+    body('firstName')
+      .optional()
+      .isString()
+      .withMessage('Last update must be a valid date'),
+
+    body('lastName')
+      .optional()
+      .isString()
+      .withMessage('Last update must be a valid date'),
+  ];
 
 exports.userContactInputs = [
   body('userName')
