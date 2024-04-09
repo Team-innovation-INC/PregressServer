@@ -33,14 +33,13 @@ exports.populateUser = async (req, res, next) => {
 // ----- collect created date
     newUser.createdAt = user.creation_date
     newUser._id = user.id
-
 // ----- replace request information
     req.user = newUser
+    req.company = user.company
 
 // ----- pass to next middleware
     next()
   } catch (error) {
-    console.log(error, "error populate")
     return res.status(500).send('Internal server error')
   }
 };

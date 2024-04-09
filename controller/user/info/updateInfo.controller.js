@@ -26,7 +26,6 @@ const userInfoUpdate =  async (req, res) => {
 // ----- response update info success
     return res.status(200).send({message: "info update with success"})
   } catch (error) {
-    console.log(error, "error")
     return res.status(500).send('Internal server error');
   }
 };

@@ -12,6 +12,13 @@ const mongoose = require('mongoose');
 const { Schema, model } = mongoose;
 
 /**
+ * @description Array containing types of providers
+ * @name providersTypes
+ * @return {string[]}
+ */
+const providersTypes = ['GitHub', 'Jira', 'Mega'];
+
+/**
  * Schema definition for Provider.
  * @type {mongoose.Schema}
  */
@@ -25,6 +32,14 @@ const ProviderSchema = new Schema({
     type: String,
     required: true
   },
+    /**
+   * The type of the provider (e.g., GitHub, Jira, Mega).
+   * @type {string}
+   */
+  type: {
+    type: String,
+    enum: providersTypes
+  },
   /**
    * The ID of the provider in the application.
    * @type {mongoose.Types.ObjectId}
@@ -37,11 +52,13 @@ const ProviderSchema = new Schema({
   /**
    * The access token associated with the provider.
    * @type {string}
-   * @optional
+   * @required
+   * @unique
    */
   token: {
     type: String,
-    required: false
+    unique: true
+
   },
   /**
    * The ID of the company associated with the provider.
@@ -55,13 +72,11 @@ const ProviderSchema = new Schema({
    * The ID of the admin user associated with the provider.
    * @type {mongoose.Types.ObjectId}
    * @required
-   * @unique
    */
   admin: {
     type: Schema.Types.ObjectId,
     ref: 'users',
     required: true,
-    unique: true
   },
 });
 

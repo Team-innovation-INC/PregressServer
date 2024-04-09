@@ -16,15 +16,25 @@ exports.createProvider = async (req, res, next) => {
       name: 'GitHub',
       providerId: clientId,
       token: accessToken,
-      admin: user?._id ? new Types.ObjectId(user._id) : new Types.ObjectId("6608a7c21ad5f61d00ddb5a9")
+      company: user.company._id,
+      type:'GitHub',
+      admin:new Types.ObjectId(user._id)
     });
     /** Save the provider instance to the database */
     await provider.save();
+    console.log(provider._id)
     req.providerId = provider._id
     /** Proceed to the next middleware */
     next();
   } catch (error) {
     console.log(error, "error")
+    if (error.code === 11000) {
+      return res.status(400).send({
+        message: `${Object.keys(error.keyPattern)[0]}.key.exist`,
+        status: 400,
+        success: false
+      });
+    }
     /** Handle errors and send a 500 Internal Server Error response */
     return res.status(500).send({ message: "Internal Server Error" });
   }
