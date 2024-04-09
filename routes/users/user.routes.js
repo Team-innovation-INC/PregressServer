@@ -40,7 +40,7 @@ router.get("/current-information", getDetails,  populateUser, userDetails );
   /*
  /  ----  update user information (info) for  route active 
 /*/
-router.put("/update-info", updateProfileSwagger, userInfoInputs, validateInputs, userInfoUpdate);
+router.put("/update-info", updateProfileSwagger, userInfoInputs, validateInputs, populateUser,  userInfoUpdate);
 
   /*
  /  ----  update user contact for route active 

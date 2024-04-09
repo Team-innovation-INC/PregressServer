@@ -24,7 +24,8 @@ exports.getUserDetails = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    if (error.message ==="invalid signature") {
+    console.log(error, "error")
+    if (error.message ==="invalid signature" || error.message === "jwt malformed") {
       return res.status(401).send({message: "invalid token please sign in again"})
     }
     return res.status(500).send('Internal server error');

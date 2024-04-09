@@ -27,7 +27,7 @@ const { populateUser } = require("../../middleware/user/sign_in/populateUser.mid
  /  ----  global middleware for company auth
 /*/
 
-router.use(authorizationHeaderValidator, validateInputs, getUserDetails, userId);
+router.use(authorizationHeaderValidator, validateInputs, getUserDetails, isAdmin, userId);
  router.use('',  companyProviderTag);
 
   /*
