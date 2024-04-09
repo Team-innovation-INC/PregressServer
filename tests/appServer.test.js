@@ -19,7 +19,7 @@ beforeAll(async () => {
         .get("/test")
         .then(response => {
           expect(response.statusCode).toBe(200);
-          expect(response.text).toBe("hello world!!");
+          expect(response).toBe("progress server health care work as expected");
           done();
         });
     });
