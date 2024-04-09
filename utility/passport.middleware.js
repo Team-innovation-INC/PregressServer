@@ -11,11 +11,9 @@ const JWT_SECRET = process.env.JWT_SECRET
 exports.getUserDetails = async (req, res, next) => {
 // ----- Get the JWT token from the request header
   const token = req.header('Authorization').replace('Bearer ', '');
-  console.log(token, "token")
   try {
     // Decode the JWT token to get the user ID
     const decoded = jwt.verify(token, JWT_SECRET);
-    console.log(decoded)
     const userId = decoded._id;
     // Find the user in the database using the ID from the token
     const user = await User.findById(userId).populate(['password', 'contact', 'role', 'info', 'company']);
@@ -26,8 +24,8 @@ exports.getUserDetails = async (req, res, next) => {
     req.user = user;
     next();
   } catch (error) {
-    console.log(error)
-    if (error.message ==="invalid signature") {
+    console.log(error, "error")
+    if (error.message ==="invalid signature" || error.message === "jwt malformed") {
       return res.status(401).send({message: "invalid token please sign in again"})
     }
     return res.status(500).send('Internal server error');

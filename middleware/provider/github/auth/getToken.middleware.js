@@ -25,14 +25,19 @@ exports.getAccessGithub = async (req, res, next) => {
         }
       }
     );
-    console.log(response.data, "response")
     /** Store the access token in the request object */
     req.accessToken = response.data.access_token;
+    const userResponse = await axios.get('https://api.github.com/user', {
+      headers: {
+        Authorization: `token ${response.data.access_token}`
+      }
+    });
+  
+    const userData = userResponse.data;
+    req.email = userData.email
     /** Proceed to the next middleware */
     next();
   } catch (error) {
-    console.log(error, "error")
-
     /** If an error occurs, send a 403 Forbidden response */
     return res.status(403).send({ message: "Not authorized to get access. Please validate and try again." });
   }

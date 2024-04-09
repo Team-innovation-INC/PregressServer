@@ -9,19 +9,24 @@ const Company = require("../../../../model/company/Company.model");
  * @returns {void} - No return value.
  */
 exports.updateCompanyProviderList = async (req, res, next) => {
-  const {providerId} = req.providerId
+  const {providerId, accessToken, company} = req
   try {
-    const companyId = req.user?.companyId;
-    console.log(req.user, "test")
     /** Find the company document by ID and update the provider list */ 
-    await Company.findByIdAndUpdate(companyId, {
-      $push: { 
-        provider: { 
-          name: 'GitHub',
-          id: providerId
-        } 
-      }
-    });
+    const companyInfo = await Company.findById(company);
+    console.log(company, companyInfo)
+      await Company.findByIdAndUpdate(
+        company._id,
+        {
+          $push: {
+            provider: {
+              name: 'GitHub',
+              providerId: providerId,
+              token: accessToken
+            },
+          },
+        },
+        {new: false}
+      );   
     /** Proceed to the next middleware */
     next();
   } catch (error) {

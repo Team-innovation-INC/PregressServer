@@ -56,7 +56,8 @@ app.use(cors(corsOptions));
 // ------- router for test
 app.get("/test", async(req,res) => {
   // #swagger.tags = ['server- test']
-  return res.send("hello world!!")
+  // #swagger.security = []
+  res.send("progress server health care work as expected")
 })
 // ------- router for client route
 const ClientRoutes = require("./routes/users/user.routes");
@@ -70,9 +71,13 @@ app.use("/api/auth", AuthRoutes);
 const AuthCompanyRoutes = require("./routes/Company/CompanyAuth.routes")
 app.use("/api/company/", AuthCompanyRoutes)
 
-// ------- router for company providers route
-const CompanyManagementRoutes = require("./routes/Company/CompanyManagement.routes")
-app.use("/api/provider", CompanyManagementRoutes)
+// ------- router for access company app route
+const AccessAppRoutes = require("./routes/Company/CompanyManagement.routes")
+app.use("/api/provider", AccessAppRoutes)
+
+// ------- router for providers route
+const ProviderRoutes = require("./routes/provider/github.routes")
+app.use("/api/connection/provider", ProviderRoutes)
 
 // ------- router for client route
 const swagger = require("./swagger/swagger")

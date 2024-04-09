@@ -67,11 +67,15 @@ const CompanySchema = new mongoose.Schema({
    * @ref {string} "Providers"
    * @required
    */
-  id: {
+  providerId: {
     type: Schema.Types.ObjectId,
     ref: "Providers",
     required: true
-  }
+  },
+  token : {
+    type: String,
+    required: true
+  },
 }]
 
 });

@@ -9,8 +9,16 @@ const redirectToURL = (req, res) => {
     const redirectURL = process.env.REDIRECT_URL
   try {
     // Redirect to the specified URL
-    res.redirect(redirectURL);
+    return res.redirect(redirectURL);
+
   } catch (error) {
+    if (error.code === 11000) {
+      return res.status(400).send({
+        message: `${Object.keys(error.keyPattern)[0]}.exist`,
+        status: 400,
+        success: false
+      });
+    }
     // If an error occurs, send a 500 Internal Server Error response
     res.status(500).send("Internal Server Error");
   }
