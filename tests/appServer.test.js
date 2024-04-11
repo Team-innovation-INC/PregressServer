@@ -1,16 +1,16 @@
 const request = require("supertest");
 const {connect, disconnect} = require("./config/connectDB")
 const app = require("../index")
-let server; // Define a variable to hold the server instance
+let server;
 
 beforeAll(async () => {
     await connect();
-    server = app.listen(5000); // Start the server and store the server instance
+    server = app.listen(5000);
   });
 
   afterAll(async () => {
     await disconnect();
-    server.close(); // Stop the server after all tests have run
+    server.close();
   });
   
   describe("Test the root path", () => {
