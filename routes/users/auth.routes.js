@@ -36,12 +36,19 @@ const { signUpInputs } = require("../../validation/validator/auth-user/sign-upIn
 
 // ----- swagger auth descriptions
 const { tagNameUserAuth } = require("../../swagger/middleware/user/auth/Auth_user.swagger.tag");
-const { signupSwagger, signingSwagger, activateAccountSwagger, authTestSwagger } = require("../../swagger/middleware/user/auth/auth_user_description.swagger");
+const { signupSwagger, signingSwagger, activateAccountSwagger, authTestSwagger, requestResetPasswordSwagger, resetUserPasswordSwagger, fetchGoogleUserInfoSwagger, accessGoogleAuthSwagger, resetPasswordPageSwagger } = require("../../swagger/middleware/user/auth/auth_user_description.swagger");
 const { resetInputs, resetPasswordInputs } = require("../../validation/validator/auth-user/resetPasswordInputs");
 const { CheckEmailSent } = require("../../middleware/user/reset_password/EmailsSents.middleware");
 const { resetPasswordFile } = require("../../controller/user/auth/resetPasswordFile.controller");
 const { finderByEmail } = require("../../middleware/user/reset_password/FindUserByEmail.middleware");
 const resetPasswordValidation = require("../../controller/user/auth/resetPasswordValidation.controller");
+
+const { OAuth2Client } = require('google-auth-library');
+const { handleAuthorizationCode } = require("../../middleware/provider/google/authCode.middleware");
+const { handleGoogleSignIn } = require("../../middleware/provider/google/googleSignIn.middleware");
+const { fetchGoogleUserInfo } = require("../../middleware/provider/google/googleUserInfo.middleware");
+const handleGoogleAuth = require("../../controller/user/provider/accessGoogle.controller");
+const { generateGoogleAuthUrl } = require("../../middleware/provider/google/googleAccess.middleware");
 
 router.use('',  tagNameUserAuth)
 
@@ -68,13 +75,18 @@ router.post( "/sign-in", signingSwagger, signInInputs, validateInputs, checkEmai
   /*
  /  ----  reset password route auth (resent password -- send email)
 /*/
-router.post("/reset-password" ,resetInputs , validateInputs, checkUserExist, CheckEmailSent, createToken, resetPassword );
+router.post("/reset-password", requestResetPasswordSwagger,resetInputs , validateInputs, checkUserExist, CheckEmailSent, createToken, resetPassword );
 
   /*
  /  ----  update password route auth (resent password using sent email)
 /*/
-router.get("/reset-password/" , resetPasswordFile)
+router.get("/reset-password/" , resetPasswordPageSwagger, resetPasswordFile)
 
-router.post("/reset-password-validation/", resetPasswordInputs, validateInputs, finderByEmail , resetPasswordValidation)
+router.post("/reset-password-validation/", resetUserPasswordSwagger, resetPasswordInputs, validateInputs, finderByEmail , resetPasswordValidation)
+
+// Route for accessing the popup to initiate Google connection
+router.get('/sign-in/google', accessGoogleAuthSwagger, generateGoogleAuthUrl, handleGoogleAuth);
+
+router.get('/sign-in/google/redirect', fetchGoogleUserInfoSwagger, handleAuthorizationCode, handleGoogleSignIn, fetchGoogleUserInfo, checkEmail, populateUser, login);
 
 module.exports = router;

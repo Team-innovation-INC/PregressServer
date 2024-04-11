@@ -13,14 +13,19 @@ const JWT_SECRET = process.env.JWT_SECRET
 const login =  async (req, res) => {
 // ----- get using information from request
   const {password} = req.body
+  const providerToken = req.token
   const user = req.user 
   try {
-// ----- validate password using bcrypt
+
+    if (!providerToken) {
+      // ----- validate password using bcrypt
     const isPasswordValid = await bcrypt.compare(password, user.password.password);
-// ----- case password not much send failed response
-    if (!isPasswordValid) {
-      return res.status(400).send({ message: 'Invalid email or password' });
+    // ----- case password not much send failed response
+        if (!isPasswordValid) {
+          return res.status(400).send({ message: 'Invalid email or password' });
+        }
     }
+
 // ----- generate authentication JWT for user 
     const token = jwt.sign({ _id: user._id }, JWT_SECRET);
 // ----- response accepted for user
