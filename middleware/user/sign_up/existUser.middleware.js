@@ -9,7 +9,7 @@ const Token = require("../../../model/Utility/Token.model")
 
 exports.existUser = async (req, res, next) => {
 // ----- get using information from request
-  const {email} = req.body
+  const email = req.body.email.toLowerCase()
 
   try {
 // ----- find user status

@@ -12,7 +12,7 @@ exports.createContact = async (req, res, next) => {
   try {
 // ----- create new model
     const contact = new userContact({
-      userName, fullName, email
+      userName, fullName, email: email.toLowerCase()
     })
 // ----- save new model
     await contact.save()

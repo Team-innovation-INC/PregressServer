@@ -21,3 +21,41 @@ exports.activateAccountSwagger = (req, res, next) => {
   // #swagger.description = 'this route is created activate email for a user that been opened with his email'
   next()
 }
+
+exports.resetUserPasswordSwagger = (req, res, next) => {
+  /* 
+    #swagger.summary = 'Reset User Password'
+    #swagger.description = 'This route is used to reset the password for a user.'
+    #swagger.parameters['body'] = {
+      in: 'body',
+      required: true,
+      description: 'User password',
+      schema: { $ref: "#/definitions/UserPassword" }
+    }
+  */
+  next()
+}
+
+exports.requestResetPasswordSwagger = (req, res, next) => {
+  // #swagger.summary = 'Request Password Reset'
+  // #swagger.description = 'This route is used to request a password reset for a user.'
+  next()
+}
+
+exports.resetPasswordPageSwagger = (req, res, next) => {
+  // #swagger.summary = 'Page Password Reset'
+  // #swagger.description = 'This route is used to show the reset password page'
+  next()
+}
+
+exports.accessGoogleAuthSwagger = (req, res, next) => {
+  // #swagger.summary = 'activate auth for user'
+  // #swagger.description = 'this route is created activate email for a user that been opened with his email'
+  next()
+}
+
+exports.fetchGoogleUserInfoSwagger = (req, res, next) => {
+  // #swagger.summary = 'activate auth for user'
+  // #swagger.description = 'this route is created activate email for a user that been opened with his email'
+  next()
+}
