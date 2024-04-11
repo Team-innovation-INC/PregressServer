@@ -1,5 +1,14 @@
 # ignore node_modules directory
 node_modules/
 
+# igonre script modules 
+scripts/
+
 # ignore .env file
 .env
+
+# ignore .vscode directory
+.vscode/
+
+# igone package-lock.json file
+package-lock.json

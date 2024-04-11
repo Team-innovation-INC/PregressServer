@@ -1,54 +1,105 @@
-// require const for this file:
+        //                                              //
+       ///      middleware global for all routes      ///
+      //                                              //
+
+// ---- express package import
 const express = require("express");
+const dotenv = require("dotenv")
+dotenv.config()
+// ---- app extract from express
 const app = express();
+
+// ---- json method execute as global middleware
+app.use(express.json());
+
+   /* /
+  / ----- Parser middleware
+ / */
+
+// ---- parser packages import
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
-const port = 5000;
 
-////////////////////////////////////////////////////
-//////////middleware global for all routes//////////
-////////////////////////////////////////////////////
-
-// jason middleware for json
-app.use(express.json());
+// ---- bodyParser applicator as middleware
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
-app.use(cookieParser());
-// middelwares cors
-const cors = require("cors");
-var corsOptions = {
-  origin:  ["http://localhost:3000", "http://localhost:5000", '*'],
-  credentials: true,
-  optionsSuccessStatus: 200,
-};
 
+// ---- cookieParser applicator as middleware
+app.use(cookieParser());
+
+   /* /
+  / ----- Cors middleware
+ / */
+
+// ---- cors package import
+const cors = require("cors");
+
+// ---- cors options
+let corsOptions = {
+  origin: true
+}
+
+// ---- core applicator as middleware
 app.use(cors(corsOptions));
 
-// connect to dataBase
-const connectdb = require("./config/mongoDB_connect");
-connectdb();
+        //                    //
+       ///      ROUTES      ///
+      //                    //
 
-///////////////////////////////////////////////////
-/////////////////////ROUTES////////////////////////
-///////////////////////////////////////////////////
+   /* /
+  / -----ROUTES API
+ / */
 
-// Test router
-app.get("/test", (req, res) => {
-  res.status(200).send("test ritual growth page");
-});
-app.post("/test", (req, res) => {
-  
-  res.status(200).send(req.body);
-});
-
-// router for client routes
-const ClientRoutes = require("./routes/user.routes");
+// ------- router for test
+app.get("/test", async(req,res) => {
+  // #swagger.tags = ['server- test']
+  // #swagger.security = []
+  res.send("progress server health care work as expected")
+})
+// ------- router for client route
+const ClientRoutes = require("./routes/users/user.routes");
 app.use("/api/client", ClientRoutes);
 
-//server connect
-app.listen(port || 5000, (err) =>
-  err ? console.log(err) : console.log(`server listening on port ${port}!`)
-);
+// ------- router for client route
+const AuthRoutes = require("./routes/users/auth.routes");
+app.use("/api/auth", AuthRoutes);
+
+// ------- router for company route
+const AuthCompanyRoutes = require("./routes/Company/CompanyAuth.routes")
+app.use("/api/company/", AuthCompanyRoutes)
+
+// ------- router for access company app route
+const AccessAppRoutes = require("./routes/Company/CompanyManagement.routes")
+app.use("/api/provider", AccessAppRoutes)
+
+// ------- router for providers route
+const ProviderRoutes = require("./routes/provider/github.routes")
+app.use("/api/connection/provider", ProviderRoutes)
+
+// ------- router for client route
+const swagger = require("./swagger/swagger")
+app.use("/swagger", swagger);
+
+// ------- router for messages route
+// const EmailsRoutes = require("./routes/email/emailReport.routes");
+// app.use("/api/email", EmailsRoutes)
+
+        //                       //
+       ///      Data base      ///
+      //                       //
+
+   /* /
+  / ----- connect to database
+ / */
+
+
+        //                            //
+       ///      Connect server      ///
+      //                            //
+
+
+
+module.exports = app

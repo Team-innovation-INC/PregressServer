@@ -1,0 +1,2113 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "termsOfService": "https://github.com/Team-innovation-INC/PregressServer.git",
+    "version": "1.0.0",
+    "title": "progress_app",
+    "description": "node server for progress app application",
+    "contact": {
+      "name": "Raed Rdhaounia",
+      "email": "raedrdhaounia@gmail.com",
+      "url": "https://raedrdhaounia.netlify.app/"
+    },
+    "license": {
+      "name": "ISC",
+      "url": "https://github.com/Team-innovation-INC/demo_Progress/blob/main/LICENSE"
+    }
+  },
+  "servers": [
+    {
+      "url": "http://{host}:{port}/",
+      "description": "local server for development",
+      "variables": {
+        "host": {
+          "default": "localhost",
+          "description": "this value is assigned by the service provider, in this example `localhost:5000`"
+        },
+        "port": {
+          "enum": [
+            5000,
+            3000
+          ],
+          "default": 5000
+        }
+      }
+    },
+    {
+      "url": "https://progress-application.onrender.com/",
+      "description": "deployed server for the app "
+    },
+    {
+      "url": "https://progress-develop-server.onrender.com/",
+      "description": "developer server for test"
+    }
+  ],
+  "basePath": "",
+  "paths": {
+    "/test": {
+      "get": {
+        "tags": [
+          "server- test"
+        ],
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/client/test": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "test router active user path",
+        "description": "this route is for testing the active user tag routes have no use for the app just for testing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/client/current-information": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "get active user details path",
+        "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/client/update-info": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "update active user profile path",
+        "description": "this route is created to update user profile information such as age, picture, biography, gender, status, localization, language, timezone and currency ...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "info": {
+                    "example": "any"
+                  },
+                  "localization": {
+                    "example": "any"
+                  },
+                  "firstName": {
+                    "example": "any"
+                  },
+                  "lastName": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/update-contact": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "active user update contact",
+        "description": "this route is created for active user so they can directly update contact information such as email, full name, username and phone number",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fullName": {
+                    "example": "any"
+                  },
+                  "userName": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/update-password": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "active user update password",
+        "description": "this route is created for active user so they can directly update password using old and new password at this route",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "currentPassword": {
+                    "example": "any"
+                  },
+                  "newPassword": {
+                    "example": "any"
+                  },
+                  "confirmPassword": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/role": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "get active user details path",
+        "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/auth/test": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "test router for the the test path",
+        "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/sign-up": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "sign-up auth for user register",
+        "description": "this route is created to send activate email for new users registration",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "userName": {
+                    "example": "any"
+                  },
+                  "fullName": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/activate-account": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "activate auth for user",
+        "description": "this route is created activate email for a user that been opened with his email",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/sign-in": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "sign-in auth for user log in",
+        "description": "this route is created validate the sign in of a user using email and password then resend the token key as response with some information needs at the home page",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "Request Password Reset",
+        "description": "This route is used to request a password reset for a user.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/reset-password/": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "Page Password Reset",
+        "description": "This route is used to show the reset password page",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/reset-password-validation/": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "Reset User Password",
+        "description": "This route is used to reset the password for a user.",
+        "parameters": [
+          {
+            "name": "referer",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/auth/sign-in/google": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "activate auth for user",
+        "description": "this route is created activate email for a user that been opened with his email",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "403": {
+            "description": "Forbidden"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/auth/sign-in/google/redirect": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
+        "summary": "activate auth for user",
+        "description": "this route is created activate email for a user that been opened with his email",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": []
+      }
+    },
+    "/api/company/test": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "test router for the the test path",
+        "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/create": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyName": {
+                    "example": "any"
+                  },
+                  "companyWebSite": {
+                    "example": "any"
+                  },
+                  "bio": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/company/activate": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "referer",
+            "in": "header",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/join": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "companyId": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/company/list": {
+      "get": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/delete": {
+      "delete": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/company/invite": {
+      "post": {
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
+        "summary": "summary for the company route...",
+        "description": "description for the company route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/provider/test": {
+      "get": {
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
+        "summary": "test router for the the company provider integration path",
+        "description": "this route is for testing the provider management tag routes have no use for the app just for testing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/provider/access/github": {
+      "get": {
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
+        "summary": "summary for the company providers integration route...",
+        "description": "this is used for the providers managements tasks for the providers uses at the app",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/provider/list": {
+      "get": {
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
+        "summary": "summary for the company providers integration route...",
+        "description": "this is used for the providers managements tasks for the providers uses at the app",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/api/connection/provider/auth/github": {
+      "get": {
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
+        "summary": "summary for the company providers integration route...",
+        "description": "this is used for the providers managements tasks for the providers uses at the app",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "403": {
+            "description": "Forbidden"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/swagger/docs.json/": {
+      "post": {
+        "tags": [
+          "-- SWAGGER --"
+        ],
+        "summary": "summary for route...",
+        "description": "description for route...",
+        "produces": [
+          "application/octet-stream"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "security": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "admin": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/swagger/auth": {
+      "get": {
+        "tags": [
+          "-- SWAGGER --"
+        ],
+        "summary": "summary for route...",
+        "description": "description for route...",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        },
+        "security": []
+      }
+    },
+    "/swagger/documentation-auth": {
+      "post": {
+        "tags": [
+          "-- SWAGGER --"
+        ],
+        "summary": "summary for route...",
+        "description": "description for route...",
+        "parameters": [],
+        "responses": {},
+        "security": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "example": "any"
+                  },
+                  "password": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "user": {
+        "type": "object",
+        "properties": {
+          "User": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "address": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523e7"
+                  },
+                  "blocked": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "boolean",
+                        "example": false
+                      }
+                    }
+                  },
+                  "contact": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523e8"
+                  },
+                  "company": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523e9"
+                  },
+                  "context": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523ea"
+                  },
+                  "creation_date": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-04-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "info": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523eb"
+                  },
+                  "password": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "Password123"
+                      }
+                    }
+                  },
+                  "role": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523ec"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523ed"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Password": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "Password123"
+                      }
+                    }
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523ee"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Role": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "roleName": {
+                    "type": "object",
+                    "properties": {
+                      "Enumerator": {
+                        "type": "array",
+                        "example": [
+                          "super-admin",
+                          "admin",
+                          "moderator",
+                          "user"
+                        ],
+                        "items": {
+                          "type": "string"
+                        }
+                      },
+                      "default": {
+                        "type": "string",
+                        "example": "user"
+                      }
+                    }
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523ef"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "UserAddress": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "city": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f0"
+                  },
+                  "country": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f1"
+                  },
+                  "Street": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f2"
+                  },
+                  "codeZip": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f3"
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523f4"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "UserContact": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "jhon123@domain.com"
+                      }
+                    }
+                  },
+                  "fullName": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "John Smith"
+                      }
+                    }
+                  },
+                  "userName": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "John123"
+                      }
+                    }
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523f5"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "UserContext": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "followers": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f6"
+                  },
+                  "ratings": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f7"
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523f8"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "UserInfo": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "gender": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "boolean",
+                        "example": false
+                      }
+                    }
+                  },
+                  "age": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 23
+                      }
+                    }
+                  },
+                  "bio": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "this and type : example of the biography of a user"
+                      }
+                    }
+                  },
+                  "pic": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
+                      }
+                    }
+                  },
+                  "language": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523f9"
+                  },
+                  "last_update": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "2023-05-17T00:05:29.527+00:00"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523fa"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "company": {
+        "type": "object",
+        "properties": {
+          "Company": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "companyInfo": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523fb"
+                  },
+                  "verify": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523fc"
+                  },
+                  "companyMembers": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523fd"
+                  },
+                  "provider": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a8523fe"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a8523ff"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CompanyInfo": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "companyName": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852400"
+                  },
+                  "companyWebSite": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852401"
+                  },
+                  "creationDate": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852402"
+                  },
+                  "bio": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "this and type : example of the biography of a user"
+                      }
+                    }
+                  },
+                  "pic": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
+                      }
+                    }
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852403"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "CompanyMembers": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "admin": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852404"
+                  },
+                  "users": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852405"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852406"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "task": {
+        "type": "object",
+        "properties": {
+          "TaskStatus": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "currentStatus": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852407"
+                  },
+                  "harder": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852408"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852409"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "task": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "Details": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85240a"
+                  },
+                  "Creator": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85240b"
+                  },
+                  "Assigned": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85240c"
+                  },
+                  "Status": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85240d"
+                  },
+                  "read": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85240e"
+                  },
+                  "Integration": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85240f"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852410"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "TaskIntegration": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "provider": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852411"
+                  },
+                  "repository": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852412"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852413"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "TaskInfo": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852414"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852415"
+                  },
+                  "Links": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852416"
+                  },
+                  "label": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852417"
+                  },
+                  "imageUrls": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852418"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852419"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "email": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "info": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85241a"
+                  },
+                  "from": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85241b"
+                  },
+                  "to": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85241c"
+                  },
+                  "seen": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85241d"
+                  },
+                  "date": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85241e"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a85241f"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "EmailInfo": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852420"
+                  },
+                  "body": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852421"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852422"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "messages": {
+        "type": "object",
+        "properties": {
+          "SingleConversation": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852423"
+                  },
+                  "members": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852424"
+                  },
+                  "messages": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852425"
+                  },
+                  "date": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852426"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852427"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "GlobalConversation": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "company": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852428"
+                  },
+                  "date": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852429"
+                  },
+                  "messages": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85242a"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a85242b"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "Message": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "text": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85242c"
+                  },
+                  "sender": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85242d"
+                  },
+                  "createdAt": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a85242e"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a85242f"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "notification": {
+        "type": "object",
+        "properties": {
+          "Notification": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "itemInfo": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852430"
+                  },
+                  "refModel": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852431"
+                  },
+                  "sender": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852432"
+                  },
+                  "receiver": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852433"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852434"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "NotificationInfo": {
+            "type": "object",
+            "properties": {
+              "fields": {
+                "type": "object",
+                "properties": {
+                  "title": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852435"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852436"
+                  },
+                  "images": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852437"
+                  },
+                  "urls": {
+                    "type": "string",
+                    "example": "66174766dd5a8a367a852438"
+                  },
+                  "_id": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "string",
+                        "example": "66174766dd5a8a367a852439"
+                      }
+                    }
+                  },
+                  "__v": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "example": 0
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "apis": [
+    "./models/User.js",
+    "./models/Password.js",
+    "./models/Role.js",
+    "./models/UserAddress.js",
+    "./models/UserContact.js",
+    "./models/UserContext.js",
+    "./models/UserInfo.js",
+    "./models/Company.js",
+    "./models/CompanyInfo.js",
+    "./models/CompanyMembers.js",
+    "./models/TaskStatus.js",
+    "./models/task.js",
+    "./models/TaskIntegration.js",
+    "./models/TaskInfo.js",
+    "./models/email.js",
+    "./models/EmailInfo.js",
+    "./models/SingleConversation.js",
+    "./models/GlobalConversation.js",
+    "./models/Message.js",
+    "./models/Notification.js",
+    "./models/NotificationInfo.js"
+  ],
+  "security": [
+    {
+      "bearerAuth": []
+    }
+  ]
+}
