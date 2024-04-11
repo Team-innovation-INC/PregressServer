@@ -54,7 +54,7 @@
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.8.2",
-    "nodemailer": "^6.8.0",
+    "nodemailer": "^6.9.9",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
     "pino": "^8.11.0",
