@@ -4,7 +4,7 @@ services:
       - key: NODE_ENV
         value: production
       - key: PORT
-        value: 3000
+        value: 5000
     buildCommand: npm install
     startCommand: npm run swagger
     github:
