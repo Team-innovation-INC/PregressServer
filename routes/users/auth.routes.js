@@ -35,7 +35,8 @@ const { signInInputs } = require("../../validation/validator/auth-user/sign-InIn
 const { signUpInputs } = require("../../validation/validator/auth-user/sign-upInputs");
 
 // ----- swagger auth descriptions
-const { tagNameUserAuth } = require("../../swagger/middleware/user/auth/Auth_user.swagger.tag");
+const { tagNameUserAuth } = require("../../utility/node-mailer/EmailsTemplates/Auth_user.swagger.tag");
+
 const { signupSwagger, signingSwagger, activateAccountSwagger, authTestSwagger, requestResetPasswordSwagger, resetUserPasswordSwagger, fetchGoogleUserInfoSwagger, accessGoogleAuthSwagger, resetPasswordPageSwagger } = require("../../swagger/middleware/user/auth/auth_user_description.swagger");
 const { resetInputs, resetPasswordInputs } = require("../../validation/validator/auth-user/resetPasswordInputs");
 const { CheckEmailSent } = require("../../middleware/user/reset_password/EmailsSents.middleware");
@@ -43,7 +44,6 @@ const { resetPasswordFile } = require("../../controller/user/auth/resetPasswordF
 const { finderByEmail } = require("../../middleware/user/reset_password/FindUserByEmail.middleware");
 const resetPasswordValidation = require("../../controller/user/auth/resetPasswordValidation.controller");
 
-const { OAuth2Client } = require('google-auth-library');
 const { handleAuthorizationCode } = require("../../middleware/provider/google/authCode.middleware");
 const { handleGoogleSignIn } = require("../../middleware/provider/google/googleSignIn.middleware");
 const { fetchGoogleUserInfo } = require("../../middleware/provider/google/googleUserInfo.middleware");
