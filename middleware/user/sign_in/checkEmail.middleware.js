@@ -8,7 +8,7 @@ const User         = require("../../../model/user/Users.model"       );
 
 exports.checkEmail = async (req, res, next) => {
 // ----- get using information from request
-  const {email} = req.body
+  const email = req.email || req.body.email
   try {
 // ----- find user contact exist
     const contact = await UserContact.findOne({ email });
@@ -27,7 +27,6 @@ exports.checkEmail = async (req, res, next) => {
 // ----- pass to next middleware
     next();
   } catch (error) {
-    console.log(error, "errro")
     return res.status(500).send('Internal server error');
   }
 };

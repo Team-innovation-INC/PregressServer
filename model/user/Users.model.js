@@ -48,6 +48,10 @@ const userSchema = new Schema({
     ref: 'Role',
     required: true,
   },
+  providers: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Provider'
+  }]
 });
 
 userSchema.methods.generateAuthToken = function () {

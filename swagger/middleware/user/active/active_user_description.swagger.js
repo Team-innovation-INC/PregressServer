@@ -1,5 +1,5 @@
 exports.testSwagger = (req, res, next) => {
-  // #swagger.summary = 'test router path'
+  // #swagger.summary = 'test router active user path'
   // #swagger.description = 'this route is for testing the active user tag routes have no use for the app just for testing.'
   next()
 }

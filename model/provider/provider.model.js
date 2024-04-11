@@ -16,7 +16,7 @@ const { Schema, model } = mongoose;
  * @name providersTypes
  * @return {string[]}
  */
-const providersTypes = ['GitHub', 'Jira', 'Mega'];
+const providersTypes = ['GitHub', 'Jira', 'Mega, Gmail'];
 
 /**
  * Schema definition for Provider.
