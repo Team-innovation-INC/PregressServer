@@ -1,0 +1,11 @@
+services:
+  - name: express-server
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+    buildCommand: npm install
+    startCommand: npm run swagger
+    github:
+      branch: master
