@@ -10,6 +10,7 @@
  */
 
 const mongoose = require('mongoose');
+
 const { Schema, model } = mongoose;
 
 /**
@@ -25,8 +26,8 @@ const TaskSchema = new Schema({
    */
   Details: {
     type: Schema.Types.ObjectId,
-    ref: "TaskInfo",
-    required: true
+    ref: 'TaskInfo',
+    required: true,
   },
   /**
    * The user ID of the creator of the task.
@@ -37,7 +38,7 @@ const TaskSchema = new Schema({
   Creator: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    required: true,
   },
   /**
    * The user ID of the user to whom the task is assigned.
@@ -48,7 +49,7 @@ const TaskSchema = new Schema({
   Assigned: {
     type: Schema.Types.ObjectId,
     ref: 'users',
-    required: true
+    required: true,
   },
   /**
    * The status of the task.
@@ -57,7 +58,7 @@ const TaskSchema = new Schema({
    */
   Status: {
     type: Schema.Types.ObjectId,
-    ref: 'TaskStatus'
+    ref: 'TaskStatus',
   },
   /**
    * Indicates whether the task has been read.
@@ -68,7 +69,7 @@ const TaskSchema = new Schema({
   read: {
     type: Boolean,
     required: true,
-    default: false
+    default: false,
   },
   /**
    * The integration associated with the task.
@@ -77,7 +78,7 @@ const TaskSchema = new Schema({
    */
   Integration: {
     type: Schema.Types.ObjectId,
-    ref: 'TaskIntegration'
+    ref: 'TaskIntegration',
   },
 });
 

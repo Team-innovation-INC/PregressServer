@@ -9,14 +9,12 @@
  */
 
 const mongoose = require('mongoose');
-const { Schema, model } = mongoose;
+const {
+  providersCategory,
+  providersTypes,
+} = require('../../constant/types.schema');
 
-/**
- * @description Array containing types of providers
- * @name providersTypes
- * @return {string[]}
- */
-const providersTypes = ['GitHub', 'Jira', 'Mega, Gmail'];
+const { Schema, model } = mongoose;
 
 /**
  * Schema definition for Provider.
@@ -30,15 +28,23 @@ const ProviderSchema = new Schema({
    */
   name: {
     type: String,
-    required: true
+    required: true,
   },
-    /**
+  /**
+   * The type of the provider (e.g., GitHub, Jira, Mega).
+   * @type {string}
+   */
+  category: {
+    type: String,
+    enum: providersCategory,
+  },
+  /**
    * The type of the provider (e.g., GitHub, Jira, Mega).
    * @type {string}
    */
   type: {
     type: String,
-    enum: providersTypes
+    enum: providersTypes,
   },
   /**
    * The ID of the provider in the application.
@@ -47,7 +53,7 @@ const ProviderSchema = new Schema({
    */
   providerId: {
     type: String,
-    required: true
+    required: true,
   },
   /**
    * The access token associated with the provider.
@@ -57,8 +63,7 @@ const ProviderSchema = new Schema({
    */
   token: {
     type: String,
-    unique: true
-
+    unique: true,
   },
   /**
    * The ID of the company associated with the provider.

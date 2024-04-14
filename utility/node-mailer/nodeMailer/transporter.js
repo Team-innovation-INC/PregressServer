@@ -1,16 +1,15 @@
 const nodemailer = require('nodemailer');
 
-async function Transporter(){
-  const EMAIL_ADDRESS  = process.env.EMAIL_ADDRESS
-  const EMAIL_PASSWORD = process.env.EMAIL_PASSWORD
-  const transporter = nodemailer.createTransport({
-    service: "hotmail",
+async function Transporter() {
+  const { EMAIL_ADDRESS } = process.env;
+  const { EMAIL_PASSWORD } = process.env;
+  return nodemailer.createTransport({
+    service: 'hotmail',
     auth: {
       user: EMAIL_ADDRESS,
-      pass: EMAIL_PASSWORD
-    }
+      pass: EMAIL_PASSWORD,
+    },
   });
-  return transporter
 }
 
 module.exports = Transporter;

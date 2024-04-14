@@ -18,6 +18,8 @@ exports.isAdmin = (req, res, next) => {
     /**
      * User is not an admin, send 403 Forbidden status
      */
-    res.status(403).send( {message : "not authorized to get manage the company providers"} );
+    res
+      .status(403)
+      .send({ message: 'not authorized to get manage the company providers' });
   }
 };

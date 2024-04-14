@@ -6,6 +6,7 @@
  */
 
 const mongoose = require('mongoose');
+
 const { Schema, model } = mongoose;
 
 /**
@@ -24,7 +25,7 @@ const CompanyMembersSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users',
     required: true,
-    unique: true
+    unique: true,
   },
   /**
    * An array of user IDs representing members of the company.
@@ -36,7 +37,7 @@ const CompanyMembersSchema = new Schema({
     type: [mongoose.Schema.Types.ObjectId],
     ref: 'users',
     unique: true,
-  }
+  },
 });
 
 /**

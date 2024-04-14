@@ -6,6 +6,7 @@
  */
 
 const mongoose = require('mongoose');
+
 const { Schema, model } = mongoose;
 
 /**
@@ -23,17 +24,17 @@ const TaskIntegrationSchema = new Schema({
   provider: {
     type: String,
     required: true,
-    enum: ["gitHub", "bitbucket"],
-    default: "gitHub"
+    enum: ['gitHub', 'bitbucket'],
+    default: 'gitHub',
   },
   /**
    * The repository associated with the task integration.
    * @type {string}
    * @required
    */
-  repository:  {
+  repository: {
     type: String,
-    required: true
+    required: true,
   },
 });
 

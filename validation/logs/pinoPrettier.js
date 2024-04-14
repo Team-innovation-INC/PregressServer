@@ -1,6 +1,5 @@
 exports.prettierCostum = {
-  colorize: colorette.isColorSupported, // --colorize
-  colorizeObjects: true, //--colorizeObjects
+  colorizeObjects: true, // --colorizeObjects
   crlf: true, // --crlf
   errorLikeObjectKeys: ['err', 'error'], // --errorLikeObjectKeys
   errorProps: '', // --errorProps
@@ -31,5 +30,5 @@ exports.prettierCostum = {
   append: true, // the file is opened with the 'a' flag
   mkdir: true, // create the target destination
 
-  customPrettifiers: {}
-  }
+  customPrettifiers: {},
+};

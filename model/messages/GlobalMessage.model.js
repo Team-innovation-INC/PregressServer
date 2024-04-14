@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 // Create Schema for Users
 const GlobalMessageSchema = new Schema({
   company: {
     type: [Schema.Types.ObjectId],
-    ref: "Company"
+    ref: 'Company',
   },
   date: {
     type: Date,
@@ -13,8 +14,10 @@ const GlobalMessageSchema = new Schema({
   },
   messages: {
     type: [Schema.Types.ObjectId],
-    ref: "Messages"
-  }
+    ref: 'Messages',
+  },
 });
 
-module.exports = GlobalMessage = mongoose.model( 'GlobalConversation', GlobalMessageSchema);
+const GlobalMessage = mongoose.model('GlobalConversation', GlobalMessageSchema);
+
+module.exports = GlobalMessage;

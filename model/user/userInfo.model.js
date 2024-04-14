@@ -1,25 +1,27 @@
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
+
+const { Schema, model } = mongoose;
 const userInfoSchema = new Schema({
-  gender : {
-    type: Boolean
+  gender: {
+    type: Boolean,
   },
-  age:{
-    type : Number,
+  age: {
+    type: Number,
     min: 16,
-    max:60
+    max: 60,
   },
-  bio:{
-    type : String,
+  bio: {
+    type: String,
   },
-  pic:{
-    type : String,
-    default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
+  pic: {
+    type: String,
+    default:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU',
   },
   language: {
-    type : String,
-    enum: ["english", "french", "arabic"],
-    default: "english"
+    type: String,
+    enum: ['english', 'french', 'arabic'],
+    default: 'english',
   },
   last_update: {
     type: Date,
@@ -28,4 +30,4 @@ const userInfoSchema = new Schema({
 });
 
 const userInfo = model('UserInfo', userInfoSchema);
-module.exports = userInfo
+module.exports = userInfo;

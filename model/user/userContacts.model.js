@@ -1,20 +1,21 @@
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
 
-const {emailValidationRegex} = require('../../validation/regex/regex');
+const { Schema, model } = mongoose;
+
+const { emailValidationRegex } = require('../../validation/regex/regex');
 
 const userContactSchema = new Schema({
   email: {
     type: String,
     unique: true,
     required: true,
-      validate: {
-      validator: function(v) {
+    validate: {
+      validator(v) {
         return emailValidationRegex.test(v);
       },
-      message: '{VALUE} is not a valid email!'
-      },
+      message: '{VALUE} is not a valid email!',
     },
+  },
   fullName: {
     type: String,
     required: true,
@@ -31,4 +32,4 @@ const userContactSchema = new Schema({
 });
 
 const userContact = model('UserContact', userContactSchema);
-module.exports = userContact
+module.exports = userContact;

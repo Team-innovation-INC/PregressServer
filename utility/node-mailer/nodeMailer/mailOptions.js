@@ -1,13 +1,12 @@
 async function MailOptions(to, subject, text, html) {
-  const EMAIL_ADDRESS  = process.env.EMAIL_ADDRESS
-  const mailOptions = {
+  const { EMAIL_ADDRESS } = process.env;
+  return {
     from: EMAIL_ADDRESS,
     to,
     subject,
     text,
-    html
+    html,
   };
-  return mailOptions
 }
 
 module.exports = MailOptions;

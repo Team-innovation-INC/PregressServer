@@ -1,4 +1,4 @@
-const axios = require("axios");
+const axios = require('axios');
 
 /**
  * Middleware function to exchange the GitHub authorization code for an access token.
@@ -13,32 +13,34 @@ exports.getAccessGithub = async (req, res, next) => {
   try {
     /** Send a POST request to exchange the authorization code for an access token */
     const response = await axios.post(
-      `https://github.com/login/oauth/access_token`,
+      'https://github.com/login/oauth/access_token',
       {
         client_id: clientId,
         client_secret: clientSecret,
-        code: code
+        code,
       },
       {
         headers: {
-        "Accept": "application/json"
-        }
-      }
+          Accept: 'application/json',
+        },
+      },
     );
     /** Store the access token in the request object */
     req.accessToken = response.data.access_token;
     const userResponse = await axios.get('https://api.github.com/user', {
       headers: {
-        Authorization: `token ${response.data.access_token}`
-      }
+        Authorization: `token ${response.data.access_token}`,
+      },
     });
-  
+
     const userData = userResponse.data;
-    req.email = userData.email
+    req.email = userData.email;
     /** Proceed to the next middleware */
     next();
   } catch (error) {
     /** If an error occurs, send a 403 Forbidden response */
-    return res.status(403).send({ message: "Not authorized to get access. Please validate and try again." });
+    return res.status(403).send({
+      message: 'Not authorized to get access. Please validate and try again.',
+    });
   }
-}
+};
