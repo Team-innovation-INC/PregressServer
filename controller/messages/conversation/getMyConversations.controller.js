@@ -1,9 +1,11 @@
-const MessageGroup = require("../../../model/messages/Conversation.model");
+const MessageGroup = require('../../../model/messages/Conversation.model');
 
-const getMyConversations =  async (req, res) => {
-  const user = req.user
+const getMyConversations = async (req, res) => {
+  const { user } = req;
   try {
-    const my_conversation = await MessageGroup.find({ members: user.id }).select('-_id -__v').populate({
+    const myConversation = await MessageGroup.find({ members: user.id })
+      .select('-_id -__v')
+      .populate({
         path: 'members',
         select: 'userName -_id', // Exclude sensitive fields from the populated result
       })
@@ -11,10 +13,10 @@ const getMyConversations =  async (req, res) => {
         path: 'messages',
         select: '-_id -__v -sender',
       });
-    return res.send(`your conversation list have  ${my_conversation}`);
+    return res.send(`your conversation list have  ${myConversation}`);
   } catch (err) {
     return res.status(500).send('Internal server error');
   }
-  };
+};
 
 module.exports = getMyConversations;

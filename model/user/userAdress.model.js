@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
+
+const { Schema, model } = mongoose;
 
 const userAddressSchema = new Schema({
   city: {
@@ -11,7 +12,7 @@ const userAddressSchema = new Schema({
   Street: {
     type: String,
   },
-  codeZip : {
+  codeZip: {
     type: Number,
   },
   last_update: {
@@ -21,4 +22,4 @@ const userAddressSchema = new Schema({
 });
 
 const userAddress = model('UserAddress', userAddressSchema);
-module.exports = userAddress
+module.exports = userAddress;

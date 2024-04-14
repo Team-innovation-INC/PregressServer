@@ -3,5 +3,5 @@ exports.swaggerTag = (req, res, next) => {
   // #swagger.tags = ['-- SWAGGER --']
   // #swagger.summary = 'summary for route...'
   // #swagger.description = 'description for route...'
-  next()
-}
+  next();
+};

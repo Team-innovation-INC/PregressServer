@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
+
+const { Schema, model } = mongoose;
 
 const EmailInfoSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   body: {
     type: String,
-    required: true
-  }
+    required: true,
+  },
 });
 
 const EmailInfo = model('EmailInfo', EmailInfoSchema);
-module.exports = EmailInfo
+module.exports = EmailInfo;
