@@ -1,1 +1,10 @@
-exports.modelsList = [ "user", "company", "task", "email", "messages", "notification" ]
+exports.modelsList = [
+  'user',
+  'company',
+  'task',
+  'email',
+  'messages',
+  'notification',
+  'provider',
+  'Utility',
+];

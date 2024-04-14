@@ -1,22 +1,23 @@
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
+
+const { Schema, model } = mongoose;
 
 const NotificationInfoSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   description: {
     type: String,
-    required: true
+    required: true,
   },
   images: {
-    type: [String]
+    type: [String],
   },
   urls: {
-    type: [String]
-  }
+    type: [String],
+  },
 });
 
 const NotificationInfo = model('NotificationInfo', NotificationInfoSchema);
-module.exports = NotificationInfo
+module.exports = NotificationInfo;

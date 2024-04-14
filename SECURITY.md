@@ -19,15 +19,14 @@ We will respond to security vulnerability reports promptly and work diligently t
 
 Our project supports the following versions for security updates:
 
-| Version  | Supported          |
-| -------- | ------------------ |
-| 1.x.x    | :white_check_mark: |
-| 2.x.x    | :x:                |
-| < 1.0.0  | :x:                |
+| Version | Supported          |
+| ------- | ------------------ |
+| 1.x.x   | :white_check_mark: |
+| 2.x.x   | :x:                |
+| < 1.0.0 | :x:                |
 
 We strongly encourage all users to upgrade to a supported version to receive security updates and patches.
 
 ## Security Disclosure Policy
 
 For additional information about our security practices and policies, please refer to our [raedrdhaounia@gmail.com](mailto:raedrdhaounia@gmail.com).
-

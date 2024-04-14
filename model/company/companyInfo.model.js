@@ -40,10 +40,10 @@ const CompanyInfoSchema = new mongoose.Schema({
     unique: true,
     required: true,
     validate: {
-      validator: function(v) {
+      validator(v) {
         return urlValidationRegex.test(v);
       },
-      message: '{VALUE} is not a valid website!'
+      message: '{VALUE} is not a valid website!',
     },
   },
   /**
@@ -69,7 +69,8 @@ const CompanyInfoSchema = new mongoose.Schema({
    */
   pic: {
     type: String,
-    default: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU"
+    default:
+      'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAzw8Q6UOf1CL3h4y3EkHM0qCE47S_-AyxAQ&usqp=CAU',
   },
 });
 

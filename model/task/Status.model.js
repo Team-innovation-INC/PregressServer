@@ -6,6 +6,7 @@
  */
 
 const mongoose = require('mongoose');
+
 const { Schema, model } = mongoose;
 
 /**
@@ -24,8 +25,8 @@ const TaskStatusSchema = new Schema({
   currentStatus: {
     type: String,
     required: true,
-    enum: ["draft", "open", "in-progress", "done", "failed", "abandoned"],
-    default: "draft"
+    enum: ['draft', 'open', 'in-progress', 'done', 'failed', 'abandoned'],
+    default: 'draft',
   },
   /**
    * The difficulty level of the task.
@@ -39,7 +40,7 @@ const TaskStatusSchema = new Schema({
     type: String,
     required: true,
     enum: ['very-easy', 'easy', 'middle', 'hard', 'very-hard'],
-    default: "not started"
+    default: 'not started',
   },
 });
 

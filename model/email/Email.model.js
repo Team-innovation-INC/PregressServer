@@ -1,19 +1,20 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+
+const { Schema } = mongoose;
 
 // Create Schema for Users
 const EmailSchema = new Schema({
   info: {
     type: Schema.Types.ObjectId,
-    ref: 'EmailInfo'
+    ref: 'EmailInfo',
   },
   from: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
   },
   to: {
     type: Schema.Types.ObjectId,
-    ref: 'users'
+    ref: 'users',
   },
   seen: {
     type: Boolean,
@@ -21,9 +22,9 @@ const EmailSchema = new Schema({
   },
   date: {
     type: Number,
-    default: Date.now()
-  }
+    default: Date.now(),
+  },
 });
 
 const Email = mongoose.model('email', EmailSchema);
-module.exports = Email
+module.exports = Email;
