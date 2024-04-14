@@ -3,5 +3,5 @@ exports.tagNameUserAuth = (req, res, next) => {
   // #swagger.tags = ['-- AUTHENTICATION USER --']
   // #swagger.summary = 'summary for route...'
   // #swagger.description = 'description for route...'
-    next()
-}
+  next();
+};

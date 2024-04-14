@@ -1,42 +1,76 @@
-const providersTypes = ['GitHub', 'Jira', 'Mega'];
+const providersTypes = [
+  {
+    PVC: [
+      { integrationStatus: 'available', type: 'GitHub' },
+      { integrationStatus: 'soon', type: 'GitLab' },
+      { integrationStatus: 'soon', type: 'Bitbucket' },
+    ],
+  },
+  {
+    Management: [{ integrationStatus: 'soon', type: 'Jira' }],
+  },
+  {
+    cloud: [{ integrationStatus: 'available', type: 'Mega' }],
+  },
+  {
+    communication: [
+      { integrationStatus: 'available', type: 'Gmail' },
+      { integrationStatus: 'available', type: 'Google Calendar' },
+      { integrationStatus: 'available', type: 'Google Meet' },
+    ],
+  },
+];
 
 /*
 /  ---- get list of providers for a project controller
-/*/
+/ */
 
 const getListProviders = async (req, res) => {
-  const providers = req.providers;
+  const { providers } = req;
 
   try {
-    // Initialize an array to store the response data
-    const responseData = [];
+    // Initialize an object to store providers grouped by category
+    const responseData = {};
 
     // Iterate over the provider types
-    for (const providerType of providersTypes) {
-      // Check if a provider with the current type exists in the providers array
-      const existingProvider = providers.find(provider => provider.name === providerType);
+    providersTypes.forEach(providerCategory => {
+      // Get the category name
+      const categoryName = Object.keys(providerCategory)[0];
 
-      // If a provider with the current type exists, push its information to the response data
-      // Otherwise, push an object with only the type
-      if (existingProvider) {
-        responseData.push(existingProvider);
-      } else {
-        responseData.push({ type: providerType });
-      }
-    }
+      // Initialize an array to store providers of this category
+      const categoryProviders = [];
 
+      // Iterate over the provider types within this category
+      providerCategory[categoryName].forEach(providerType => {
+        // Find the provider in req.providers if it exists
+        const foundProvider = providers.find(
+          provider => provider.type === providerType.type,
+        );
+
+        // If the provider exists, add it to the categoryProviders array
+        if (foundProvider) {
+          categoryProviders.push(foundProvider);
+        } else {
+          // If not, add the providerType object as is
+          categoryProviders.push(providerType);
+        }
+      });
+
+      // Add the categoryProviders array to the responseData object
+      responseData[categoryName] = categoryProviders;
+    });
     // Send the response with the constructed data
-    return res.status(200).send({ 
-      message: "provider.list.success",
-      status: providers.length > 0 ? 200 : 404 ,
-      success: true, 
-      data: responseData
+    return res.status(200).send({
+      message: 'provider.list.success',
+      status: providers.length > 0 ? 200 : 404,
+      success: true,
+      data: responseData,
     });
   } catch (error) {
-    return res.status(400).send({ 
-      message: "provider.list.failed",
+    return res.status(400).send({
+      message: 'provider.list.failed',
       status: 500,
-      success: false
+      success: false,
     });
   }
 };

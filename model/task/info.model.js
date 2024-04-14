@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+
 const { Schema, model } = mongoose;
 
 /**
@@ -23,7 +24,7 @@ const TaskInfoSchema = new Schema({
    */
   title: {
     type: String,
-    required: true
+    required: true,
   },
   /**
    * Optional description of the task.
@@ -32,7 +33,7 @@ const TaskInfoSchema = new Schema({
    */
   description: {
     type: String,
-    maxlength: 200
+    maxlength: 200,
   },
   /**
    * Optional array of related links.
@@ -50,15 +51,8 @@ const TaskInfoSchema = new Schema({
   label: {
     type: String,
     required: true,
-    enum: [
-      'bug',
-      'enhancement',
-      'question',
-      'duplicate',
-      'invalid',
-      'wontfix'
-    ],
-    default: "not started"
+    enum: ['bug', 'enhancement', 'question', 'duplicate', 'invalid', 'wontfix'],
+    default: 'not started',
   },
   /**
    * Optional array of image URLs related to the task.

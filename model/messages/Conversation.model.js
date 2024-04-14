@@ -3,17 +3,21 @@ const mongoose = require('mongoose');
 const messageGroupSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    required: true,
   },
-  members: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
-  }],
-  messages: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Message'
-  }],
+  members: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      required: true,
+    },
+  ],
+  messages: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Message',
+    },
+  ],
   date: {
     type: Date,
     default: Date.now(),

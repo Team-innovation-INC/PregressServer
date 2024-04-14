@@ -16,6 +16,8 @@ exports.collectEnvironmentData = async (req, res, next) => {
     next();
   } catch (error) {
     /** If an error occurs, send a 403 Forbidden response */
-    return res.status(403).send({ message: "Not authorized to get access. Please validate and try again." });
+    return res.status(403).send({
+      message: 'Not authorized to get access. Please validate and try again.',
+    });
   }
-}
+};

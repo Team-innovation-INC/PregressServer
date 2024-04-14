@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
+
+const { Schema, model } = mongoose;
 
 const userContextSchema = new Schema({
   followers: {
@@ -9,7 +10,7 @@ const userContextSchema = new Schema({
   ratings: {
     type: Number,
     min: 0,
-    max: 10
+    max: 10,
   },
   last_update: {
     type: Date,
@@ -18,4 +19,4 @@ const userContextSchema = new Schema({
 });
 
 const userContext = model('UserContext', userContextSchema);
-module.exports = userContext
+module.exports = userContext;

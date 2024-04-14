@@ -1,17 +1,18 @@
 const bcrypt = require('bcryptjs');
 
 const mongoose = require('mongoose');
-const {Schema, model} = mongoose
+
+const { Schema, model } = mongoose;
 
 const passwordSchema = new Schema({
   password: {
-    type : String,
-    required: true
+    type: String,
+    required: true,
   },
   last_update: {
     type: Date,
     default: Date.now(),
-  }
+  },
 });
 
 passwordSchema.pre('save', async function (next) {
@@ -26,4 +27,4 @@ passwordSchema.pre('save', async function (next) {
 });
 
 const password = model('Password', passwordSchema);
-module.exports = password
+module.exports = password;

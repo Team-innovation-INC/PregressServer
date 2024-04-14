@@ -1,10 +1,8 @@
 const { body, header } = require('express-validator');
 
 exports.resetInputs = [
-  body('email')
-    .isEmail()
-    .withMessage('Please enter a valid email address'),
-]
+  body('email').isEmail().withMessage('Please enter a valid email address'),
+];
 
 exports.resetPasswordInputs = [
   body('password')
@@ -13,4 +11,4 @@ exports.resetPasswordInputs = [
   header('referer')
     .matches(/\?token=/)
     .withMessage('unexpected token please check reopen your email'),
-]
+];

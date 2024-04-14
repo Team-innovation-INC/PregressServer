@@ -7,6 +7,7 @@
  */
 
 const mongoose = require('mongoose');
+
 const { Schema, model } = mongoose;
 
 /**
@@ -21,7 +22,7 @@ const CompanySchema = new mongoose.Schema({
    */
   companyInfo: {
     type: Schema.Types.ObjectId,
-    ref: "CompanyInfo"
+    ref: 'CompanyInfo',
   },
   /**
    * Indicates whether the company is verified.
@@ -32,7 +33,7 @@ const CompanySchema = new mongoose.Schema({
   verify: {
     type: Boolean,
     required: true,
-    default: false
+    default: false,
   },
   /**
    * The ID referencing information about the members associated with the company.
@@ -41,7 +42,7 @@ const CompanySchema = new mongoose.Schema({
    */
   companyMembers: {
     type: Schema.Types.ObjectId,
-    ref: "CompanyMembers"
+    ref: 'CompanyMembers',
   },
   /**
    * Array of objects containing provider name and ID.
@@ -51,33 +52,34 @@ const CompanySchema = new mongoose.Schema({
    * - `name`: The name of the provider (e.g., "GitHub"). Required.
    * - `id`: The ID referencing the provider model. Required. References the "Providers" schema.
    */
-  provider: [{
-  /**
-   * The name of the provider.
-   * @type {string}
-   * @required
-   */
-  name: {
-    type: String,
-    required: true
-  },
-  /**
-   * The ID referencing the provider model.
-   * @type {mongoose.Types.ObjectId}
-   * @ref {string} "Providers"
-   * @required
-   */
-  providerId: {
-    type: Schema.Types.ObjectId,
-    ref: "Providers",
-    required: true
-  },
-  token : {
-    type: String,
-    required: true
-  },
-}]
-
+  provider: [
+    {
+      /**
+       * The name of the provider.
+       * @type {string}
+       * @required
+       */
+      name: {
+        type: String,
+        required: true,
+      },
+      /**
+       * The ID referencing the provider model.
+       * @type {mongoose.Types.ObjectId}
+       * @ref {string} "Providers"
+       * @required
+       */
+      providerId: {
+        type: Schema.Types.ObjectId,
+        ref: 'Providers',
+        required: true,
+      },
+      token: {
+        type: String,
+        required: true,
+      },
+    },
+  ],
 });
 
 /**

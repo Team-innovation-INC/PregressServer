@@ -1,4 +1,4 @@
-const Company = require("../../../../model/company/Company.model");
+const Company = require('../../../../model/company/Company.model');
 
 /**
  * Middleware function to update the company's provider list after successfully saving a provider.
@@ -9,29 +9,28 @@ const Company = require("../../../../model/company/Company.model");
  * @returns {void} - No return value.
  */
 exports.updateCompanyProviderList = async (req, res, next) => {
-  const {providerId, accessToken, company} = req
+  const { providerId, accessToken, company } = req;
   try {
-    /** Find the company document by ID and update the provider list */ 
-    const companyInfo = await Company.findById(company);
-    console.log(company, companyInfo)
-      await Company.findByIdAndUpdate(
-        company._id,
-        {
-          $push: {
-            provider: {
-              name: 'GitHub',
-              providerId: providerId,
-              token: accessToken
-            },
+    /** Find the company document by ID and update the provider list */
+    await Company.findByIdAndUpdate(
+      company._id,
+      {
+        $push: {
+          provider: {
+            name: 'GitHub',
+            providerId,
+            token: accessToken,
           },
         },
-        {new: false}
-      );   
+      },
+      { new: false },
+    );
     /** Proceed to the next middleware */
     next();
   } catch (error) {
-    console.log(error, "error")
     /** If an error occurs, send a 400 Internal Server Error response */
-    return res.status(400).send({ message: "can't save provider company at your company information" });
+    return res.status(400).send({
+      message: "can't save provider company at your company information",
+    });
   }
-}
+};
