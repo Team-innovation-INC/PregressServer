@@ -25,10 +25,7 @@
           "description": "this value is assigned by the service provider, in this example `localhost:5000`"
         },
         "port": {
-          "enum": [
-            5000,
-            3000
-          ],
+          "enum": [5000, 3000],
           "default": 5000
         }
       }
@@ -46,9 +43,7 @@
   "paths": {
     "/test": {
       "get": {
-        "tags": [
-          "server- test"
-        ],
+        "tags": ["server- test"],
         "description": "",
         "parameters": [],
         "responses": {
@@ -61,9 +56,7 @@
     },
     "/api/client/test": {
       "get": {
-        "tags": [
-          "-- ACTIVE USER --"
-        ],
+        "tags": ["-- ACTIVE USER --"],
         "summary": "test router active user path",
         "description": "this route is for testing the active user tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -76,9 +69,7 @@
     },
     "/api/client/current-information": {
       "get": {
-        "tags": [
-          "-- ACTIVE USER --"
-        ],
+        "tags": ["-- ACTIVE USER --"],
         "summary": "get active user details path",
         "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
         "parameters": [],
@@ -97,9 +88,7 @@
     },
     "/api/client/update-info": {
       "put": {
-        "tags": [
-          "-- ACTIVE USER --"
-        ],
+        "tags": ["-- ACTIVE USER --"],
         "summary": "update active user profile path",
         "description": "this route is created to update user profile information such as age, picture, biography, gender, status, localization, language, timezone and currency ...",
         "parameters": [],
@@ -138,9 +127,7 @@
     },
     "/api/client/update-contact": {
       "put": {
-        "tags": [
-          "-- ACTIVE USER --"
-        ],
+        "tags": ["-- ACTIVE USER --"],
         "summary": "active user update contact",
         "description": "this route is created for active user so they can directly update contact information such as email, full name, username and phone number",
         "parameters": [],
@@ -176,9 +163,7 @@
     },
     "/api/client/update-password": {
       "put": {
-        "tags": [
-          "-- ACTIVE USER --"
-        ],
+        "tags": ["-- ACTIVE USER --"],
         "summary": "active user update password",
         "description": "this route is created for active user so they can directly update password using old and new password at this route",
         "parameters": [],
@@ -214,9 +199,7 @@
     },
     "/api/client/role": {
       "get": {
-        "tags": [
-          "-- ACTIVE USER --"
-        ],
+        "tags": ["-- ACTIVE USER --"],
         "summary": "get active user details path",
         "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
         "parameters": [],
@@ -235,9 +218,7 @@
     },
     "/api/auth/test": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "test router for the the test path",
         "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -247,9 +228,7 @@
     },
     "/api/auth/sign-up": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "sign-up auth for user register",
         "description": "this route is created to send activate email for new users registration",
         "parameters": [],
@@ -286,9 +265,7 @@
     },
     "/api/auth/activate-account": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [
@@ -319,9 +296,7 @@
     },
     "/api/auth/sign-in": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "sign-in auth for user log in",
         "description": "this route is created validate the sign in of a user using email and password then resend the token key as response with some information needs at the home page",
         "parameters": [
@@ -1238,9 +1213,7 @@
     },
     "/api/auth/reset-password": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "Request Password Reset",
         "description": "This route is used to request a password reset for a user.",
         "parameters": [],
@@ -1274,9 +1247,7 @@
     },
     "/api/auth/reset-password/": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "Page Password Reset",
         "description": "This route is used to show the reset password page",
         "parameters": [
@@ -1301,9 +1272,7 @@
     },
     "/api/auth/reset-password-validation/": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "Reset User Password",
         "description": "This route is used to reset the password for a user.",
         "parameters": [
@@ -1348,9 +1317,7 @@
     },
     "/api/auth/sign-in/google": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [],
@@ -1367,9 +1334,7 @@
     },
     "/api/auth/sign-in/google/redirect": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION USER --"
-        ],
+        "tags": ["-- AUTHENTICATION USER --"],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [
@@ -1397,9 +1362,7 @@
     },
     "/api/company/test": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "test router for the the test path",
         "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -1412,9 +1375,7 @@
     },
     "/api/company/create": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1453,9 +1414,7 @@
     },
     "/api/company/activate": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [
@@ -1499,9 +1458,7 @@
     },
     "/api/company/join": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1534,9 +1491,7 @@
     },
     "/api/company/list": {
       "get": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1555,9 +1510,7 @@
     },
     "/api/company/delete": {
       "delete": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1570,9 +1523,7 @@
     },
     "/api/company/invite": {
       "post": {
-        "tags": [
-          "-- AUTHENTICATION COMPANY --"
-        ],
+        "tags": ["-- AUTHENTICATION COMPANY --"],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1585,9 +1536,7 @@
     },
     "/api/provider/test": {
       "get": {
-        "tags": [
-          "-- PROVIDER COMPANY --"
-        ],
+        "tags": ["-- PROVIDER COMPANY --"],
         "summary": "test router for the the company provider integration path",
         "description": "this route is for testing the provider management tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -1600,9 +1549,7 @@
     },
     "/api/provider/access/github": {
       "get": {
-        "tags": [
-          "-- PROVIDER COMPANY --"
-        ],
+        "tags": ["-- PROVIDER COMPANY --"],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [],
@@ -1618,9 +1565,7 @@
     },
     "/api/provider/list": {
       "get": {
-        "tags": [
-          "-- PROVIDER COMPANY --"
-        ],
+        "tags": ["-- PROVIDER COMPANY --"],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [],
@@ -1642,9 +1587,7 @@
     },
     "/api/connection/provider/auth/github": {
       "get": {
-        "tags": [
-          "-- PROVIDER COMPANY --"
-        ],
+        "tags": ["-- PROVIDER COMPANY --"],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [
@@ -1671,9 +1614,7 @@
     },
     "/api/connection/provider/google/token/scope": {
       "post": {
-        "tags": [
-          "-- PROVIDERS --"
-        ],
+        "tags": ["-- PROVIDERS --"],
         "summary": "Providers main routes",
         "description": "Description for each single route for the providers even access or even save providers connections",
         "parameters": [],
@@ -1964,9 +1905,7 @@
     },
     "/connect/google/meet": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access Google Meet for user",
         "description": "This route is created to get access for Google Meet",
         "parameters": [],
@@ -2254,9 +2193,7 @@
     },
     "/connect/google/calendar": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access Google Calendar for user",
         "description": "This route is created to get access for the Google Calendar",
         "parameters": [],
@@ -2666,9 +2603,7 @@
     },
     "/connect/google/gmail": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access Gmail for user",
         "description": "This route is created to get access for Gmail",
         "parameters": [],
@@ -2956,9 +2891,7 @@
     },
     "/connect/github": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access GitHub for user",
         "description": "This route is created to get access for GitHub",
         "parameters": [],
@@ -3249,9 +3182,7 @@
     },
     "/connect/gitlab": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access GitLab for user",
         "description": "This route is created to get access for GitLab",
         "parameters": [],
@@ -3539,9 +3470,7 @@
     },
     "/connect/bitbucket": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access Bitbucket for user",
         "description": "This route is created to get access for Bitbucket",
         "parameters": [],
@@ -3829,9 +3758,7 @@
     },
     "/connect/jira": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access Jira for user",
         "description": "This route is created to get access for Jira",
         "parameters": [],
@@ -4119,9 +4046,7 @@
     },
     "/connect/mega": {
       "get": {
-        "tags": [
-          "-- CONNECT PROVIDERS --"
-        ],
+        "tags": ["-- CONNECT PROVIDERS --"],
         "summary": "Access Mega for user",
         "description": "This route is created to get access for Mega",
         "parameters": [],
@@ -4409,14 +4334,10 @@
     },
     "/swagger/docs.json/": {
       "post": {
-        "tags": [
-          "-- SWAGGER --"
-        ],
+        "tags": ["-- SWAGGER --"],
         "summary": "summary for route...",
         "description": "description for route...",
-        "produces": [
-          "application/octet-stream"
-        ],
+        "produces": ["application/octet-stream"],
         "parameters": [],
         "responses": {
           "200": {
@@ -4445,9 +4366,7 @@
     },
     "/swagger/auth": {
       "get": {
-        "tags": [
-          "-- SWAGGER --"
-        ],
+        "tags": ["-- SWAGGER --"],
         "summary": "summary for route...",
         "description": "description for route...",
         "parameters": [],
@@ -4461,9 +4380,7 @@
     },
     "/swagger/documentation-auth": {
       "post": {
-        "tags": [
-          "-- SWAGGER --"
-        ],
+        "tags": ["-- SWAGGER --"],
         "summary": "summary for route...",
         "description": "description for route...",
         "parameters": [],
