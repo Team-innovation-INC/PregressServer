@@ -25,7 +25,10 @@
           "description": "this value is assigned by the service provider, in this example `localhost:5000`"
         },
         "port": {
-          "enum": [5000, 3000],
+          "enum": [
+            5000,
+            3000
+          ],
           "default": 5000
         }
       }
@@ -43,7 +46,9 @@
   "paths": {
     "/test": {
       "get": {
-        "tags": ["server- test"],
+        "tags": [
+          "server- test"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -56,7 +61,9 @@
     },
     "/api/client/test": {
       "get": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "test router active user path",
         "description": "this route is for testing the active user tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -69,7 +76,9 @@
     },
     "/api/client/current-information": {
       "get": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "get active user details path",
         "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
         "parameters": [],
@@ -88,7 +97,9 @@
     },
     "/api/client/update-info": {
       "put": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "update active user profile path",
         "description": "this route is created to update user profile information such as age, picture, biography, gender, status, localization, language, timezone and currency ...",
         "parameters": [],
@@ -127,7 +138,9 @@
     },
     "/api/client/update-contact": {
       "put": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "active user update contact",
         "description": "this route is created for active user so they can directly update contact information such as email, full name, username and phone number",
         "parameters": [],
@@ -163,14 +176,13 @@
     },
     "/api/client/update-password": {
       "put": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "active user update password",
         "description": "this route is created for active user so they can directly update password using old and new password at this route",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
           }
@@ -199,7 +211,9 @@
     },
     "/api/client/role": {
       "get": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "get active user details path",
         "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
         "parameters": [],
@@ -216,9 +230,71 @@
         }
       }
     },
+    "/api/client/help/test": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER HELP --"
+        ],
+        "summary": "test router active user help path",
+        "description": "this route is for testing the active user help tag routes have no use for the app just for testing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/client/help/profile": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER HELP --"
+        ],
+        "summary": "update active user help profile status path",
+        "description": "this route is created to update user profile help status",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fieldToUpdate": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/help/profile/{fieldToUpdate}": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER HELP --"
+        ],
+        "summary": "update active user help profile status path",
+        "description": "this route is created to update user profile help status",
+        "parameters": [
+          {
+            "name": "fieldToUpdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/api/auth/test": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "test router for the the test path",
         "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -228,7 +304,9 @@
     },
     "/api/auth/sign-up": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "sign-up auth for user register",
         "description": "this route is created to send activate email for new users registration",
         "parameters": [],
@@ -265,7 +343,9 @@
     },
     "/api/auth/activate-account": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [
@@ -296,7 +376,9 @@
     },
     "/api/auth/sign-in": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "sign-in auth for user log in",
         "description": "this route is created validate the sign in of a user using email and password then resend the token key as response with some information needs at the home page",
         "parameters": [
@@ -1211,9 +1293,11 @@
         }
       }
     },
-    "/api/auth/reset-password": {
+    "/api/auth/forget-password": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "Request Password Reset",
         "description": "This route is used to request a password reset for a user.",
         "parameters": [],
@@ -1247,7 +1331,9 @@
     },
     "/api/auth/reset-password/": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "Page Password Reset",
         "description": "This route is used to show the reset password page",
         "parameters": [
@@ -1272,7 +1358,9 @@
     },
     "/api/auth/reset-password-validation/": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "Reset User Password",
         "description": "This route is used to reset the password for a user.",
         "parameters": [
@@ -1317,7 +1405,9 @@
     },
     "/api/auth/sign-in/google": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [],
@@ -1334,7 +1424,9 @@
     },
     "/api/auth/sign-in/google/redirect": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [
@@ -1362,7 +1454,9 @@
     },
     "/api/company/test": {
       "get": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "test router for the the test path",
         "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -1375,7 +1469,9 @@
     },
     "/api/company/create": {
       "post": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1414,7 +1510,9 @@
     },
     "/api/company/activate": {
       "get": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [
@@ -1458,7 +1556,9 @@
     },
     "/api/company/join": {
       "post": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1491,7 +1591,9 @@
     },
     "/api/company/list": {
       "get": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1510,7 +1612,9 @@
     },
     "/api/company/delete": {
       "delete": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1523,7 +1627,9 @@
     },
     "/api/company/invite": {
       "post": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1536,7 +1642,9 @@
     },
     "/api/provider/test": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "test router for the the company provider integration path",
         "description": "this route is for testing the provider management tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -1549,7 +1657,9 @@
     },
     "/api/provider/access/github": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [],
@@ -1565,7 +1675,9 @@
     },
     "/api/provider/list": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [],
@@ -1587,7 +1699,9 @@
     },
     "/api/connection/provider/auth/github": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [
@@ -1614,7 +1728,9 @@
     },
     "/api/connection/provider/google/token/scope": {
       "post": {
-        "tags": ["-- PROVIDERS --"],
+        "tags": [
+          "-- PROVIDERS --"
+        ],
         "summary": "Providers main routes",
         "description": "Description for each single route for the providers even access or even save providers connections",
         "parameters": [],
@@ -1905,7 +2021,9 @@
     },
     "/connect/google/meet": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Google Meet for user",
         "description": "This route is created to get access for Google Meet",
         "parameters": [],
@@ -2193,7 +2311,9 @@
     },
     "/connect/google/calendar": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Google Calendar for user",
         "description": "This route is created to get access for the Google Calendar",
         "parameters": [],
@@ -2603,7 +2723,9 @@
     },
     "/connect/google/gmail": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Gmail for user",
         "description": "This route is created to get access for Gmail",
         "parameters": [],
@@ -2891,7 +3013,9 @@
     },
     "/connect/github": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access GitHub for user",
         "description": "This route is created to get access for GitHub",
         "parameters": [],
@@ -3182,7 +3306,9 @@
     },
     "/connect/gitlab": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access GitLab for user",
         "description": "This route is created to get access for GitLab",
         "parameters": [],
@@ -3470,7 +3596,9 @@
     },
     "/connect/bitbucket": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Bitbucket for user",
         "description": "This route is created to get access for Bitbucket",
         "parameters": [],
@@ -3758,7 +3886,9 @@
     },
     "/connect/jira": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Jira for user",
         "description": "This route is created to get access for Jira",
         "parameters": [],
@@ -4046,7 +4176,9 @@
     },
     "/connect/mega": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Mega for user",
         "description": "This route is created to get access for Mega",
         "parameters": [],
@@ -4334,10 +4466,14 @@
     },
     "/swagger/docs.json/": {
       "post": {
-        "tags": ["-- SWAGGER --"],
+        "tags": [
+          "-- SWAGGER --"
+        ],
         "summary": "summary for route...",
         "description": "description for route...",
-        "produces": ["application/octet-stream"],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -4366,7 +4502,9 @@
     },
     "/swagger/auth": {
       "get": {
-        "tags": ["-- SWAGGER --"],
+        "tags": [
+          "-- SWAGGER --"
+        ],
         "summary": "summary for route...",
         "description": "description for route...",
         "parameters": [],
@@ -4380,7 +4518,9 @@
     },
     "/swagger/documentation-auth": {
       "post": {
-        "tags": ["-- SWAGGER --"],
+        "tags": [
+          "-- SWAGGER --"
+        ],
         "summary": "summary for route...",
         "description": "description for route...",
         "parameters": [],
@@ -4419,7 +4559,7 @@
                 "properties": {
                   "address": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e804"
+                    "example": "661ee484f624a51f2905adc1"
                   },
                   "blocked": {
                     "type": "object",
@@ -4432,15 +4572,15 @@
                   },
                   "contact": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e805"
+                    "example": "661ee484f624a51f2905adc2"
                   },
                   "company": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e806"
+                    "example": "661ee484f624a51f2905adc3"
                   },
                   "context": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e807"
+                    "example": "661ee484f624a51f2905adc4"
                   },
                   "creation_date": {
                     "type": "object",
@@ -4453,7 +4593,7 @@
                   },
                   "info": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e808"
+                    "example": "661ee484f624a51f2905adc5"
                   },
                   "password": {
                     "type": "object",
@@ -4466,18 +4606,34 @@
                   },
                   "role": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e809"
+                    "example": "661ee484f624a51f2905adc6"
                   },
                   "providers": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e80a"
+                    "example": "661ee484f624a51f2905adc7"
+                  },
+                  "help.tutorial": {
+                    "type": "string",
+                    "example": "661ee484f624a51f2905adc8"
+                  },
+                  "help.assistance": {
+                    "type": "string",
+                    "example": "661ee484f624a51f2905adc9"
+                  },
+                  "help.calendar": {
+                    "type": "string",
+                    "example": "661ee484f624a51f2905adca"
+                  },
+                  "help.profile": {
+                    "type": "string",
+                    "example": "661ee484f624a51f2905adcb"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e80b"
+                        "example": "661ee484f624a51f2905adcc"
                       }
                     }
                   },
@@ -4523,7 +4679,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e80c"
+                        "example": "661ee484f624a51f2905adcd"
                       }
                     }
                   },
@@ -4581,7 +4737,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e80d"
+                        "example": "661ee484f624a51f2905adce"
                       }
                     }
                   },
@@ -4606,19 +4762,19 @@
                 "properties": {
                   "city": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e80e"
+                    "example": "661ee484f624a51f2905adcf"
                   },
                   "country": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e80f"
+                    "example": "661ee484f624a51f2905add0"
                   },
                   "Street": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e810"
+                    "example": "661ee484f624a51f2905add1"
                   },
                   "codeZip": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e811"
+                    "example": "661ee484f624a51f2905add2"
                   },
                   "last_update": {
                     "type": "object",
@@ -4634,7 +4790,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e812"
+                        "example": "661ee484f624a51f2905add3"
                       }
                     }
                   },
@@ -4698,7 +4854,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e813"
+                        "example": "661ee484f624a51f2905add4"
                       }
                     }
                   },
@@ -4723,11 +4879,11 @@
                 "properties": {
                   "followers": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e814"
+                    "example": "661ee484f624a51f2905add5"
                   },
                   "ratings": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e815"
+                    "example": "661ee484f624a51f2905add6"
                   },
                   "last_update": {
                     "type": "object",
@@ -4743,7 +4899,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e816"
+                        "example": "661ee484f624a51f2905add7"
                       }
                     }
                   },
@@ -4804,7 +4960,7 @@
                   },
                   "language": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e817"
+                    "example": "661ee484f624a51f2905add8"
                   },
                   "last_update": {
                     "type": "object",
@@ -4820,7 +4976,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e818"
+                        "example": "661ee484f624a51f2905add9"
                       }
                     }
                   },
@@ -4853,26 +5009,26 @@
                 "properties": {
                   "companyInfo": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e819"
+                    "example": "661ee484f624a51f2905adda"
                   },
                   "verify": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81a"
+                    "example": "661ee484f624a51f2905addb"
                   },
                   "companyMembers": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81b"
+                    "example": "661ee484f624a51f2905addc"
                   },
                   "provider": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81c"
+                    "example": "661ee484f624a51f2905addd"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e81d"
+                        "example": "661ee484f624a51f2905adde"
                       }
                     }
                   },
@@ -4897,7 +5053,7 @@
                 "properties": {
                   "companyName": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81e"
+                    "example": "661ee484f624a51f2905addf"
                   },
                   "companyWebSite": {
                     "type": "object",
@@ -4944,7 +5100,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e81f"
+                        "example": "661ee484f624a51f2905ade0"
                       }
                     }
                   },
@@ -4969,18 +5125,18 @@
                 "properties": {
                   "admin": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e820"
+                    "example": "661ee484f624a51f2905ade1"
                   },
                   "users": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e821"
+                    "example": "661ee484f624a51f2905ade2"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e822"
+                        "example": "661ee484f624a51f2905ade3"
                       }
                     }
                   },
@@ -5013,18 +5169,18 @@
                 "properties": {
                   "currentStatus": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e823"
+                    "example": "661ee484f624a51f2905ade4"
                   },
                   "harder": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e824"
+                    "example": "661ee484f624a51f2905ade5"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e825"
+                        "example": "661ee484f624a51f2905ade6"
                       }
                     }
                   },
@@ -5049,34 +5205,34 @@
                 "properties": {
                   "Details": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e826"
+                    "example": "661ee484f624a51f2905ade7"
                   },
                   "Creator": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e827"
+                    "example": "661ee484f624a51f2905ade8"
                   },
                   "Assigned": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e828"
+                    "example": "661ee484f624a51f2905ade9"
                   },
                   "Status": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e829"
+                    "example": "661ee484f624a51f2905adea"
                   },
                   "read": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82a"
+                    "example": "661ee484f624a51f2905adeb"
                   },
                   "Integration": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82b"
+                    "example": "661ee484f624a51f2905adec"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e82c"
+                        "example": "661ee484f624a51f2905aded"
                       }
                     }
                   },
@@ -5101,18 +5257,18 @@
                 "properties": {
                   "provider": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82d"
+                    "example": "661ee484f624a51f2905adee"
                   },
                   "repository": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82e"
+                    "example": "661ee484f624a51f2905adef"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e82f"
+                        "example": "661ee484f624a51f2905adf0"
                       }
                     }
                   },
@@ -5137,30 +5293,30 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e830"
+                    "example": "661ee484f624a51f2905adf1"
                   },
                   "description": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e831"
+                    "example": "661ee484f624a51f2905adf2"
                   },
                   "Links": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e832"
+                    "example": "661ee484f624a51f2905adf3"
                   },
                   "label": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e833"
+                    "example": "661ee484f624a51f2905adf4"
                   },
                   "imageUrls": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e834"
+                    "example": "661ee484f624a51f2905adf5"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e835"
+                        "example": "661ee484f624a51f2905adf6"
                       }
                     }
                   },
@@ -5193,30 +5349,30 @@
                 "properties": {
                   "info": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e836"
+                    "example": "661ee484f624a51f2905adf7"
                   },
                   "from": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e837"
+                    "example": "661ee484f624a51f2905adf8"
                   },
                   "to": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e838"
+                    "example": "661ee484f624a51f2905adf9"
                   },
                   "seen": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e839"
+                    "example": "661ee484f624a51f2905adfa"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83a"
+                    "example": "661ee484f624a51f2905adfb"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e83b"
+                        "example": "661ee484f624a51f2905adfc"
                       }
                     }
                   },
@@ -5241,18 +5397,18 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83c"
+                    "example": "661ee484f624a51f2905adfd"
                   },
                   "body": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83d"
+                    "example": "661ee484f624a51f2905adfe"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e83e"
+                        "example": "661ee484f624a51f2905adff"
                       }
                     }
                   },
@@ -5285,26 +5441,26 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83f"
+                    "example": "661ee484f624a51f2905ae00"
                   },
                   "members": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e840"
+                    "example": "661ee484f624a51f2905ae01"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e841"
+                    "example": "661ee484f624a51f2905ae02"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e842"
+                    "example": "661ee484f624a51f2905ae03"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e843"
+                        "example": "661ee484f624a51f2905ae04"
                       }
                     }
                   },
@@ -5329,22 +5485,22 @@
                 "properties": {
                   "company": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e844"
+                    "example": "661ee484f624a51f2905ae05"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e845"
+                    "example": "661ee484f624a51f2905ae06"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e846"
+                    "example": "661ee484f624a51f2905ae07"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e847"
+                        "example": "661ee484f624a51f2905ae08"
                       }
                     }
                   },
@@ -5369,22 +5525,22 @@
                 "properties": {
                   "text": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e848"
+                    "example": "661ee484f624a51f2905ae09"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e849"
+                    "example": "661ee484f624a51f2905ae0a"
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84a"
+                    "example": "661ee484f624a51f2905ae0b"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e84b"
+                        "example": "661ee484f624a51f2905ae0c"
                       }
                     }
                   },
@@ -5417,26 +5573,26 @@
                 "properties": {
                   "itemInfo": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84c"
+                    "example": "661ee484f624a51f2905ae0d"
                   },
                   "refModel": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84d"
+                    "example": "661ee484f624a51f2905ae0e"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84e"
+                    "example": "661ee484f624a51f2905ae0f"
                   },
                   "receiver": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84f"
+                    "example": "661ee484f624a51f2905ae10"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e850"
+                        "example": "661ee484f624a51f2905ae11"
                       }
                     }
                   },
@@ -5461,26 +5617,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e851"
+                    "example": "661ee484f624a51f2905ae12"
                   },
                   "description": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e852"
+                    "example": "661ee484f624a51f2905ae13"
                   },
                   "images": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e853"
+                    "example": "661ee484f624a51f2905ae14"
                   },
                   "urls": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e854"
+                    "example": "661ee484f624a51f2905ae15"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e855"
+                        "example": "661ee484f624a51f2905ae16"
                       }
                     }
                   },
@@ -5513,38 +5669,38 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e856"
+                    "example": "661ee484f624a51f2905ae17"
                   },
                   "category": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e857"
+                    "example": "661ee484f624a51f2905ae18"
                   },
                   "type": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e858"
+                    "example": "661ee484f624a51f2905ae19"
                   },
                   "providerId": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e859"
+                    "example": "661ee484f624a51f2905ae1a"
                   },
                   "token": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85a"
+                    "example": "661ee484f624a51f2905ae1b"
                   },
                   "company": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85b"
+                    "example": "661ee484f624a51f2905ae1c"
                   },
                   "admin": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85c"
+                    "example": "661ee484f624a51f2905ae1d"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e85d"
+                        "example": "661ee484f624a51f2905ae1e"
                       }
                     }
                   },
@@ -5577,15 +5733,15 @@
                 "properties": {
                   "token": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85e"
+                    "example": "661ee484f624a51f2905ae1f"
                   },
                   "contact": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85f"
+                    "example": "661ee484f624a51f2905ae20"
                   },
                   "role": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e860"
+                    "example": "661ee484f624a51f2905ae21"
                   },
                   "password": {
                     "type": "object",
@@ -5598,11 +5754,11 @@
                   },
                   "type": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e861"
+                    "example": "661ee484f624a51f2905ae22"
                   },
                   "info": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e862"
+                    "example": "661ee484f624a51f2905ae23"
                   },
                   "email": {
                     "type": "object",
@@ -5615,14 +5771,14 @@
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e863"
+                    "example": "661ee484f624a51f2905ae24"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e864"
+                        "example": "661ee484f624a51f2905ae25"
                       }
                     }
                   },
