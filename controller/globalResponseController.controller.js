@@ -26,7 +26,6 @@ const globalResponseController = (req, res) => {
 
     /* Include data in the response if it exists and the response is successful */
     if (success && data) response.data = data;
-
     /* Send the response */
     return res.status(status).json(response);
   } catch (error) {
