@@ -56,6 +56,24 @@ const userSchema = new Schema({
       ref: 'Provider',
     },
   ],
+  help: {
+      tutorial: {
+        type: Boolean,
+        default: false,
+      },
+      assistance: {
+        type: Boolean,
+        default: false,
+      },
+      calendar: {
+        type: Boolean,
+        default: false,
+      },
+      profile: {
+        type: Boolean,
+        default: false,
+      },
+  }
 });
 
 userSchema.methods.generateAuthToken = function () {

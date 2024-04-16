@@ -11,9 +11,10 @@ const { populateExtra } = require('../../../utility/others');
 exports.populateUser = async (req, res, next) => {
   // ----- get using information from request
   const user = req.user;
+  console.log(user, "user")
   try {
     // ----- initial newUser information
-    const newUser = {};
+    const newUser = {help: user.help};
     // ----- import company info
     if (user.company) {
       const companyInfo = await Company.findById(user.company);

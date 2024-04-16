@@ -60,10 +60,16 @@ app.get('/test', async (req, res) => {
   // #swagger.security = []
   res.send('progress server health care work as expected');
 });
+
 // ------- router for client route
 const ClientRoutes = require('./routes/users/user.routes');
 
 app.use('/api/client', ClientRoutes);
+
+// ------- router for client route
+const ClientHelpRoutes = require('./routes/users/userHelp.routes');
+
+app.use('/api/client/help', ClientHelpRoutes);
 
 // ------- router for client route
 const AuthRoutes = require('./routes/users/auth.routes');

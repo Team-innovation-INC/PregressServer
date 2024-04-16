@@ -37,6 +37,7 @@ const {
   updateProfileSwagger,
 } = require('../../swagger/middleware/user/active/active_user_description.swagger');
 const userRole = require('../../controller/user/active/userole.controller');
+const globalResponseController = require('../../controller/globalResponseController.controller');
 
 router.use(
   authorizationHeaderValidator,
@@ -90,6 +91,7 @@ router.put(
   userPasswordInputs,
   validateInputs,
   userPasswordUpdate,
+  globalResponseController
 );
 
 /*

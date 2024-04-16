@@ -12,6 +12,7 @@ exports.userId = async (req, res, next) => {
     req.userRoleId = user.role;
     req.userCompanyId = user.company;
     req.userInfoId = user.info;
+    req.id = user._id
     // ----- pass to next middleware
     next();
   } catch (error) {
