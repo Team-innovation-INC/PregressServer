@@ -5,7 +5,7 @@
 // ----- import model
 const userContact = require('../../../model/user/userContacts.model');
 
-const userContactUpdate = async (req, res) => {
+const userContactUpdate = async (req, res, next) => {
   // ----- get using information from request
   const { fullName, userName } = req.body;
   const { userContactId } = req;
@@ -17,8 +17,9 @@ const userContactUpdate = async (req, res) => {
       { $set: { fullName, userName } },
       { new: true, runValidators: true },
     );
+    req.status = 201;
     // ----- response update contact success
-    return res.status(200).send({ message: 'info update with success' });
+    next()
   } catch (error) {
     if (error.code === 11000) {
       return res.status(400).send({ message: 'userName already exists' });

@@ -12,6 +12,8 @@ const userInfoSchema = new Schema({
   },
   bio: {
     type: String,
+    min: 25,
+    max: 150,
   },
   pic: {
     type: String,

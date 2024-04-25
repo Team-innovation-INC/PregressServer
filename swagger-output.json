@@ -104,9 +104,6 @@
         "description": "this route is created to update user profile information such as age, picture, biography, gender, status, localization, language, timezone and currency ...",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -117,16 +114,16 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "info": {
+                  "gender": {
                     "example": "any"
                   },
-                  "localization": {
+                  "age": {
                     "example": "any"
                   },
-                  "firstName": {
+                  "bio": {
                     "example": "any"
                   },
-                  "lastName": {
+                  "pic": {
                     "example": "any"
                   }
                 }
@@ -145,9 +142,6 @@
         "description": "this route is created for active user so they can directly update contact information such as email, full name, username and phone number",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
           },
@@ -161,6 +155,53 @@
               "schema": {
                 "type": "object",
                 "properties": {
+                  "fullName": {
+                    "example": "any"
+                  },
+                  "userName": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/update-information": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "active user update information",
+        "description": "this route is created for active user so they can directly update all possible information such as full name, user name, biography, age, gender and picture profile ",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "gender": {
+                    "example": "any"
+                  },
+                  "age": {
+                    "example": "any"
+                  },
+                  "bio": {
+                    "example": "any"
+                  },
+                  "pic": {
+                    "example": "any"
+                  },
                   "fullName": {
                     "example": "any"
                   },
@@ -205,6 +246,30 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/client/check/userName/{userName}": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "active user check user name exist",
+        "description": "this route is created for active user to check if user name is exist or not",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       }
@@ -4559,7 +4624,7 @@
                 "properties": {
                   "address": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc1"
+                    "example": "662ad111f671911594ae6a18"
                   },
                   "blocked": {
                     "type": "object",
@@ -4572,15 +4637,15 @@
                   },
                   "contact": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc2"
+                    "example": "662ad111f671911594ae6a19"
                   },
                   "company": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc3"
+                    "example": "662ad111f671911594ae6a1a"
                   },
                   "context": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc4"
+                    "example": "662ad111f671911594ae6a1b"
                   },
                   "creation_date": {
                     "type": "object",
@@ -4593,7 +4658,7 @@
                   },
                   "info": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc5"
+                    "example": "662ad111f671911594ae6a1c"
                   },
                   "password": {
                     "type": "object",
@@ -4606,34 +4671,34 @@
                   },
                   "role": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc6"
+                    "example": "662ad111f671911594ae6a1d"
                   },
                   "providers": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc7"
+                    "example": "662ad111f671911594ae6a1e"
                   },
                   "help.tutorial": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc8"
+                    "example": "662ad111f671911594ae6a1f"
                   },
                   "help.assistance": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adc9"
+                    "example": "662ad111f671911594ae6a20"
                   },
                   "help.calendar": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adca"
+                    "example": "662ad111f671911594ae6a21"
                   },
                   "help.profile": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adcb"
+                    "example": "662ad111f671911594ae6a22"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adcc"
+                        "example": "662ad111f671911594ae6a23"
                       }
                     }
                   },
@@ -4679,7 +4744,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adcd"
+                        "example": "662ad111f671911594ae6a24"
                       }
                     }
                   },
@@ -4737,7 +4802,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adce"
+                        "example": "662ad111f671911594ae6a25"
                       }
                     }
                   },
@@ -4762,19 +4827,19 @@
                 "properties": {
                   "city": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adcf"
+                    "example": "662ad111f671911594ae6a26"
                   },
                   "country": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905add0"
+                    "example": "662ad111f671911594ae6a27"
                   },
                   "Street": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905add1"
+                    "example": "662ad111f671911594ae6a28"
                   },
                   "codeZip": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905add2"
+                    "example": "662ad111f671911594ae6a29"
                   },
                   "last_update": {
                     "type": "object",
@@ -4790,7 +4855,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905add3"
+                        "example": "662ad111f671911594ae6a2a"
                       }
                     }
                   },
@@ -4854,7 +4919,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905add4"
+                        "example": "662ad111f671911594ae6a2b"
                       }
                     }
                   },
@@ -4879,11 +4944,11 @@
                 "properties": {
                   "followers": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905add5"
+                    "example": "662ad111f671911594ae6a2c"
                   },
                   "ratings": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905add6"
+                    "example": "662ad111f671911594ae6a2d"
                   },
                   "last_update": {
                     "type": "object",
@@ -4899,7 +4964,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905add7"
+                        "example": "662ad111f671911594ae6a2e"
                       }
                     }
                   },
@@ -4960,7 +5025,7 @@
                   },
                   "language": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905add8"
+                    "example": "662ad111f671911594ae6a2f"
                   },
                   "last_update": {
                     "type": "object",
@@ -4976,7 +5041,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905add9"
+                        "example": "662ad111f671911594ae6a30"
                       }
                     }
                   },
@@ -5009,26 +5074,26 @@
                 "properties": {
                   "companyInfo": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adda"
+                    "example": "662ad111f671911594ae6a31"
                   },
                   "verify": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905addb"
+                    "example": "662ad111f671911594ae6a32"
                   },
                   "companyMembers": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905addc"
+                    "example": "662ad111f671911594ae6a33"
                   },
                   "provider": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905addd"
+                    "example": "662ad111f671911594ae6a34"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adde"
+                        "example": "662ad111f671911594ae6a35"
                       }
                     }
                   },
@@ -5053,7 +5118,7 @@
                 "properties": {
                   "companyName": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905addf"
+                    "example": "662ad111f671911594ae6a36"
                   },
                   "companyWebSite": {
                     "type": "object",
@@ -5100,7 +5165,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ade0"
+                        "example": "662ad111f671911594ae6a37"
                       }
                     }
                   },
@@ -5125,18 +5190,18 @@
                 "properties": {
                   "admin": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade1"
+                    "example": "662ad111f671911594ae6a38"
                   },
                   "users": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade2"
+                    "example": "662ad111f671911594ae6a39"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ade3"
+                        "example": "662ad111f671911594ae6a3a"
                       }
                     }
                   },
@@ -5169,18 +5234,18 @@
                 "properties": {
                   "currentStatus": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade4"
+                    "example": "662ad111f671911594ae6a3b"
                   },
                   "harder": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade5"
+                    "example": "662ad111f671911594ae6a3c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ade6"
+                        "example": "662ad111f671911594ae6a3d"
                       }
                     }
                   },
@@ -5205,34 +5270,34 @@
                 "properties": {
                   "Details": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade7"
+                    "example": "662ad111f671911594ae6a3e"
                   },
                   "Creator": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade8"
+                    "example": "662ad111f671911594ae6a3f"
                   },
                   "Assigned": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ade9"
+                    "example": "662ad111f671911594ae6a40"
                   },
                   "Status": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adea"
+                    "example": "662ad111f671911594ae6a41"
                   },
                   "read": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adeb"
+                    "example": "662ad111f671911594ae6a42"
                   },
                   "Integration": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adec"
+                    "example": "662ad111f671911594ae6a43"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905aded"
+                        "example": "662ad111f671911594ae6a44"
                       }
                     }
                   },
@@ -5257,18 +5322,18 @@
                 "properties": {
                   "provider": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adee"
+                    "example": "662ad111f671911594ae6a45"
                   },
                   "repository": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adef"
+                    "example": "662ad111f671911594ae6a46"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adf0"
+                        "example": "662ad111f671911594ae6a47"
                       }
                     }
                   },
@@ -5293,30 +5358,30 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf1"
+                    "example": "662ad111f671911594ae6a48"
                   },
                   "description": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf2"
+                    "example": "662ad111f671911594ae6a49"
                   },
                   "Links": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf3"
+                    "example": "662ad111f671911594ae6a4a"
                   },
                   "label": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf4"
+                    "example": "662ad111f671911594ae6a4b"
                   },
                   "imageUrls": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf5"
+                    "example": "662ad111f671911594ae6a4c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adf6"
+                        "example": "662ad111f671911594ae6a4d"
                       }
                     }
                   },
@@ -5349,30 +5414,30 @@
                 "properties": {
                   "info": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf7"
+                    "example": "662ad111f671911594ae6a4e"
                   },
                   "from": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf8"
+                    "example": "662ad111f671911594ae6a4f"
                   },
                   "to": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adf9"
+                    "example": "662ad111f671911594ae6a50"
                   },
                   "seen": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adfa"
+                    "example": "662ad111f671911594ae6a51"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adfb"
+                    "example": "662ad111f671911594ae6a52"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adfc"
+                        "example": "662ad111f671911594ae6a53"
                       }
                     }
                   },
@@ -5397,18 +5462,18 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adfd"
+                    "example": "662ad111f671911594ae6a54"
                   },
                   "body": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905adfe"
+                    "example": "662ad111f671911594ae6a55"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905adff"
+                        "example": "662ad111f671911594ae6a56"
                       }
                     }
                   },
@@ -5441,26 +5506,26 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae00"
+                    "example": "662ad111f671911594ae6a57"
                   },
                   "members": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae01"
+                    "example": "662ad111f671911594ae6a58"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae02"
+                    "example": "662ad111f671911594ae6a59"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae03"
+                    "example": "662ad111f671911594ae6a5a"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae04"
+                        "example": "662ad111f671911594ae6a5b"
                       }
                     }
                   },
@@ -5485,22 +5550,22 @@
                 "properties": {
                   "company": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae05"
+                    "example": "662ad111f671911594ae6a5c"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae06"
+                    "example": "662ad111f671911594ae6a5d"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae07"
+                    "example": "662ad111f671911594ae6a5e"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae08"
+                        "example": "662ad111f671911594ae6a5f"
                       }
                     }
                   },
@@ -5525,22 +5590,22 @@
                 "properties": {
                   "text": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae09"
+                    "example": "662ad111f671911594ae6a60"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae0a"
+                    "example": "662ad111f671911594ae6a61"
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae0b"
+                    "example": "662ad111f671911594ae6a62"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae0c"
+                        "example": "662ad111f671911594ae6a63"
                       }
                     }
                   },
@@ -5573,26 +5638,26 @@
                 "properties": {
                   "itemInfo": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae0d"
+                    "example": "662ad111f671911594ae6a64"
                   },
                   "refModel": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae0e"
+                    "example": "662ad111f671911594ae6a65"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae0f"
+                    "example": "662ad111f671911594ae6a66"
                   },
                   "receiver": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae10"
+                    "example": "662ad111f671911594ae6a67"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae11"
+                        "example": "662ad111f671911594ae6a68"
                       }
                     }
                   },
@@ -5617,26 +5682,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae12"
+                    "example": "662ad111f671911594ae6a69"
                   },
                   "description": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae13"
+                    "example": "662ad111f671911594ae6a6a"
                   },
                   "images": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae14"
+                    "example": "662ad111f671911594ae6a6b"
                   },
                   "urls": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae15"
+                    "example": "662ad111f671911594ae6a6c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae16"
+                        "example": "662ad111f671911594ae6a6d"
                       }
                     }
                   },
@@ -5669,38 +5734,38 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae17"
+                    "example": "662ad111f671911594ae6a6e"
                   },
                   "category": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae18"
+                    "example": "662ad111f671911594ae6a6f"
                   },
                   "type": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae19"
+                    "example": "662ad111f671911594ae6a70"
                   },
                   "providerId": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae1a"
+                    "example": "662ad111f671911594ae6a71"
                   },
                   "token": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae1b"
+                    "example": "662ad111f671911594ae6a72"
                   },
                   "company": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae1c"
+                    "example": "662ad111f671911594ae6a73"
                   },
                   "admin": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae1d"
+                    "example": "662ad111f671911594ae6a74"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae1e"
+                        "example": "662ad111f671911594ae6a75"
                       }
                     }
                   },
@@ -5733,15 +5798,15 @@
                 "properties": {
                   "token": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae1f"
+                    "example": "662ad111f671911594ae6a76"
                   },
                   "contact": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae20"
+                    "example": "662ad111f671911594ae6a77"
                   },
                   "role": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae21"
+                    "example": "662ad111f671911594ae6a78"
                   },
                   "password": {
                     "type": "object",
@@ -5754,11 +5819,11 @@
                   },
                   "type": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae22"
+                    "example": "662ad111f671911594ae6a79"
                   },
                   "info": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae23"
+                    "example": "662ad111f671911594ae6a7a"
                   },
                   "email": {
                     "type": "object",
@@ -5771,14 +5836,14 @@
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "661ee484f624a51f2905ae24"
+                    "example": "662ad111f671911594ae6a7b"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661ee484f624a51f2905ae25"
+                        "example": "662ad111f671911594ae6a7c"
                       }
                     }
                   },
