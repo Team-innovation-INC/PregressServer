@@ -25,7 +25,10 @@
           "description": "this value is assigned by the service provider, in this example `localhost:5000`"
         },
         "port": {
-          "enum": [5000, 3000],
+          "enum": [
+            5000,
+            3000
+          ],
           "default": 5000
         }
       }
@@ -43,7 +46,9 @@
   "paths": {
     "/test": {
       "get": {
-        "tags": ["server- test"],
+        "tags": [
+          "server- test"
+        ],
         "description": "",
         "parameters": [],
         "responses": {
@@ -56,7 +61,9 @@
     },
     "/api/client/test": {
       "get": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "test router active user path",
         "description": "this route is for testing the active user tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -69,7 +76,9 @@
     },
     "/api/client/current-information": {
       "get": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "get active user details path",
         "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
         "parameters": [],
@@ -88,14 +97,13 @@
     },
     "/api/client/update-info": {
       "put": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "update active user profile path",
         "description": "this route is created to update user profile information such as age, picture, biography, gender, status, localization, language, timezone and currency ...",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -106,16 +114,16 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "info": {
+                  "gender": {
                     "example": "any"
                   },
-                  "localization": {
+                  "age": {
                     "example": "any"
                   },
-                  "firstName": {
+                  "bio": {
                     "example": "any"
                   },
-                  "lastName": {
+                  "pic": {
                     "example": "any"
                   }
                 }
@@ -127,14 +135,13 @@
     },
     "/api/client/update-contact": {
       "put": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "active user update contact",
         "description": "this route is created for active user so they can directly update contact information such as email, full name, username and phone number",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
           },
@@ -161,16 +168,62 @@
         }
       }
     },
+    "/api/client/update-information": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "active user update information",
+        "description": "this route is created for active user so they can directly update all possible information such as full name, user name, biography, age, gender and picture profile ",
+        "parameters": [],
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "gender": {
+                    "example": "any"
+                  },
+                  "age": {
+                    "example": "any"
+                  },
+                  "bio": {
+                    "example": "any"
+                  },
+                  "pic": {
+                    "example": "any"
+                  },
+                  "fullName": {
+                    "example": "any"
+                  },
+                  "userName": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/client/update-password": {
       "put": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "active user update password",
         "description": "this route is created for active user so they can directly update password using old and new password at this route",
         "parameters": [],
         "responses": {
-          "200": {
-            "description": "OK"
-          },
           "400": {
             "description": "Bad Request"
           }
@@ -197,9 +250,35 @@
         }
       }
     },
+    "/api/client/check/userName/{userName}": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
+        "summary": "active user check user name exist",
+        "description": "this route is created for active user to check if user name is exist or not",
+        "parameters": [
+          {
+            "name": "userName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
     "/api/client/role": {
       "get": {
-        "tags": ["-- ACTIVE USER --"],
+        "tags": [
+          "-- ACTIVE USER --"
+        ],
         "summary": "get active user details path",
         "description": "this route is created to get user details frm the JWT token created at the first so it will be useful at every refresh of the window",
         "parameters": [],
@@ -216,9 +295,71 @@
         }
       }
     },
+    "/api/client/help/test": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER HELP --"
+        ],
+        "summary": "test router active user help path",
+        "description": "this route is for testing the active user help tag routes have no use for the app just for testing.",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/client/help/profile": {
+      "put": {
+        "tags": [
+          "-- ACTIVE USER HELP --"
+        ],
+        "summary": "update active user help profile status path",
+        "description": "this route is created to update user profile help status",
+        "parameters": [],
+        "responses": {},
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "fieldToUpdate": {
+                    "example": "any"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/client/help/profile/{fieldToUpdate}": {
+      "get": {
+        "tags": [
+          "-- ACTIVE USER HELP --"
+        ],
+        "summary": "update active user help profile status path",
+        "description": "this route is created to update user profile help status",
+        "parameters": [
+          {
+            "name": "fieldToUpdate",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {}
+      }
+    },
     "/api/auth/test": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "test router for the the test path",
         "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -228,7 +369,9 @@
     },
     "/api/auth/sign-up": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "sign-up auth for user register",
         "description": "this route is created to send activate email for new users registration",
         "parameters": [],
@@ -265,7 +408,9 @@
     },
     "/api/auth/activate-account": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [
@@ -296,7 +441,9 @@
     },
     "/api/auth/sign-in": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "sign-in auth for user log in",
         "description": "this route is created validate the sign in of a user using email and password then resend the token key as response with some information needs at the home page",
         "parameters": [
@@ -1211,9 +1358,11 @@
         }
       }
     },
-    "/api/auth/reset-password": {
+    "/api/auth/forget-password": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "Request Password Reset",
         "description": "This route is used to request a password reset for a user.",
         "parameters": [],
@@ -1247,7 +1396,9 @@
     },
     "/api/auth/reset-password/": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "Page Password Reset",
         "description": "This route is used to show the reset password page",
         "parameters": [
@@ -1272,7 +1423,9 @@
     },
     "/api/auth/reset-password-validation/": {
       "post": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "Reset User Password",
         "description": "This route is used to reset the password for a user.",
         "parameters": [
@@ -1317,7 +1470,9 @@
     },
     "/api/auth/sign-in/google": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [],
@@ -1334,7 +1489,9 @@
     },
     "/api/auth/sign-in/google/redirect": {
       "get": {
-        "tags": ["-- AUTHENTICATION USER --"],
+        "tags": [
+          "-- AUTHENTICATION USER --"
+        ],
         "summary": "activate auth for user",
         "description": "this route is created activate email for a user that been opened with his email",
         "parameters": [
@@ -1362,7 +1519,9 @@
     },
     "/api/company/test": {
       "get": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "test router for the the test path",
         "description": "this route is for testing the auth tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -1375,7 +1534,9 @@
     },
     "/api/company/create": {
       "post": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1414,7 +1575,9 @@
     },
     "/api/company/activate": {
       "get": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [
@@ -1458,7 +1621,9 @@
     },
     "/api/company/join": {
       "post": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1491,7 +1656,9 @@
     },
     "/api/company/list": {
       "get": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1510,7 +1677,9 @@
     },
     "/api/company/delete": {
       "delete": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1523,7 +1692,9 @@
     },
     "/api/company/invite": {
       "post": {
-        "tags": ["-- AUTHENTICATION COMPANY --"],
+        "tags": [
+          "-- AUTHENTICATION COMPANY --"
+        ],
         "summary": "summary for the company route...",
         "description": "description for the company route...",
         "parameters": [],
@@ -1536,7 +1707,9 @@
     },
     "/api/provider/test": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "test router for the the company provider integration path",
         "description": "this route is for testing the provider management tag routes have no use for the app just for testing.",
         "parameters": [],
@@ -1549,7 +1722,9 @@
     },
     "/api/provider/access/github": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [],
@@ -1565,7 +1740,9 @@
     },
     "/api/provider/list": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [],
@@ -1587,7 +1764,9 @@
     },
     "/api/connection/provider/auth/github": {
       "get": {
-        "tags": ["-- PROVIDER COMPANY --"],
+        "tags": [
+          "-- PROVIDER COMPANY --"
+        ],
         "summary": "summary for the company providers integration route...",
         "description": "this is used for the providers managements tasks for the providers uses at the app",
         "parameters": [
@@ -1614,7 +1793,9 @@
     },
     "/api/connection/provider/google/token/scope": {
       "post": {
-        "tags": ["-- PROVIDERS --"],
+        "tags": [
+          "-- PROVIDERS --"
+        ],
         "summary": "Providers main routes",
         "description": "Description for each single route for the providers even access or even save providers connections",
         "parameters": [],
@@ -1905,7 +2086,9 @@
     },
     "/connect/google/meet": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Google Meet for user",
         "description": "This route is created to get access for Google Meet",
         "parameters": [],
@@ -2193,7 +2376,9 @@
     },
     "/connect/google/calendar": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Google Calendar for user",
         "description": "This route is created to get access for the Google Calendar",
         "parameters": [],
@@ -2603,7 +2788,9 @@
     },
     "/connect/google/gmail": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Gmail for user",
         "description": "This route is created to get access for Gmail",
         "parameters": [],
@@ -2891,7 +3078,9 @@
     },
     "/connect/github": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access GitHub for user",
         "description": "This route is created to get access for GitHub",
         "parameters": [],
@@ -3182,7 +3371,9 @@
     },
     "/connect/gitlab": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access GitLab for user",
         "description": "This route is created to get access for GitLab",
         "parameters": [],
@@ -3470,7 +3661,9 @@
     },
     "/connect/bitbucket": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Bitbucket for user",
         "description": "This route is created to get access for Bitbucket",
         "parameters": [],
@@ -3758,7 +3951,9 @@
     },
     "/connect/jira": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Jira for user",
         "description": "This route is created to get access for Jira",
         "parameters": [],
@@ -4046,7 +4241,9 @@
     },
     "/connect/mega": {
       "get": {
-        "tags": ["-- CONNECT PROVIDERS --"],
+        "tags": [
+          "-- CONNECT PROVIDERS --"
+        ],
         "summary": "Access Mega for user",
         "description": "This route is created to get access for Mega",
         "parameters": [],
@@ -4334,10 +4531,14 @@
     },
     "/swagger/docs.json/": {
       "post": {
-        "tags": ["-- SWAGGER --"],
+        "tags": [
+          "-- SWAGGER --"
+        ],
         "summary": "summary for route...",
         "description": "description for route...",
-        "produces": ["application/octet-stream"],
+        "produces": [
+          "application/octet-stream"
+        ],
         "parameters": [],
         "responses": {
           "200": {
@@ -4366,7 +4567,9 @@
     },
     "/swagger/auth": {
       "get": {
-        "tags": ["-- SWAGGER --"],
+        "tags": [
+          "-- SWAGGER --"
+        ],
         "summary": "summary for route...",
         "description": "description for route...",
         "parameters": [],
@@ -4380,7 +4583,9 @@
     },
     "/swagger/documentation-auth": {
       "post": {
-        "tags": ["-- SWAGGER --"],
+        "tags": [
+          "-- SWAGGER --"
+        ],
         "summary": "summary for route...",
         "description": "description for route...",
         "parameters": [],
@@ -4419,7 +4624,7 @@
                 "properties": {
                   "address": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e804"
+                    "example": "662ad111f671911594ae6a18"
                   },
                   "blocked": {
                     "type": "object",
@@ -4432,15 +4637,15 @@
                   },
                   "contact": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e805"
+                    "example": "662ad111f671911594ae6a19"
                   },
                   "company": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e806"
+                    "example": "662ad111f671911594ae6a1a"
                   },
                   "context": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e807"
+                    "example": "662ad111f671911594ae6a1b"
                   },
                   "creation_date": {
                     "type": "object",
@@ -4453,7 +4658,7 @@
                   },
                   "info": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e808"
+                    "example": "662ad111f671911594ae6a1c"
                   },
                   "password": {
                     "type": "object",
@@ -4466,18 +4671,34 @@
                   },
                   "role": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e809"
+                    "example": "662ad111f671911594ae6a1d"
                   },
                   "providers": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e80a"
+                    "example": "662ad111f671911594ae6a1e"
+                  },
+                  "help.tutorial": {
+                    "type": "string",
+                    "example": "662ad111f671911594ae6a1f"
+                  },
+                  "help.assistance": {
+                    "type": "string",
+                    "example": "662ad111f671911594ae6a20"
+                  },
+                  "help.calendar": {
+                    "type": "string",
+                    "example": "662ad111f671911594ae6a21"
+                  },
+                  "help.profile": {
+                    "type": "string",
+                    "example": "662ad111f671911594ae6a22"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e80b"
+                        "example": "662ad111f671911594ae6a23"
                       }
                     }
                   },
@@ -4523,7 +4744,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e80c"
+                        "example": "662ad111f671911594ae6a24"
                       }
                     }
                   },
@@ -4581,7 +4802,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e80d"
+                        "example": "662ad111f671911594ae6a25"
                       }
                     }
                   },
@@ -4606,19 +4827,19 @@
                 "properties": {
                   "city": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e80e"
+                    "example": "662ad111f671911594ae6a26"
                   },
                   "country": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e80f"
+                    "example": "662ad111f671911594ae6a27"
                   },
                   "Street": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e810"
+                    "example": "662ad111f671911594ae6a28"
                   },
                   "codeZip": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e811"
+                    "example": "662ad111f671911594ae6a29"
                   },
                   "last_update": {
                     "type": "object",
@@ -4634,7 +4855,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e812"
+                        "example": "662ad111f671911594ae6a2a"
                       }
                     }
                   },
@@ -4698,7 +4919,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e813"
+                        "example": "662ad111f671911594ae6a2b"
                       }
                     }
                   },
@@ -4723,11 +4944,11 @@
                 "properties": {
                   "followers": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e814"
+                    "example": "662ad111f671911594ae6a2c"
                   },
                   "ratings": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e815"
+                    "example": "662ad111f671911594ae6a2d"
                   },
                   "last_update": {
                     "type": "object",
@@ -4743,7 +4964,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e816"
+                        "example": "662ad111f671911594ae6a2e"
                       }
                     }
                   },
@@ -4804,7 +5025,7 @@
                   },
                   "language": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e817"
+                    "example": "662ad111f671911594ae6a2f"
                   },
                   "last_update": {
                     "type": "object",
@@ -4820,7 +5041,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e818"
+                        "example": "662ad111f671911594ae6a30"
                       }
                     }
                   },
@@ -4853,26 +5074,26 @@
                 "properties": {
                   "companyInfo": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e819"
+                    "example": "662ad111f671911594ae6a31"
                   },
                   "verify": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81a"
+                    "example": "662ad111f671911594ae6a32"
                   },
                   "companyMembers": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81b"
+                    "example": "662ad111f671911594ae6a33"
                   },
                   "provider": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81c"
+                    "example": "662ad111f671911594ae6a34"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e81d"
+                        "example": "662ad111f671911594ae6a35"
                       }
                     }
                   },
@@ -4897,7 +5118,7 @@
                 "properties": {
                   "companyName": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e81e"
+                    "example": "662ad111f671911594ae6a36"
                   },
                   "companyWebSite": {
                     "type": "object",
@@ -4944,7 +5165,7 @@
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e81f"
+                        "example": "662ad111f671911594ae6a37"
                       }
                     }
                   },
@@ -4969,18 +5190,18 @@
                 "properties": {
                   "admin": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e820"
+                    "example": "662ad111f671911594ae6a38"
                   },
                   "users": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e821"
+                    "example": "662ad111f671911594ae6a39"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e822"
+                        "example": "662ad111f671911594ae6a3a"
                       }
                     }
                   },
@@ -5013,18 +5234,18 @@
                 "properties": {
                   "currentStatus": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e823"
+                    "example": "662ad111f671911594ae6a3b"
                   },
                   "harder": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e824"
+                    "example": "662ad111f671911594ae6a3c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e825"
+                        "example": "662ad111f671911594ae6a3d"
                       }
                     }
                   },
@@ -5049,34 +5270,34 @@
                 "properties": {
                   "Details": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e826"
+                    "example": "662ad111f671911594ae6a3e"
                   },
                   "Creator": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e827"
+                    "example": "662ad111f671911594ae6a3f"
                   },
                   "Assigned": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e828"
+                    "example": "662ad111f671911594ae6a40"
                   },
                   "Status": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e829"
+                    "example": "662ad111f671911594ae6a41"
                   },
                   "read": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82a"
+                    "example": "662ad111f671911594ae6a42"
                   },
                   "Integration": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82b"
+                    "example": "662ad111f671911594ae6a43"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e82c"
+                        "example": "662ad111f671911594ae6a44"
                       }
                     }
                   },
@@ -5101,18 +5322,18 @@
                 "properties": {
                   "provider": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82d"
+                    "example": "662ad111f671911594ae6a45"
                   },
                   "repository": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e82e"
+                    "example": "662ad111f671911594ae6a46"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e82f"
+                        "example": "662ad111f671911594ae6a47"
                       }
                     }
                   },
@@ -5137,30 +5358,30 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e830"
+                    "example": "662ad111f671911594ae6a48"
                   },
                   "description": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e831"
+                    "example": "662ad111f671911594ae6a49"
                   },
                   "Links": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e832"
+                    "example": "662ad111f671911594ae6a4a"
                   },
                   "label": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e833"
+                    "example": "662ad111f671911594ae6a4b"
                   },
                   "imageUrls": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e834"
+                    "example": "662ad111f671911594ae6a4c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e835"
+                        "example": "662ad111f671911594ae6a4d"
                       }
                     }
                   },
@@ -5193,30 +5414,30 @@
                 "properties": {
                   "info": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e836"
+                    "example": "662ad111f671911594ae6a4e"
                   },
                   "from": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e837"
+                    "example": "662ad111f671911594ae6a4f"
                   },
                   "to": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e838"
+                    "example": "662ad111f671911594ae6a50"
                   },
                   "seen": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e839"
+                    "example": "662ad111f671911594ae6a51"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83a"
+                    "example": "662ad111f671911594ae6a52"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e83b"
+                        "example": "662ad111f671911594ae6a53"
                       }
                     }
                   },
@@ -5241,18 +5462,18 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83c"
+                    "example": "662ad111f671911594ae6a54"
                   },
                   "body": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83d"
+                    "example": "662ad111f671911594ae6a55"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e83e"
+                        "example": "662ad111f671911594ae6a56"
                       }
                     }
                   },
@@ -5285,26 +5506,26 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e83f"
+                    "example": "662ad111f671911594ae6a57"
                   },
                   "members": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e840"
+                    "example": "662ad111f671911594ae6a58"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e841"
+                    "example": "662ad111f671911594ae6a59"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e842"
+                    "example": "662ad111f671911594ae6a5a"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e843"
+                        "example": "662ad111f671911594ae6a5b"
                       }
                     }
                   },
@@ -5329,22 +5550,22 @@
                 "properties": {
                   "company": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e844"
+                    "example": "662ad111f671911594ae6a5c"
                   },
                   "date": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e845"
+                    "example": "662ad111f671911594ae6a5d"
                   },
                   "messages": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e846"
+                    "example": "662ad111f671911594ae6a5e"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e847"
+                        "example": "662ad111f671911594ae6a5f"
                       }
                     }
                   },
@@ -5369,22 +5590,22 @@
                 "properties": {
                   "text": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e848"
+                    "example": "662ad111f671911594ae6a60"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e849"
+                    "example": "662ad111f671911594ae6a61"
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84a"
+                    "example": "662ad111f671911594ae6a62"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e84b"
+                        "example": "662ad111f671911594ae6a63"
                       }
                     }
                   },
@@ -5417,26 +5638,26 @@
                 "properties": {
                   "itemInfo": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84c"
+                    "example": "662ad111f671911594ae6a64"
                   },
                   "refModel": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84d"
+                    "example": "662ad111f671911594ae6a65"
                   },
                   "sender": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84e"
+                    "example": "662ad111f671911594ae6a66"
                   },
                   "receiver": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e84f"
+                    "example": "662ad111f671911594ae6a67"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e850"
+                        "example": "662ad111f671911594ae6a68"
                       }
                     }
                   },
@@ -5461,26 +5682,26 @@
                 "properties": {
                   "title": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e851"
+                    "example": "662ad111f671911594ae6a69"
                   },
                   "description": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e852"
+                    "example": "662ad111f671911594ae6a6a"
                   },
                   "images": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e853"
+                    "example": "662ad111f671911594ae6a6b"
                   },
                   "urls": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e854"
+                    "example": "662ad111f671911594ae6a6c"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e855"
+                        "example": "662ad111f671911594ae6a6d"
                       }
                     }
                   },
@@ -5513,38 +5734,38 @@
                 "properties": {
                   "name": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e856"
+                    "example": "662ad111f671911594ae6a6e"
                   },
                   "category": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e857"
+                    "example": "662ad111f671911594ae6a6f"
                   },
                   "type": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e858"
+                    "example": "662ad111f671911594ae6a70"
                   },
                   "providerId": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e859"
+                    "example": "662ad111f671911594ae6a71"
                   },
                   "token": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85a"
+                    "example": "662ad111f671911594ae6a72"
                   },
                   "company": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85b"
+                    "example": "662ad111f671911594ae6a73"
                   },
                   "admin": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85c"
+                    "example": "662ad111f671911594ae6a74"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e85d"
+                        "example": "662ad111f671911594ae6a75"
                       }
                     }
                   },
@@ -5577,15 +5798,15 @@
                 "properties": {
                   "token": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85e"
+                    "example": "662ad111f671911594ae6a76"
                   },
                   "contact": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e85f"
+                    "example": "662ad111f671911594ae6a77"
                   },
                   "role": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e860"
+                    "example": "662ad111f671911594ae6a78"
                   },
                   "password": {
                     "type": "object",
@@ -5598,11 +5819,11 @@
                   },
                   "type": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e861"
+                    "example": "662ad111f671911594ae6a79"
                   },
                   "info": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e862"
+                    "example": "662ad111f671911594ae6a7a"
                   },
                   "email": {
                     "type": "object",
@@ -5615,14 +5836,14 @@
                   },
                   "createdAt": {
                     "type": "string",
-                    "example": "661b282e88e4f3c50a13e863"
+                    "example": "662ad111f671911594ae6a7b"
                   },
                   "_id": {
                     "type": "object",
                     "properties": {
                       "type": {
                         "type": "string",
-                        "example": "661b282e88e4f3c50a13e864"
+                        "example": "662ad111f671911594ae6a7c"
                       }
                     }
                   },

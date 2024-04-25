@@ -162,10 +162,10 @@ router.post(
 );
 
 /*
- /  ----  reset password route auth (resent password -- send email)
+ /  ----  forget password route auth (resent password -- send email)
 / */
 router.post(
-  '/reset-password',
+  '/forget-password',
   requestResetPasswordSwagger,
   resetInputs,
   validateInputs,

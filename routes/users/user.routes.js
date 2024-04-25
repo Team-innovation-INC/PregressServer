@@ -22,6 +22,8 @@ const {
   userInfoInputs,
   userContactInputs,
   userPasswordInputs,
+  userInformationInputs,
+  checkUserNameInputs,
 } = require('../../validation/validator/activeUser/activeParams');
 const { userId } = require('../../middleware/user/active/activeId.middleware');
 const validateInputs = require('../../validation/validator/validationInputs.config');
@@ -35,8 +37,13 @@ const {
   updateContactSwagger,
   updatePasswordSwagger,
   updateProfileSwagger,
+  updateProfileInformationSwagger,
+  checkExistUserName,
 } = require('../../swagger/middleware/user/active/active_user_description.swagger');
 const userRole = require('../../controller/user/active/userole.controller');
+const globalResponseController = require('../../controller/globalResponseController.controller');
+const updateUserInfo = require('../../controller/user/info/updateInfo.controller');
+const checkUserNameExist = require('../../controller/user/info/checkUserNameExist.controller');
 
 router.use(
   authorizationHeaderValidator,
@@ -79,6 +86,20 @@ router.put(
   userContactInputs,
   validateInputs,
   userContactUpdate,
+  globalResponseController
+);
+
+/*
+ /  ----  update user password for route active
+/ */
+router.put(
+  '/update-information',
+  updateProfileInformationSwagger,
+  userInformationInputs,
+  validateInputs,
+  updateUserInfo,
+  userContactUpdate,
+  globalResponseController
 );
 
 /*
@@ -90,8 +111,20 @@ router.put(
   userPasswordInputs,
   validateInputs,
   userPasswordUpdate,
+  globalResponseController
 );
 
+/*
+ /  ----  Checks whether a given userName exists in the system.
+/ */
+router.get(
+  '/check/userName/:userName',
+  checkExistUserName,
+  checkUserNameInputs,
+  validateInputs,
+  checkUserNameExist,
+  globalResponseController
+);
 /*
  /  ----  current user information route active (get user details based on token)
 / */
