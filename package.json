@@ -60,7 +60,7 @@
     "handlebars": "^4.7.7",
     "is-empty": "^1.2.0",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.8.2",
+    "mongoose": "^6.12.8",
     "nodemailer": "^6.9.9",
     "passport": "^0.6.0",
     "passport-jwt": "^4.0.1",
