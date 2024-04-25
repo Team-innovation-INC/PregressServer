@@ -27,3 +27,15 @@ exports.updatePasswordSwagger = (req, res, next) => {
   // #swagger.description = 'this route is created for active user so they can directly update password using old and new password at this route'
   next();
 };
+
+exports.checkExistUserName = (req, res, next) => {
+  // #swagger.summary = 'active user check user name exist'
+  // #swagger.description = 'this route is created for active user to check if user name is exist or not'
+  next();
+};
+
+exports.updateProfileInformationSwagger = (req, res, next) => {
+  // #swagger.summary = 'active user update information'
+  // #swagger.description = 'this route is created for active user so they can directly update all possible information such as full name,  user name, biography, age, gender and picture profile '
+  next();
+};
