@@ -31,7 +31,7 @@ router.use('', tagUserActiveHelp);
  /  ----  test router
 / */
 
-router.get('/test', testSwagger, (req, res) => {
+router.get('/health-care', testSwagger, (req, res) => {
   res.status(200).send('test help router page');
 });
 

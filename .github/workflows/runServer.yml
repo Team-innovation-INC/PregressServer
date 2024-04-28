@@ -23,7 +23,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    outputs:
+      deployment_url: ${{ steps.set_url.outputs.deployment_url }}
     strategy:
       matrix:
         node-version: [16.x]
@@ -37,3 +38,17 @@ jobs:
           cache: 'npm'
       - run: npm install
       - run: npm run test
+
+  newman:
+    needs: build 
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: run the server
+        run: node server.js
+
+      - name: Run Postman Tests with Newman
+        run:  newman run __test__/postmen/HEALTHCARE.postman_collection.json --env-var baseurl=http://localhost:5000

@@ -18,7 +18,7 @@ const router = express.Router();
 const { getUserDetails } = require('../../utility/passport.middleware');
 
 // test route client
-router.get('/test', (req, res) => {
+router.get('/health-care', (req, res) => {
   res.status(200).send('test messages router page');
 });
 

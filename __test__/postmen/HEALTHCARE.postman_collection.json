@@ -1,0 +1,632 @@
+{
+	"info": {
+		"_postman_id": "6a97b803-b0ad-42c1-9918-628f13945258",
+		"name": "HEALTH CARE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34573008"
+	},
+	"item": [
+		{
+			"name": "HEALTH CARE SERVER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Server health care test\", function(){",
+							"",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"progress server health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"health-care"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "HEALTH CARE PROVIDERS",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Provider Care Test\", function(){",
+							"",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"provider route health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/api/provider/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"api",
+						"provider",
+						"health-care"
+					]
+				},
+				"description": "this route is for testing the provider management tag routes have no use for the app just for testing."
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/provider/health-care",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"provider",
+								"health-care"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "HEALTH CARE COMPANIES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Comapy Care Test\", function(){",
+							"",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"company route health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/api/company/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"api",
+						"company",
+						"health-care"
+					]
+				},
+				"description": "this route is for testing the auth tag routes have no use for the app just for testing."
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/company/health-care",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"company",
+								"health-care"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "HEALTH CARE AUTHENTICATION",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Auth Health Care Test\", function() {",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"    ",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"authentication route health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/api/auth/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"api",
+						"auth",
+						"health-care"
+					]
+				},
+				"description": "this route is for testing the auth tag routes have no use for the app just for testing."
+			},
+			"response": []
+		},
+		{
+			"name": "HEALTH CARE ACTIVE USER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Active user Care Test\", function(){",
+							"",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"active user route health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTHTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/api/client/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"api",
+						"client",
+						"health-care"
+					]
+				},
+				"description": "this route is for testing the active user tag routes have no use for the app just for testing."
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/api/client/health-care",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"api",
+								"client",
+								"health-care"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "HEALTH CARE ROLES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Roles Care Test\", function(){",
+							"",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"role route health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTHTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/config/roles/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"config",
+						"roles",
+						"health-care"
+					]
+				},
+				"description": "this route is for testing the active user tag routes have no use for the app just for testing."
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/config/roles/health-care",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"config",
+								"roles",
+								"health-care"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		},
+		{
+			"name": "HEALTH CARE ABILITIES",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"API Abilities Care Test\", function(){",
+							"",
+							"    pm.expect(pm.response.code).to.eql(200);",
+							"",
+							"    pm.test(\"Status code is 200\", function () {",
+							"        pm.response.to.have.status(200);",
+							"    });",
+							"",
+							"    pm.test(\"Response message is correct\", function () {",
+							"        pm.expect(pm.response.json().message).to.eql(\"ability route health care work as expected\");",
+							"    });",
+							"",
+							"    pm.test(\"Success flag is true\", function () {",
+							"        pm.expect(pm.response.json().success).to.be.true;",
+							"    });",
+							"})",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{AUTHTOKEN}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{BASEURL}}/config/abilities/health-care",
+					"host": [
+						"{{BASEURL}}"
+					],
+					"path": [
+						"config",
+						"abilities",
+						"health-care"
+					]
+				},
+				"description": "This route is used for testing Swagger configurations related to abilities. It has no functional purpose in the application."
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "GET",
+						"header": [
+							{
+								"description": "Added as a part of security scheme: bearer",
+								"key": "Authorization",
+								"value": "Bearer <token>"
+							}
+						],
+						"url": {
+							"raw": "{{BASEURL}}/config/abilities/health-care",
+							"host": [
+								"{{BASEURL}}"
+							],
+							"path": [
+								"config",
+								"abilities",
+								"health-care"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					"var email = pm.environment.get(\"email\");",
+					"var password = pm.environment.get(\"password\");",
+					"var BASEURL = pm.environment.get(\"BASEURL\");",
+					"",
+					"var loginRequest = {",
+					"    url: BASEURL +'/api/auth/sign-in',",
+					"    method: 'POST',",
+					"    header: {",
+					"        'Content-Type': 'application/json'",
+					"    },",
+					"    body: {",
+					"        mode: 'raw',",
+					"        raw: JSON.stringify({",
+					"            email: email,",
+					"            password: password",
+					"        })",
+					"    }",
+					"};",
+					"",
+					"function loginAndSetToken(callback) {",
+					"    pm.sendRequest(loginRequest, function (err, response) {",
+					"        if (err) {",
+					"            console.error(\"Error logging in:\", err);",
+					"            callback(err);",
+					"        } else {",
+					"            var responseJson = response.json();",
+					"            var newToken = responseJson.token;",
+					"",
+					"            pm.environment.set(\"AUTHTOKEN\", newToken);",
+					"",
+					"            callback(null, newToken);",
+					"        }",
+					"    });",
+					"}",
+					"",
+					"var currentToken = pm.environment.get(\"AUTHTOKEN\");",
+					"",
+					"if (!currentToken) {",
+					"    loginAndSetToken(function (err, newToken) {",
+					"        if (!err) {",
+					"            pm.request.headers.add({",
+					"                key: 'Authorization',",
+					"                value: 'Bearer ' + newToken",
+					"            });",
+					"        }",
+					"    });",
+					"} else {",
+					"    pm.request.headers.add({",
+					"        key: 'Authorization',",
+					"        value: 'Bearer ' + currentToken",
+					"    });",
+					"}",
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASEURL",
+			"value": "http://localhost:5000/",
+			"type": "string"
+		},
+		{
+			"key": "email",
+			"value": "raedrdhaounia@gmail.com",
+			"type": "string"
+		},
+		{
+			"key": "password",
+			"value": "dadHH123!",
+			"type": "string"
+		},
+		{
+			"key": "AUTHTOKEN",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
