@@ -130,7 +130,7 @@ for swagger authentication navigate to [http://localhost:5000/swagger/auth]
 Here are some examples of how to use the API:
 
 1. testing the app route
-   GET /test
+   GET /health-care
 
 2. Get user details
    GET /api/client/user-information
