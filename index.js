@@ -55,11 +55,16 @@ app.use(cors(corsOptions));
  / */
 
 // ------- router for test
-app.get('/test', async (req, res) => {
-  // #swagger.tags = ['server- test']
+app.get('/health-care', async (req, res) => {
+  // #swagger.tags = ['-- HEALTHCARE --']
   // #swagger.security = []
-  res.send('progress server health care work as expected');
+  res.status(200).send({message : 'progress server health care work as expected', status: 200, success: true});
 });
+
+// ------- router for abilities route
+const ConfigRoutes = require('./routes/config/config.routes');
+
+app.use('/config', ConfigRoutes);
 
 // ------- router for client route
 const ClientRoutes = require('./routes/users/user.routes');
@@ -81,6 +86,11 @@ const AuthCompanyRoutes = require('./routes/Company/CompanyAuth.routes');
 
 app.use('/api/company/', AuthCompanyRoutes);
 
+// ------- router for connect provider route
+const ConnectProviderRoutes = require('./routes/provider/connect.routes');
+
+app.use('/connect', ConnectProviderRoutes);
+
 // ------- router for access company app route
 const AccessAppRoutes = require('./routes/Company/CompanyManagement.routes');
 
@@ -94,10 +104,6 @@ app.use('/api/connection/provider', ProviderRoutes);
 const GoogleProviderRoutes = require('./routes/provider/google.routes');
 
 app.use('/api/connection/provider', GoogleProviderRoutes);
-
-const ConnectProviderRoutes = require('./routes/provider/connect.routes');
-
-app.use('/connect', ConnectProviderRoutes);
 
 // ------- router for client route
 const swagger = require('./swagger/swagger');

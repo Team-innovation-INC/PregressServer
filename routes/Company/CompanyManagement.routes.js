@@ -51,8 +51,8 @@ router.use('', companyProviderTag);
  /  ----  test route for auth company router
 / */
 
-router.get('/test', companyProviderSwagger, (req, res) => {
-  res.status(200).send('test company provider  page');
+router.get('/health-care', companyProviderSwagger, (req, res) => {
+  res.status(200).send({message : "provider route health care work as expected", status: 200, success : true})
 });
 
 // Route to initiate the integration process with GitHub
