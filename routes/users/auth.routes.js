@@ -110,13 +110,11 @@ router.use('', tagNameUserAuth);
  /  ----  test route
 / */
 router.get(
-  '/test',
+  '/health-care',
   authTestSwagger,
-  (req, res, next) => {
-    req.status = 200;
-    next();
-  },
-  globalResponseController,
+  (req, res) => {
+  res.status(200).send({message : "authentication route health care work as expected", status: 200, success : true})
+  }
 );
 
 /*

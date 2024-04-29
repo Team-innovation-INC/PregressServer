@@ -9,7 +9,7 @@ const { validationInputs } = require('../../validation/email/validateInputs');
 const { validationTo } = require('../../validation/email/validateTo');
 
 // test route email
-router.get('/test', (req, res) => {
+router.get('/health-care', (req, res) => {
   res.status(200).send('test email router page');
 });
 

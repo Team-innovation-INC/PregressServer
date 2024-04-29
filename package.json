@@ -12,7 +12,8 @@
     "lint": "eslint . ",
     "lint:fix": "eslint . --fix",
     "check-format": "prettier --check .",
-    "fix-format": "prettier --write ."
+    "fix-format": "prettier --write .",
+    "newman" : "newman run __test__/postmen/HEALTHCARE.postman_collection.json --environment __test__/postmen/environment.json"
   },
   "jest": {
     "testEnvironment": "node",

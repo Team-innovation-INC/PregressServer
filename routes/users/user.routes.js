@@ -56,8 +56,8 @@ router.use('', tagUserActive);
  /  ----  test router
 / */
 
-router.get('/test', testSwagger, (req, res) => {
-  res.status(200).send('test active router page');
+router.get('/health-care', testSwagger, (req, res) => {
+  res.status(200).send({message : "active user route health care work as expected", status: 200, success : true});
 });
 
 /*

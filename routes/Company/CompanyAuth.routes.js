@@ -100,8 +100,8 @@ router.use('', companyAuthTag);
  /  ----  test route for auth company router
 / */
 
-router.get('/test', companyTestSwagger, (req, res) => {
-  res.status(200).send('test auth company  page');
+router.get('/health-care', companyTestSwagger, (req, res) => {
+  res.status(200).send({message : "company route health care work as expected", status: 200, success : true});
 });
 
 /*
