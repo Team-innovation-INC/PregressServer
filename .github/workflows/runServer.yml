@@ -41,9 +41,6 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: run the server
-        run: node  ./server.js
-
       - name: Start the Server
         run: |
           nohup node ./server.js > server_output.log &
