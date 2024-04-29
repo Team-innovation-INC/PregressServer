@@ -1,33 +1,33 @@
 const swaggerAutogen = require('swagger-autogen')({
-  openapi: '3.0.0' /* varsion used for swagger ui */,
+   /**
+    *  version used for swagger ui 
+    */
+  openapi: '3.0.0',
 });
 
 /*
- /  ----  environment variables
-/ */
-
-/*
- /  ----  collect apis and components
-/ */
-
-// ----- get function to results() to collect components ( schema )
+ ----  get function to results() to collect components ( schema )
+*/
 const { results } = require('./model/collectModel');
 
-// ----- destruction results
-const { apis, components } = results();
 /*
- /  ----  get info details from the  package.json file
-/ */
+ ----  destruction results
+*/
+const { apis, components } = results();
 
-// ----- import package json files for contact information
+/*
+ ----  get info details from the  package.json file
+*/
 const packageJson = require('../package.json');
 
-// ----- destruction needs variables for info document
+/*
+ ----  destruction needs variables for info document
+*/
 const { version, description, license, author } = packageJson;
 
 /*
- /  ----  document to transfer to swagger json file
-/ */
+ ----  document to transfer to swagger json file
+*/
 
 const doc = {
   info: {
@@ -82,14 +82,23 @@ const doc = {
       scheme: 'bearer',
       bearerFormat: 'JWT',
     },
-  }, // by default: empty object
+  },
   components,
 };
 
 swaggerAutogen(
-  'swagger-output.json' /* file name to create */,
-  ['./index.js'] /* entry point collect routes */,
-  doc /* object based on swagger information */,
+  /**
+    * file name to create
+    */
+  'swagger-output.json',
+   /**
+    * entry point collect routes
+    */
+  ['./index.js'],
+   /**
+    * object based on swagger information
+    */
+  doc,
   err => {
     if (err) {
       console.error('generate swagger json file error', err);
