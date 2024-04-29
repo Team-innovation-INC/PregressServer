@@ -1,4 +1,7 @@
-name: Multi-Stage Workflow with Node.js, Server, and Newman Tests
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: RUN_SERVER
 
 on:
   push:
@@ -6,8 +9,19 @@ on:
   pull_request:
     branches: ['develop']
 
+env:
+  MongoDBUserName: ${{ secrets.MongoDBUserName }}
+  MongoDBPassword: ${{ secrets.MongoDBPassword }}
+  MongoDBdataBase: ${{ secrets.MongoDBdataBase }}
+  EMAIL_ADDRESS: ${{ secrets.EMAIL_ADDRESS   }}
+  EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD  }}
+  JWT_SECRET: ${{ secrets.JWT_SECRET      }}
+  BasedUrl: ${{ secrets.BasedUrl        }}
+  SWAGGERADMI: ${{ secrets.SWAGGERADMI     }}
+  SWAGGERUSER: ${{ secrets.SWAGGERUSER     }}
+  SWAGGERPASSWORD: ${{ secrets.SWAGGERPASSWORD }}
 jobs:
-  install_and_test:
+  build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -21,19 +35,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm install
-
-      - name: Run Jest Tests
-        run: npm run test
-
-  run_server:
-    needs: install_and_test
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v3
+      - run: npm install
+      - run: npm run test
 
       - name: Start the Server
         run: |
@@ -54,13 +57,8 @@ jobs:
             sleep 2  # Wait 2 seconds before retrying
           done
 
-  run_newman:
-    needs: run_server
-    runs-on: ubuntu-latest
-
-    steps:
       - name: Install Newman
         run: npm install -g newman
 
       - name: Run Newman Tests
-        run: newman run __test__/postmen/HEALTHCARE.postman_collection.json --env-var baseurl=http://localhost:5000
+        run:  npm run newman
